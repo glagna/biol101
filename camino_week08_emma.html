@@ -107,7 +107,7 @@
         }
 
         .cyclone-container {
-            animation: rotate 20s linear infinite;
+            animation: rotate 25s linear infinite;
         }
 
         .hero-content {
@@ -510,26 +510,36 @@
                     </feMerge>
                 </filter>
             </defs>
-            <g class="cyclone-container">
-                <circle cx="150" cy="140" r="40" stroke="#2b9b9b" stroke-width="2" fill="none" opacity="0.5"/>
-                <circle cx="150" cy="140" r="60" stroke="#2b9b9b" stroke-width="1" fill="none" opacity="0.3"/>
-                <path d="M 150 100 Q 180 120, 160 160" stroke="#4a7c59" stroke-width="2" fill="none" opacity="0.6"/>
-                <path d="M 150 100 Q 120 120, 140 160" stroke="#4a7c59" stroke-width="2" fill="none" opacity="0.6"/>
+            <g class="cyclone-container" style="transform-origin: 150px 140px;">
+                <circle cx="150" cy="140" r="40" stroke="#2b9b9b" stroke-width="2" fill="none" opacity="0.5">
+                    <animate attributeName="r" values="38;44;38" dur="5s" repeatCount="indefinite"/>
+                    <animate attributeName="opacity" values="0.5;0.8;0.5" dur="5s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="150" cy="140" r="60" stroke="#2b9b9b" stroke-width="1" fill="none" opacity="0.3">
+                    <animate attributeName="r" values="58;65;58" dur="7s" repeatCount="indefinite"/>
+                </circle>
+                <path d="M 150 100 Q 180 120, 160 160" stroke="#4a7c59" stroke-width="2" fill="none" opacity="0.6">
+                    <animate attributeName="opacity" values="0.4;0.8;0.4" dur="4s" repeatCount="indefinite"/>
+                </path>
+                <path d="M 150 100 Q 120 120, 140 160" stroke="#4a7c59" stroke-width="2" fill="none" opacity="0.6">
+                    <animate attributeName="opacity" values="0.6;0.3;0.6" dur="4.5s" repeatCount="indefinite"/>
+                </path>
             </g>
             <g filter="url(#cycloneGlow)">
-                <circle cx="750" cy="60" r="6" fill="#2b9b9b" opacity="0.7" style="animation: drift 6s ease-in-out infinite;"/>
-                <circle cx="850" cy="100" r="5" fill="#2b9b9b" opacity="0.6" style="animation: drift 6s ease-in-out 1s infinite;"/>
-                <circle cx="920" cy="150" r="6" fill="#4a7c59" opacity="0.7" style="animation: drift 6s ease-in-out 2s infinite;"/>
+                <circle cx="750" cy="60" r="6" fill="#2b9b9b" opacity="0.7" style="animation: drift 6s ease-in-out infinite;">
+                    <animate attributeName="r" values="5;8;5" dur="3s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="850" cy="100" r="5" fill="#2b9b9b" opacity="0.6" style="animation: drift 6s ease-in-out 1s infinite;">
+                    <animate attributeName="r" values="4;7;4" dur="4s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="920" cy="150" r="6" fill="#4a7c59" opacity="0.7" style="animation: drift 6s ease-in-out 2s infinite;">
+                    <animate attributeName="r" values="5;8;5" dur="3.5s" repeatCount="indefinite"/>
+                </circle>
             </g>
         </svg>
 
         <div class="hero-content">
-            <div class="speaker-avatar">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="50" cy="35" r="18" fill="#050a08" opacity="0.7"/>
-                    <path d="M 25 55 Q 50 48 75 55 Q 75 72 50 75 Q 25 72 25 55" fill="#050a08" opacity="0.7"/>
-                </svg>
-            </div>
+            <div class="speaker-avatar"><img src="https://emmaks.com/uploads/avatar.jpg" alt="Emma Krasovich Southworth" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;"></div>
 
             <div class="hero-info">
                 <div class="hero-tag">Guest Speaker / Week 08</div>

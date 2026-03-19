@@ -485,16 +485,32 @@
                 </filter>
             </defs>
             <g stroke="#6495ED" stroke-width="1.5" fill="none" opacity="0.6">
-                <circle cx="150" cy="80" r="20" opacity="0.4"/>
-                <circle cx="150" cy="80" r="35" opacity="0.2"/>
-                <circle cx="350" cy="140" r="18" opacity="0.4"/>
-                <circle cx="350" cy="140" r="32" opacity="0.2"/>
+                <circle cx="150" cy="80" r="20" opacity="0.4">
+                    <animate attributeName="r" values="20;22;20" dur="3.5s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="150" cy="80" r="35" opacity="0.2">
+                    <animate attributeName="r" values="35;38;35" dur="4s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="350" cy="140" r="18" opacity="0.4">
+                    <animate attributeName="r" values="18;20;18" dur="3.7s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="350" cy="140" r="32" opacity="0.2">
+                    <animate attributeName="r" values="32;35;32" dur="4.2s" repeatCount="indefinite"/>
+                </circle>
             </g>
             <g filter="url(#glowCell)">
-                <circle cx="500" cy="100" r="6" fill="#A74B88" opacity="0.6" class="animate-float"/>
-                <circle cx="650" cy="150" r="5" fill="#A74B88" opacity="0.6" class="animate-float"/>
-                <circle cx="750" cy="80" r="6" fill="#6495ED" opacity="0.6" class="animate-float"/>
-                <circle cx="900" cy="130" r="5" fill="#A74B88" opacity="0.6" class="animate-float"/>
+                <circle cx="500" cy="100" r="6" fill="#A74B88" opacity="0.6">
+                    <animate attributeName="cy" values="100;92;100" dur="3.5s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="650" cy="150" r="5" fill="#A74B88" opacity="0.6">
+                    <animate attributeName="cy" values="150;145;150" dur="3.8s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="750" cy="80" r="6" fill="#6495ED" opacity="0.6">
+                    <animate attributeName="cy" values="80;75;80" dur="3.6s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="900" cy="130" r="5" fill="#A74B88" opacity="0.6">
+                    <animate attributeName="cy" values="130;125;130" dur="3.9s" repeatCount="indefinite"/>
+                </circle>
             </g>
             <g stroke="#A74B88" stroke-width="1" opacity="0.3">
                 <line x1="500" y1="100" x2="650" y2="150"/>
@@ -504,12 +520,7 @@
         </svg>
 
         <div class="hero-content">
-            <div class="speaker-avatar">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="50" cy="35" r="18" fill="#0f0510" opacity="0.7"/>
-                    <path d="M 25 55 Q 50 48 75 55 Q 75 72 50 75 Q 25 72 25 55" fill="#0f0510" opacity="0.7"/>
-                </svg>
-            </div>
+            <div class="speaker-avatar"><img src="https://cfar.ucsf.edu/sites/default/files/pictures/Frouard_DS.jpg" alt="Dr. Julie Frouard" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;"></div>
 
             <div class="hero-info">
                 <div class="hero-tag">Guest Speaker / Week 06</div>

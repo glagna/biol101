@@ -626,19 +626,56 @@
                 </filter>
             </defs>
             <g stroke="#10b981" stroke-width="1.5" fill="none" opacity="0.5">
-                <circle cx="200" cy="100" r="6" fill="#10b981" opacity="0.4" filter="url(#glow)"/>
-                <line x1="200" y1="100" x2="320" y2="150"/><circle cx="320" cy="150" r="5" fill="#10b981" opacity="0.35"/>
-                <line x1="320" y1="150" x2="400" y2="80"/><circle cx="400" cy="80" r="6" fill="#10b981" opacity="0.3"/>
-                <circle cx="600" cy="200" r="7" fill="#22d3ee" opacity="0.3" filter="url(#glow)"/>
-                <line x1="600" y1="200" x2="720" y2="250"/><circle cx="720" cy="250" r="5" fill="#22d3ee" opacity="0.25"/>
-                <line x1="720" y1="250" x2="850" y2="180"/><circle cx="850" cy="180" r="6" fill="#22d3ee" opacity="0.2"/>
-                <circle cx="1000" cy="320" r="5" fill="#10b981" opacity="0.25"/>
-                <line x1="850" y1="180" x2="1000" y2="320"/><line x1="1000" y1="320" x2="1100" y2="250"/>
-                <circle cx="1100" cy="250" r="7" fill="#10b981" opacity="0.3"/>
+                <circle cx="200" cy="100" r="6" fill="#10b981" opacity="0.4" filter="url(#glow)">
+                    <animate attributeName="r" values="6;8;6" dur="3s" repeatCount="indefinite"/>
+                </circle>
+                <line x1="200" y1="100" x2="320" y2="150">
+                    <animate attributeName="opacity" values="0.5;0.8;0.5" dur="4s" repeatCount="indefinite"/>
+                </line>
+                <circle cx="320" cy="150" r="5" fill="#10b981" opacity="0.35">
+                    <animate attributeName="r" values="5;7;5" dur="3.5s" repeatCount="indefinite"/>
+                </circle>
+                <line x1="320" y1="150" x2="400" y2="80">
+                    <animate attributeName="opacity" values="0.5;0.8;0.5" dur="4.5s" repeatCount="indefinite"/>
+                </line>
+                <circle cx="400" cy="80" r="6" fill="#10b981" opacity="0.3">
+                    <animate attributeName="r" values="6;8;6" dur="3.2s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="600" cy="200" r="7" fill="#22d3ee" opacity="0.3" filter="url(#glow)">
+                    <animate attributeName="r" values="7;9;7" dur="3s" repeatCount="indefinite"/>
+                </circle>
+                <line x1="600" y1="200" x2="720" y2="250">
+                    <animate attributeName="opacity" values="0.3;0.6;0.3" dur="4s" repeatCount="indefinite"/>
+                </line>
+                <circle cx="720" cy="250" r="5" fill="#22d3ee" opacity="0.25">
+                    <animate attributeName="r" values="5;7;5" dur="3.5s" repeatCount="indefinite"/>
+                </circle>
+                <line x1="720" y1="250" x2="850" y2="180">
+                    <animate attributeName="opacity" values="0.3;0.6;0.3" dur="4.5s" repeatCount="indefinite"/>
+                </line>
+                <circle cx="850" cy="180" r="6" fill="#22d3ee" opacity="0.2">
+                    <animate attributeName="r" values="6;8;6" dur="3.2s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="1000" cy="320" r="5" fill="#10b981" opacity="0.25">
+                    <animate attributeName="r" values="5;7;5" dur="3.7s" repeatCount="indefinite"/>
+                </circle>
+                <line x1="850" y1="180" x2="1000" y2="320">
+                    <animate attributeName="opacity" values="0.5;0.8;0.5" dur="4.2s" repeatCount="indefinite"/>
+                </line>
+                <line x1="1000" y1="320" x2="1100" y2="250">
+                    <animate attributeName="opacity" values="0.5;0.8;0.5" dur="4.8s" repeatCount="indefinite"/>
+                </line>
+                <circle cx="1100" cy="250" r="7" fill="#10b981" opacity="0.3">
+                    <animate attributeName="r" values="7;9;7" dur="3.3s" repeatCount="indefinite"/>
+                </circle>
             </g>
             <g stroke="#22d3ee" stroke-width="2.5" fill="none" opacity="0.3">
-                <path d="M 50 40 Q 100 80, 50 120 Q 0 160, 50 200"/>
-                <path d="M 50 40 Q 0 80, 50 120 Q 100 160, 50 200"/>
+                <path d="M 50 40 Q 100 80, 50 120 Q 0 160, 50 200">
+                    <animate attributeName="opacity" values="0.3;0.6;0.3" dur="5s" repeatCount="indefinite"/>
+                </path>
+                <path d="M 50 40 Q 0 80, 50 120 Q 100 160, 50 200">
+                    <animate attributeName="opacity" values="0.3;0.5;0.3" dur="5.5s" repeatCount="indefinite"/>
+                </path>
             </g>
         </svg>
 
@@ -743,7 +780,7 @@
             <div class="divider-line"></div>
         </div>
         <div class="instructor-panel">
-            <div class="instructor-avatar">👨‍🔬</div>
+            <div class="instructor-avatar"><img src="https://researcherprofiles.org/profile/Modules/CustomViewPersonGeneralInfo/PhotoHandler.ashx?NodeID=187363&cachekey=ff243f3c-dc22-41d3-843c-60e74741b1c8" alt="Dr. Giorgio Lagna" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;"></div>
             <div>
                 <div class="instructor-info">
                     <h3>Dr. Giorgio Lagna, Ph.D.</h3>

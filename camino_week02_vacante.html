@@ -453,22 +453,46 @@
                 </filter>
             </defs>
             <g stroke="#00f0ff" stroke-width="2" fill="none" opacity="0.4">
-                <path d="M 100 80 Q 150 120, 100 160" stroke-width="3"/>
-                <path d="M 150 80 Q 200 120, 150 160" stroke-width="3"/>
-                <path d="M 200 80 Q 250 120, 200 160" stroke-width="3"/>
-                <circle cx="100" cy="80" r="5" fill="#00f0ff" opacity="0.6" filter="url(#glow2)"/>
-                <circle cx="150" cy="80" r="5" fill="#b052ff" opacity="0.5" filter="url(#glow2)"/>
-                <circle cx="200" cy="80" r="5" fill="#00f0ff" opacity="0.6" filter="url(#glow2)"/>
+                <path d="M 100 80 Q 150 120, 100 160" stroke-width="3">
+                    <animate attributeName="d" values="M 100 80 Q 150 120, 100 160;M 100 75 Q 150 130, 100 155;M 100 80 Q 150 120, 100 160" dur="4s" repeatCount="indefinite"/>
+                </path>
+                <path d="M 150 80 Q 200 120, 150 160" stroke-width="3">
+                    <animate attributeName="d" values="M 150 80 Q 200 120, 150 160;M 150 85 Q 200 110, 150 165;M 150 80 Q 200 120, 150 160" dur="4.2s" repeatCount="indefinite"/>
+                </path>
+                <path d="M 200 80 Q 250 120, 200 160" stroke-width="3">
+                    <animate attributeName="d" values="M 200 80 Q 250 120, 200 160;M 200 75 Q 250 130, 200 155;M 200 80 Q 250 120, 200 160" dur="4s" repeatCount="indefinite"/>
+                </path>
+                <circle cx="100" cy="80" r="5" fill="#00f0ff" opacity="0.6" filter="url(#glow2)">
+                    <animate attributeName="cy" values="80;75;80" dur="3.5s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="150" cy="80" r="5" fill="#b052ff" opacity="0.5" filter="url(#glow2)">
+                    <animate attributeName="cy" values="80;85;80" dur="3.7s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="200" cy="80" r="5" fill="#00f0ff" opacity="0.6" filter="url(#glow2)">
+                    <animate attributeName="cy" values="80;75;80" dur="3.5s" repeatCount="indefinite"/>
+                </circle>
             </g>
             <g stroke="#b052ff" stroke-width="1.5" fill="none" opacity="0.3">
-                <circle cx="800" cy="100" r="8" fill="#b052ff" opacity="0.4" filter="url(#glow2)"/>
-                <line x1="800" y1="100" x2="900" y2="150"/><circle cx="900" cy="150" r="6" fill="#b052ff" opacity="0.3"/>
-                <line x1="900" y1="150" x2="1000" y2="100"/><circle cx="1000" cy="100" r="7" fill="#b052ff" opacity="0.25"/>
+                <circle cx="800" cy="100" r="8" fill="#b052ff" opacity="0.4" filter="url(#glow2)">
+                    <animate attributeName="cy" values="100;95;100" dur="3.6s" repeatCount="indefinite"/>
+                </circle>
+                <line x1="800" y1="100" x2="900" y2="150">
+                    <animate attributeName="y1" values="100;95;100" dur="3.6s" repeatCount="indefinite"/>
+                </line>
+                <circle cx="900" cy="150" r="6" fill="#b052ff" opacity="0.3">
+                    <animate attributeName="cy" values="150;145;150" dur="3.8s" repeatCount="indefinite"/>
+                </circle>
+                <line x1="900" y1="150" x2="1000" y2="100">
+                    <animate attributeName="y1" values="150;145;150" dur="3.8s" repeatCount="indefinite"/>
+                </line>
+                <circle cx="1000" cy="100" r="7" fill="#b052ff" opacity="0.25">
+                    <animate attributeName="cy" values="100;105;100" dur="3.5s" repeatCount="indefinite"/>
+                </circle>
             </g>
         </svg>
 
         <div class="hero-content">
-            <div class="speaker-avatar">👩‍🔬</div>
+            <div class="speaker-avatar"><img src="https://profiles.stanford.edu/proxy/api/cap/profiles/299527/resources/profilephoto/350x350.1755185545451.jpg" alt="Dr. Francesca Vacante" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;"></div>
             <div class="hero-info">
                 <div class="hero-tag">Guest Speaker / Week 02</div>
                 <h1>Dr. Francesca Vacante</h1>

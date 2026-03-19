@@ -409,21 +409,34 @@
                 <path d="M 200 60 L 240 60 L 240 100 L 200 100 Z"/>
                 <line x1="120" y1="80" x2="140" y2="80" stroke-width="2" opacity="0.5"/>
                 <line x1="180" y1="80" x2="200" y2="80" stroke-width="2" opacity="0.5"/>
+                <!-- Scanning line animation -->
+                <line x1="50" y1="50" x2="250" y2="50" stroke="#3498db" stroke-width="1.5" opacity="0.6">
+                    <animate attributeName="y1" values="50;110;50" dur="4s" repeatCount="indefinite"/>
+                    <animate attributeName="y2" values="50;110;50" dur="4s" repeatCount="indefinite"/>
+                </line>
             </g>
             <g stroke="#9b59b6" stroke-width="1.5" fill="none" opacity="0.3">
-                <circle cx="850" cy="80" r="6" fill="#9b59b6" opacity="0.4" filter="url(#glow5)"/>
+                <circle cx="850" cy="80" r="6" fill="#9b59b6" opacity="0.4" filter="url(#glow5)">
+                    <animate attributeName="r" values="6;8;6" dur="3s" repeatCount="indefinite"/>
+                </circle>
                 <line x1="850" y1="80" x2="900" y2="120"/>
-                <circle cx="900" cy="120" r="5" fill="#9b59b6" opacity="0.4" filter="url(#glow5)"/>
+                <circle cx="900" cy="120" r="5" fill="#9b59b6" opacity="0.4" filter="url(#glow5)">
+                    <animate attributeName="r" values="5;7;5" dur="3.5s" repeatCount="indefinite"/>
+                </circle>
                 <line x1="900" y1="120" x2="950" y2="100"/>
-                <circle cx="950" cy="100" r="6" fill="#9b59b6" opacity="0.4" filter="url(#glow5)"/>
+                <circle cx="950" cy="100" r="6" fill="#9b59b6" opacity="0.4" filter="url(#glow5)">
+                    <animate attributeName="r" values="6;8;6" dur="3.3s" repeatCount="indefinite"/>
+                </circle>
                 <line x1="950" y1="100" x2="1000" y2="150"/>
-                <circle cx="1000" cy="150" r="5" fill="#9b59b6" opacity="0.4" filter="url(#glow5)"/>
+                <circle cx="1000" cy="150" r="5" fill="#9b59b6" opacity="0.4" filter="url(#glow5)">
+                    <animate attributeName="r" values="5;7;5" dur="3.7s" repeatCount="indefinite"/>
+                </circle>
             </g>
         </svg>
 
         <div class="hero-content">
             <div class="speaker-avatar">
-                <img src="speaker_photo_david_hess.jpg" alt="Dr. David Hess" style="width:100%;height:100%;object-fit:cover;border-radius:10px;">
+                <img src="david_hess.jpg" alt="Dr. David Hess" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;">
             </div>
 
             <div class="hero-info">
