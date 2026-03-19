@@ -428,16 +428,30 @@
                     </feMerge>
                 </filter>
             </defs>
-            <g stroke="#3498db" stroke-width="2" stroke-dasharray="200" fill="none" opacity="0.6" style="animation: drawLine 4s ease-out forwards;">
-                <line x1="100" y1="100" x2="350" y2="150"/>
-                <line x1="350" y1="150" x2="600" y2="80"/>
-                <line x1="600" y1="80" x2="850" y2="180"/>
+            <g stroke="#3498db" stroke-width="2" fill="none" opacity="0.6">
+                <line x1="100" y1="100" x2="350" y2="150" stroke-dasharray="300" stroke-dashoffset="300">
+                    <animate attributeName="stroke-dashoffset" values="300;0;0" dur="3.5s" repeatCount="indefinite"/>
+                </line>
+                <line x1="350" y1="150" x2="600" y2="80" stroke-dasharray="300" stroke-dashoffset="300">
+                    <animate attributeName="stroke-dashoffset" values="300;0;0" dur="3.5s" repeatCount="indefinite"/>
+                </line>
+                <line x1="600" y1="80" x2="850" y2="180" stroke-dasharray="300" stroke-dashoffset="300">
+                    <animate attributeName="stroke-dashoffset" values="300;0;0" dur="3.5s" repeatCount="indefinite"/>
+                </line>
             </g>
             <g filter="url(#glowNode)">
-                <circle cx="100" cy="100" r="8" fill="#3498db" opacity="0.8" style="animation: glowNode 3s ease-in-out infinite;"/>
-                <circle cx="350" cy="150" r="8" fill="#2ecc71" opacity="0.8" style="animation: glowNode 3s ease-in-out 0.5s infinite;"/>
-                <circle cx="600" cy="80" r="8" fill="#3498db" opacity="0.8" style="animation: glowNode 3s ease-in-out 1s infinite;"/>
-                <circle cx="850" cy="180" r="8" fill="#2ecc71" opacity="0.8" style="animation: glowNode 3s ease-in-out 1.5s infinite;"/>
+                <circle cx="100" cy="100" r="8" fill="#3498db" opacity="0.8">
+                    <animate attributeName="r" values="8;11;8" dur="3s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="350" cy="150" r="8" fill="#2ecc71" opacity="0.8">
+                    <animate attributeName="r" values="8;11;8" dur="3s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="600" cy="80" r="8" fill="#3498db" opacity="0.8">
+                    <animate attributeName="r" values="8;11;8" dur="3s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="850" cy="180" r="8" fill="#2ecc71" opacity="0.8">
+                    <animate attributeName="r" values="8;11;8" dur="3s" repeatCount="indefinite"/>
+                </circle>
             </g>
         </svg>
 
@@ -451,7 +465,7 @@
     <section class="scu-course-wrapper">
 
         <div class="scu-glass-panel accent-primary" style="margin-top: 3rem; animation-delay: 0.6s;">
-            <p style="margin: 0; font-size: 1.05rem; line-height: 1.8;"><strong>Time:</strong> Wednesday, May 13, 5:25–6:30 PM<br/><strong>Location:</strong> Santa Clara Campus, In Person<br/><strong>Format:</strong> Student presentations (3–5 min each) + class synthesis discussion</p>
+            <p style="margin: 0; font-size: 1.05rem; line-height: 1.8;"><strong>Time:</strong> Wednesday, May 13, 5:25–6:30 PM<br/><strong>Location:</strong> Rm 116, Bergin Hall, Santa Clara University, In Person<br/><strong>Format:</strong> Student presentations (3–5 min each) + class synthesis discussion</p>
         </div>
 
         <div class="section-header"><h2>What This Week Is About</h2></div>
@@ -574,6 +588,7 @@
     <div class="scu-footer">
         <p>BIOL 101 • Biology Research Seminar • Week 07</p>
         <p>Informational Interview Presentations • May 13, 2026</p>
+        <p style="margin-top:1rem;"><a href="camino_syllabus.html" style="color:#10b981;text-decoration:none;border-bottom:1px solid rgba(16,185,129,0.3);">Course Syllabus</a></p>
         <p style="margin-top: 1rem; font-size: 0.85rem;">Questions? Email Giorgio at glagna@scu.edu</p>
     </div>
 

@@ -106,8 +106,13 @@
         }
 
         .ring-container {
-            animation: rotateRing 30s linear infinite;
+            animation: rotateRing 40s linear infinite;
             transform-origin: center;
+        }
+
+        .ring-container circle {
+            animation: rotateRing 40s linear infinite;
+            transform-origin: 600px 200px;
         }
 
         .hero-content {
@@ -432,14 +437,18 @@
                 </filter>
             </defs>
             <g class="ring-container" filter="url(#ringGlow)">
-                <circle cx="600" cy="200" r="80" stroke="#2b9b9b" stroke-width="2" fill="none" opacity="0.6" stroke-dasharray="251 502"/>
-                <circle cx="600" cy="200" r="120" stroke="#d4af6a" stroke-width="1" fill="none" opacity="0.3"/>
+                <circle cx="600" cy="200" r="80" stroke="#2b9b9b" stroke-width="2" fill="none" opacity="0.6" stroke-dasharray="251 502">
+                    <animateTransform attributeName="transform" type="rotate" values="0 600 200; 360 600 200" dur="40s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="600" cy="200" r="120" stroke="#d4af6a" stroke-width="1" fill="none" opacity="0.3">
+                    <animateTransform attributeName="transform" type="rotate" values="0 600 200; 360 600 200" dur="40s" repeatCount="indefinite"/>
+                </circle>
             </g>
             <g stroke="#d4af6a" stroke-width="1.5" fill="none" opacity="0.4">
                 <line x1="150" y1="100" x2="600" y2="200" style="animation: fadeInLine 4s ease-out forwards;"/>
                 <line x1="400" y1="80" x2="600" y2="200" style="animation: fadeInLine 4s ease-out 0.5s forwards;"/>
                 <line x1="900" y1="120" x2="600" y2="200" style="animation: fadeInLine 4s ease-out 1s forwards;"/>
-                <line x1="1050" cy="200" x2="600" y2="200" style="animation: fadeInLine 4s ease-out 1.5s forwards;"/>
+                <line x1="1050" y1="200" x2="600" y2="200" style="animation: fadeInLine 4s ease-out 1.5s forwards;"/>
             </g>
         </svg>
 
@@ -453,7 +462,7 @@
     <section class="scu-course-wrapper">
 
         <div class="scu-glass-panel accent-primary" style="margin-top: 3rem; animation-delay: 0.6s;">
-            <p style="margin: 0; font-size: 1.05rem; line-height: 1.8;"><strong>Time:</strong> Wednesday, May 27, 5:25–6:30 PM<br/><strong>Location:</strong> Santa Clara Campus, In Person<br/><strong>Format:</strong> Concept mapping exercise + class discussion + final synthesis preview</p>
+            <p style="margin: 0; font-size: 1.05rem; line-height: 1.8;"><strong>Time:</strong> Wednesday, May 27, 5:25–6:30 PM<br/><strong>Location:</strong> Rm 116, Bergin Hall, Santa Clara University, In Person<br/><strong>Format:</strong> Concept mapping exercise + class discussion + final synthesis preview</p>
         </div>
 
         <div class="section-header"><h2>What This Week Is About</h2></div>
@@ -589,6 +598,7 @@
     <div class="scu-footer">
         <p>BIOL 101 • Biology Research Seminar • Week 09</p>
         <p>Synthesis Workshop: Connecting the Threads • May 27, 2026</p>
+        <p style="margin-top:1rem;"><a href="camino_syllabus.html" style="color:#10b981;text-decoration:none;border-bottom:1px solid rgba(16,185,129,0.3);">Course Syllabus</a></p>
         <p style="margin-top: 1rem; font-size: 0.85rem;">Questions? Email Giorgio at glagna@scu.edu</p>
     </div>
 
