@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome & How to Read a Scientific Paper | BIOL 101</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --accent-primary: #22d3ee;
+            --accent-secondary: #3b82f6;
+            --text-main: #e0dcd8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(135deg, #050505 0%, #0a1118 50%, #050a15 100%);
+            color: var(--text-main);
+            line-height: 1.6;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -20%;
+            width: 80%;
+            height: 80%;
+            background: radial-gradient(circle, rgba(34, 211, 238, 0.15) 0%, transparent 70%);
+            z-index: 0;
+            pointer-events: none;
+            filter: blur(120px);
+            opacity: 0.15;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -50%;
+            right: -20%;
+            width: 80%;
+            height: 80%;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.12) 0%, transparent 70%);
+            z-index: 0;
+            pointer-events: none;
+            filter: blur(120px);
+            opacity: 0.15;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes drawLine {
+            from { stroke-dashoffset: 1000; }
+            to { stroke-dashoffset: 0; }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.5; filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.6)); }
+            50% { opacity: 0.9; filter: drop-shadow(0 0 16px rgba(59, 130, 246, 0.9)); }
+        }
+
+        main { position: relative; z-index: 1; }
+
+        .scu-hero-card {
+            background: linear-gradient(135deg, #0f2a3a 0%, #0a1a2e 100%);
+            color: var(--text-main);
+            padding: 5rem 2rem;
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid rgba(34, 211, 238, 0.3);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .scu-hero-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(34, 211, 238, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.06) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+            animation: fadeInDown 0.9s ease-out;
+        }
+
+        .scu-hero-card svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.06;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .watermark {
+            position: absolute;
+            top: 1rem;
+            right: 2rem;
+            font-family: 'Outfit', sans-serif;
+            font-size: 4rem;
+            font-weight: 800;
+            opacity: 0.05;
+            pointer-events: none;
+            letter-spacing: 2px;
+        }
+
+        .hero-content h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 3.2rem;
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+            letter-spacing: -1px;
+            line-height: 1.15;
+            background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-content .tagline {
+            font-size: 1.05rem;
+            opacity: 0.85;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .scu-glass-panel {
+            background: rgba(20, 15, 30, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            transition: all 300ms ease;
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        .scu-glass-panel.delay-1 { animation-delay: 0.2s; }
+
+        .scu-glass-panel:hover {
+            background: rgba(20, 15, 30, 0.8);
+            border-color: rgba(34, 211, 238, 0.35);
+            transform: translateY(-4px);
+        }
+
+        .scu-glass-panel.accent-gold { border-left: 5px solid #d4af6a; }
+        .scu-glass-panel.accent-cyan { border-left: 5px solid var(--accent-primary); }
+        .scu-glass-panel.accent-blue { border-left: 5px solid var(--accent-secondary); }
+
+        .scu-container { max-width: 1000px; margin: 0 auto; padding: 0 1.5rem; }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+            margin-top: 3.5rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .section-header::before {
+            content: '';
+            width: 5px;
+            height: 40px;
+            background: var(--accent-primary);
+            border-radius: 3px;
+            flex-shrink: 0;
+        }
+
+        .section-divider { border: none; height: 1px; background: rgba(34, 211, 238, 0.15); margin: 3rem 0; }
+
+        .objectives-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .objective-item {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(34, 211, 238, 0.15);
+            border-radius: 8px;
+            padding: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        .objective-item:nth-child(1) { animation-delay: 0.3s; }
+        .objective-item:nth-child(2) { animation-delay: 0.4s; }
+        .objective-item:nth-child(3) { animation-delay: 0.5s; }
+        .objective-item:nth-child(4) { animation-delay: 0.6s; }
+
+        .objective-number {
+            flex-shrink: 0;
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+            color: #050505;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            animation: pulseGlow 2.5s ease-in-out infinite;
+        }
+
+        .objective-text h4 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 0.35rem;
+        }
+
+        .objective-text p { font-size: 0.9rem; opacity: 0.75; }
+
+        .step-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(34, 211, 238, 0.2);
+            border-left: 4px solid #e07856;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        .step-card:nth-child(2) { animation-delay: 0.3s; }
+        .step-card:nth-child(3) { animation-delay: 0.4s; }
+        .step-card:nth-child(5) { animation-delay: 0.3s; }
+        .step-card:nth-child(6) { animation-delay: 0.4s; }
+        .step-card:nth-child(7) { animation-delay: 0.5s; }
+        .step-card:nth-child(8) { animation-delay: 0.6s; }
+        .step-card:nth-child(9) { animation-delay: 0.7s; }
+
+        .step-number {
+            display: inline-block;
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, #d4af6a 0%, #b89b5e 100%);
+            color: #050505;
+            border-radius: 50%;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .step-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 1rem;
+        }
+
+        .step-content {
+            font-size: 0.95rem;
+            opacity: 0.85;
+            line-height: 1.7;
+        }
+
+        .step-content p { margin-bottom: 1rem; }
+        .step-content ul { padding-left: 1.5rem; margin-bottom: 1rem; }
+        .step-content li { margin-bottom: 0.5rem; }
+
+        .taxonomy-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(34, 211, 238, 0.15);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+            animation-delay: 0.5s;
+        }
+
+        .taxonomy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .taxonomy-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(34, 211, 238, 0.12);
+            border-radius: 8px;
+            padding: 1.25rem;
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        .taxonomy-item:nth-child(1) { animation-delay: 0.6s; }
+        .taxonomy-item:nth-child(2) { animation-delay: 0.65s; }
+        .taxonomy-item:nth-child(3) { animation-delay: 0.7s; }
+        .taxonomy-item:nth-child(4) { animation-delay: 0.75s; }
+
+        .taxonomy-label {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #d4af6a;
+            margin-bottom: 0.75rem;
+        }
+
+        .taxonomy-item p { font-size: 0.9rem; opacity: 0.8; line-height: 1.6; }
+        .taxonomy-item code { display: block; background: rgba(34, 211, 238, 0.1); border-left: 2px solid var(--accent-primary); padding: 0.75rem; margin-top: 0.75rem; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 0.85rem; opacity: 0.85; }
+
+        .scu-btn-primary {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+            color: #050505;
+            padding: 0.875rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 300ms ease;
+            border: none;
+            cursor: pointer;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin-top: 1rem;
+        }
+
+        .scu-btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(34, 211, 238, 0.25);
+        }
+
+        .scu-footer {
+            background: linear-gradient(135deg, #050505 0%, #0a0a10 100%);
+            border-top: 1px solid rgba(34, 211, 238, 0.15);
+            padding: 3.5rem 2rem;
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .scu-footer p { font-size: 0.9rem; opacity: 0.65; margin-bottom: 0.5rem; }
+
+        strong { color: #d4af6a; }
+
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2rem; }
+            .section-header h2 { font-size: 1.4rem; }
+            .objectives-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<main>
+    <section class="scu-hero-card">
+        <div class="watermark">WEEK 01</div>
+        <svg viewBox="0 0 1200 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <defs>
+                <filter id="glow1">
+                    <feGaussianBlur stdDeviation="10" result="blur"/>
+                    <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                </filter>
+            </defs>
+            <g stroke="#22d3ee" stroke-width="1.5" fill="none" opacity="0.4">
+                <circle cx="150" cy="80" r="7" fill="#22d3ee" opacity="0.3" filter="url(#glow1)"/>
+                <line x1="150" y1="80" x2="280" y2="150"/><circle cx="280" cy="150" r="6" fill="#22d3ee" opacity="0.25"/>
+                <line x1="280" y1="150" x2="350" y2="250"/><circle cx="350" cy="250" r="7" fill="#22d3ee" opacity="0.2"/>
+                <circle cx="700" cy="100" r="6" fill="#3b82f6" opacity="0.3" filter="url(#glow1)"/>
+                <line x1="700" y1="100" x2="820" y2="180"/><circle cx="820" cy="180" r="5" fill="#3b82f6" opacity="0.25"/>
+                <line x1="820" y1="180" x2="950" y2="120"/><circle cx="950" cy="120" r="6" fill="#3b82f6" opacity="0.2"/>
+                <circle cx="1050" cy="300" r="5" fill="#22d3ee" opacity="0.25"/>
+                <line x1="950" y1="120" x2="1050" y2="300"/><line x1="1050" y1="300" x2="1120" y2="200"/>
+                <circle cx="1120" cy="200" r="7" fill="#22d3ee" opacity="0.3"/>
+            </g>
+        </svg>
+
+        <div class="hero-content">
+            <h1>Welcome & How to Read a Scientific Paper</h1>
+            <p class="subtitle">BIOL 101 • Orientation Week • April 1</p>
+            <p class="tagline">
+                Start your BIOL 101 journey by learning the seminar format, mastering a systematic approach to reading primary research, and understanding how to ask productive scientific questions.
+            </p>
+        </div>
+    </section>
+
+    <section class="scu-container">
+        <div class="scu-glass-panel accent-gold delay-1" style="margin-top: 3rem;">
+            <p style="margin: 0; font-size: 1.05rem; line-height: 1.8;">
+                <strong>Time:</strong> Wednesday, April 1, 5:25 PM - 6:30 PM<br/>
+                <strong>Location:</strong> Santa Clara University campus, In Person<br/>
+                <strong>What to Bring:</strong> The Raff (2016) paper and your thoughts<br/>
+                <strong>Estimated Prep Time:</strong> 1.5–2 hours total
+            </p>
+        </div>
+
+        <div class="section-header">
+            <h2>What You'll Learn</h2>
+        </div>
+
+        <div class="objectives-grid">
+            <div class="objective-item">
+                <div class="objective-number">1</div>
+                <div class="objective-text">
+                    <h4>Course Structure & Expectations</h4>
+                    <p>Understand BIOL 101's format, grading philosophy (P/NP), and what it takes to succeed in this seminar.</p>
+                </div>
+            </div>
+            <div class="objective-item">
+                <div class="objective-number">2</div>
+                <div class="objective-text">
+                    <h4>How to Read a Scientific Paper</h4>
+                    <p>Learn a proven three-pass method: abstract first, figures next, then methods. You'll apply this to the Vacante paper.</p>
+                </div>
+            </div>
+            <div class="objective-item">
+                <div class="objective-number">3</div>
+                <div class="objective-text">
+                    <h4>The Art of Scientific Questions</h4>
+                    <p>Master the four types of productive questions—Clarification, Method, Interpretation, Extension—and why each matters.</p>
+                </div>
+            </div>
+            <div class="objective-item">
+                <div class="objective-number">4</div>
+                <div class="objective-text">
+                    <h4>Informational Interview Assignment</h4>
+                    <p>Learn about the interview project due Week 7 and get tips for reaching out to scientists and professionals.</p>
+                </div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <div class="section-header">
+            <h2>Before Class</h2>
+        </div>
+
+        <div class="step-card">
+            <div class="step-number">1</div>
+            <div class="step-title">Read & Skim Two Papers</div>
+            <div class="step-content">
+                <p><strong>Primary:</strong> Read David Raff's "How to Read and Understand a Scientific Paper: A Guide for Non-Scientists" (2016). This short, practical guide will be your roadmap for the rest of the quarter. It's not a difficult read—maybe 20-30 minutes.</p>
+                <p><strong>Secondary:</strong> Skim the Francesca Vacante et al. paper (CARMN/miR-143/145 CRISPRa, ATVB 2025). Don't try to understand every detail. Instead, follow Raff's method:</p>
+                <ul>
+                    <li>Read the <strong>abstract</strong>. What is the main question?</li>
+                    <li>Look at the <strong>figures</strong> and their legends. What story do they tell?</li>
+                    <li>Skim the <strong>introduction</strong>. Why does this problem matter?</li>
+                    <li>Glance at the <strong>methods</strong>. What did they actually do?</li>
+                </ul>
+                <p style="margin-top: 1rem; font-style: italic; opacity: 0.8;">You're not expected to understand all the science yet. Just get oriented. You'll deepen your knowledge during the seminar itself.</p>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <div class="step-number">2</div>
+            <div class="step-title">Post a Practice Question to Discussion Board</div>
+            <div class="step-content">
+                <p>After reading Raff and skimming the Vacante paper, post <strong>one genuine question</strong> to the Week 1 Discussion Board by 5 PM (before class starts). This is practice—it won't be graded, just reviewed.</p>
+                <p style="margin-top: 1rem; background: rgba(34, 211, 238, 0.1); border-left: 2px solid var(--accent-primary); padding: 1rem; border-radius: 6px; font-style: italic;">Your question could be about the science, the methods, the motivation, or even a term you don't recognize. The only rule: no yes/no questions.</p>
+                <p style="margin-top: 1rem;">This accomplishes two things: (1) it gets you thinking before class, and (2) during class, we'll discuss what makes a good question and use your posts as live examples.</p>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <div class="section-header">
+            <h2>During Class</h2>
+        </div>
+
+        <div class="step-card" style="border-left-color: #3b82f6;">
+            <div class="step-number">Part 1</div>
+            <div class="step-title">Welcome & Course Overview (15 minutes)</div>
+            <div class="step-content">
+                <p><strong>Giorgio will:</strong></p>
+                <ul>
+                    <li>Introduce himself and the course vision: exposure to active research + critical thinking development</li>
+                    <li>Walk through the syllabus, grading (P/NP), and expectations</li>
+                    <li>Preview the six speakers and their diverse research areas</li>
+                    <li>Explain the weekly learning cycle: Prepare → Experience → Reflect → Connect</li>
+                    <li>Answer logistical questions</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step-card" style="border-left-color: #3b82f6;">
+            <div class="step-number">Part 2</div>
+            <div class="step-title">How to Read a Paper: Live Walkthrough (20 minutes)</div>
+            <div class="step-content">
+                <p><strong>Using the Vacante paper as a live example, we'll:</strong></p>
+                <ul>
+                    <li>Read the abstract together and identify the central question: What is CARMN? Why target it?</li>
+                    <li>Study key figures and what they show about the cis-ON system and its effect on gene expression</li>
+                    <li>Discuss the experimental design: controls, cell types, readouts</li>
+                    <li>Point out the main findings and implications</li>
+                    <li>Highlight what you DON'T need to understand yet (you will by next week)</li>
+                </ul>
+                <p style="margin-top: 1rem; font-style: italic; opacity: 0.8;">The goal is not to teach you the entire paper, but to show you a method so you can tackle future papers independently.</p>
+            </div>
+        </div>
+
+        <div class="step-card" style="border-left-color: #3b82f6;">
+            <div class="step-number">Part 3</div>
+            <div class="step-title">The Art of Asking Questions (15 minutes)</div>
+            <div class="step-content">
+                <p><strong>We'll examine the Discussion Board posts you submitted.</strong> For each, we'll discuss: What makes the question productive? What would make it even better? What type of question is it?</p>
+                <p style="margin-top: 1.5rem;">Then, we'll introduce a simple taxonomy of scientific questions:</p>
+            </div>
+        </div>
+
+        <div class="taxonomy-card">
+            <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.25rem; font-weight: 700; color: var(--text-main); margin-bottom: 1.5rem;">The Four Types of Scientific Questions</h3>
+            <div class="taxonomy-grid">
+                <div class="taxonomy-item">
+                    <div class="taxonomy-label">Clarification</div>
+                    <p>You don't understand a term, concept, or result.</p>
+                    <code>"What does 'cis-regulatory element' mean?"<br/>"Why is CARMN important?"</code>
+                </div>
+                <div class="taxonomy-item">
+                    <div class="taxonomy-label">Method</div>
+                    <p>You're curious about how or why they did something.</p>
+                    <code>"Why use HEK293T cells instead of cardiomyocytes?"<br/>"How did they measure CARMN expression?"</code>
+                </div>
+                <div class="taxonomy-item">
+                    <div class="taxonomy-label">Interpretation</div>
+                    <p>You see an alternative explanation or a confound.</p>
+                    <code>"Could the effect be due to [alternative]?"<br/>"What about [control condition]?"</code>
+                </div>
+                <div class="taxonomy-item">
+                    <div class="taxonomy-label">Extension</div>
+                    <p>You want to push the idea further or apply it elsewhere.</p>
+                    <code>"What would happen if...?"<br/>"How would this work in disease models?"</code>
+                </div>
+            </div>
+            <p style="margin-top: 1.5rem; font-size: 0.95rem; opacity: 0.85;">
+                <strong>The key point:</strong> All four types are valuable. Scientists ask all of them. Early in your career, Clarification questions are especially useful—they show you're engaged and often lead to good discussions.
+            </p>
+        </div>
+
+        <div class="step-card" style="border-left-color: #3b82f6;">
+            <div class="step-number">Part 4</div>
+            <div class="step-title">Informational Interview Assignment (10 minutes)</div>
+            <div class="step-content">
+                <p><strong>Intro to the Week 7 assignment:</strong> You will conduct a 15–20 minute conversation with a scientist, clinician, or biology professional outside SCU. The goal is to learn about their career path, daily work, advice for undergraduates, and what they find fulfilling.</p>
+                <p style="margin-top: 1rem;"><strong>Who to interview:</strong> Anyone working in biology, medicine, or a field you're interested in. Could be a grad student at UCSF, a postdoc at Stanford, a biotech industry scientist, a physician, a science writer, etc.</p>
+                <p style="margin-top: 1rem;"><strong>How to reach out:</strong> We'll provide a list of suggested contacts and a template email. Key tips:</p>
+                <ul>
+                    <li>Be specific about what you want (15-min conversation, not a long commitment)</li>
+                    <li>Explain why you're interested in their work</li>
+                    <li>Be flexible with timing</li>
+                    <li>Thank them afterward</li>
+                </ul>
+                <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.75;">You'll share a 3–5 minute summary with the class in Week 7.</p>
+            </div>
+        </div>
+
+        <div class="step-card" style="border-left-color: #3b82f6;">
+            <div class="step-number">Closing</div>
+            <div class="step-title">Preview & Q&A (5 minutes)</div>
+            <div class="step-content">
+                <p><strong>Next week's preview:</strong> Dr. Francesca Vacante on CRISPRa and non-coding RNA in cardiovascular disease. She'll explain her innovations in using gene activation to develop new therapies.</p>
+                <p style="margin-top: 1rem;"><strong>Due by Monday 11:59 PM:</strong> Full reading of the Vacante et al. paper + Discussion Board post (a longer, more thoughtful version).</p>
+                <p style="margin-top: 1rem;">Questions? Now is the time to ask.</p>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <div class="section-header">
+            <h2>No Post-Class Assignment This Week</h2>
+        </div>
+
+        <div class="scu-glass-panel accent-cyan">
+            <p style="font-size: 1.05rem; margin-bottom: 1rem;">Week 1 is orientation. There's no formal reflection due. Instead, use this time to:</p>
+            <ul style="padding-left: 1.5rem; font-size: 0.95rem; opacity: 0.85;">
+                <li style="margin-bottom: 0.75rem;">Review the course syllabus and familiarize yourself with Canvas</li>
+                <li style="margin-bottom: 0.75rem;">Start reading the Vacante et al. paper (more carefully than the skim)</li>
+                <li style="margin-bottom: 0.75rem;">Think about who you might interview for the informational interview project</li>
+                <li>Reach out to the instructor if you have questions or concerns about the course</li>
+            </ul>
+        </div>
+
+        <hr class="section-divider">
+
+        <div class="section-header">
+            <h2>Key Takeaways</h2>
+        </div>
+
+        <div class="scu-glass-panel accent-blue">
+            <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                <div>
+                    <p style="color: #d4af6a; font-weight: 600; margin-bottom: 0.5rem;">You don't need to be an expert to ask good questions.</p>
+                    <p style="opacity: 0.85; font-size: 0.95rem;">
+                        Confusion is normal and valuable. Scientists spend their careers not understanding things—then figuring them out. If something confuses you, that's information worth exploring.
+                    </p>
+                </div>
+                <div style="border-top: 1px solid rgba(34, 211, 238, 0.15); padding-top: 1.5rem;">
+                    <p style="color: #d4af6a; font-weight: 600; margin-bottom: 0.5rem;">Reading a paper is a skill you'll develop over time.</p>
+                    <p style="opacity: 0.85; font-size: 0.95rem;">
+                        You won't understand every section the first time—and that's okay. Raff's method gives you a framework. By Week 5, you'll find it easier. By the end of the quarter, you'll be surprised at how much you can extract from a research paper.
+                    </p>
+                </div>
+                <div style="border-top: 1px solid rgba(34, 211, 238, 0.15); padding-top: 1.5rem;">
+                    <p style="color: #d4af6a; font-weight: 600; margin-bottom: 0.5rem;">This course is here to help you explore, not judge.</p>
+                    <p style="opacity: 0.85; font-size: 0.95rem;">
+                        P/NP grading means we care about engagement, not perfection. If you're struggling, confused, or not interested in a particular topic, come talk to Giorgio. That's what office hours are for.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <div class="scu-glass-panel accent-gold">
+            <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.2rem; font-weight: 700; color: var(--text-main); margin-bottom: 1rem;">
+                A Note Before You Leave
+            </h3>
+            <p style="margin-bottom: 1rem; font-size: 0.95rem; opacity: 0.85;">
+                You're about to spend a quarter engaging with cutting-edge research and real scientists. That's exciting. Some of you will fall in love with a particular topic. Some of you will discover that research isn't for you—and that's valuable information too. Either way, you'll develop skills (reading papers, asking questions, thinking critically) that will serve you in any career.
+            </p>
+            <p style="font-size: 0.95rem; opacity: 0.85;">Welcome to BIOL 101. Let's get started.</p>
+        </div>
+
+    </section>
+
+    <div class="scu-footer">
+        <p>BIOL 101 • Biology Research Seminar • Week 01</p>
+        <p>Welcome & Orientation • April 1, 2026</p>
+        <p style="margin-top: 1rem; font-size: 0.85rem;">Questions? Email Giorgio at glagna@scu.edu or come to office hours by appointment</p>
+    </div>
+
+</main>
+
+</body>
+</html>

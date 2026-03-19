@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emma Krasovich Southworth: Tropical Cyclones & Dengue Transmission | BIOL 101</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --accent-primary: #2b9b9b;
+            --accent-secondary: #d4af6a;
+            --accent-forest: #4a7c59;
+            --bg-dark: #050a08;
+            --text-light: #e0dcd8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(135deg, #050a08 0%, #0a0f0a 50%, #050805 100%);
+            color: var(--text-light);
+            line-height: 1.6;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%; left: -20%;
+            width: 80%; height: 80%;
+            background: radial-gradient(circle, rgba(43, 155, 155, 0.15) 0%, transparent 70%);
+            filter: blur(120px);
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -30%; right: -10%;
+            width: 60%; height: 60%;
+            background: radial-gradient(circle, rgba(212, 175, 106, 0.15) 0%, transparent 70%);
+            filter: blur(120px);
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes drift {
+            0%, 100% { transform: translateY(0px) translateX(0px); }
+            50% { transform: translateY(-8px) translateX(4px); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+
+        main { position: relative; z-index: 1; animation: fadeInUp 0.8s ease-out; }
+
+        .scu-hero-card {
+            background: linear-gradient(135deg, #0a2a2a 0%, #0f1a1a 100%);
+            color: #d4f1f4;
+            padding: 3.5rem 2rem;
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid rgba(43, 155, 155, 0.3);
+            border-bottom: 1px solid rgba(43, 155, 155, 0.2);
+        }
+
+        .scu-hero-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(43, 155, 155, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(212, 175, 106, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-svg-bg {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+        .cyclone-container {
+            animation: rotate 20s linear infinite;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            align-items: flex-start;
+            gap: 2.5rem;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .speaker-avatar {
+            width: 140px;
+            height: 140px;
+            background: linear-gradient(135deg, var(--accent-secondary) 0%, #b89b5e 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 8px 32px rgba(212, 175, 106, 0.3);
+        }
+
+        .speaker-avatar svg {
+            width: 100px;
+            height: 100px;
+        }
+
+        .hero-info {
+            flex: 1;
+            padding-top: 0.5rem;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.75rem;
+            opacity: 0.85;
+            animation: fadeInUp 0.8s ease-out 0.3s both;
+        }
+
+        .hero-info h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            line-height: 1.1;
+            animation: fadeInUp 0.8s ease-out 0.35s both;
+        }
+
+        .scu-gradient-text {
+            background: linear-gradient(135deg, var(--accent-secondary) 0%, #f0e68c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-info .role {
+            font-size: 1.15rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            opacity: 0.95;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .hero-info .talk-title {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+            max-width: 500px;
+            line-height: 1.6;
+            animation: fadeInUp 0.8s ease-out 0.45s both;
+        }
+
+        .logistics-bar {
+            display: flex;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease-out 0.5s both;
+        }
+
+        .logistics-item {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .logistics-label {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .logistics-value {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .scu-glass-panel {
+            background: rgba(5, 10, 8, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .scu-glass-panel.accent-primary {
+            border-left: 4px solid var(--accent-primary);
+        }
+
+        .scu-course-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 3rem 0 2rem 0;
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .section-header h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-secondary) 0%, #f0e68c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-header::before {
+            content: '';
+            width: 4px;
+            height: 35px;
+            background: var(--accent-primary);
+            border-radius: 2px;
+            flex-shrink: 0;
+        }
+
+        .section-divider {
+            border: none;
+            height: 1px;
+            background: rgba(212, 175, 106, 0.15);
+            margin: 3rem 0;
+        }
+
+        .dossier-card {
+            background: rgba(5, 10, 8, 0.5);
+            border: 1px solid rgba(212, 175, 106, 0.2);
+            border-radius: 10px;
+            padding: 1.75rem;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(15px);
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .dossier-card.primary {
+            border-left: 4px solid #e07856;
+        }
+
+        .dossier-card.optional {
+            border-left: 4px solid #1abc9c;
+        }
+
+        .dossier-card.study-aid {
+            border-left: 4px solid #9b59b6;
+        }
+
+        .dossier-label {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 0.35rem 0.75rem;
+            border-radius: 4px;
+            margin-bottom: 0.75rem;
+        }
+
+        .dossier-card.primary .dossier-label {
+            background: rgba(224, 120, 86, 0.2);
+            color: #e07856;
+        }
+
+        .dossier-card.optional .dossier-label {
+            background: rgba(26, 188, 156, 0.2);
+            color: #1abc9c;
+        }
+
+        .dossier-card.study-aid .dossier-label {
+            background: rgba(155, 89, 182, 0.2);
+            color: #9b59b6;
+        }
+
+        .dossier-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #d4f1f4;
+            margin-bottom: 0.5rem;
+        }
+
+        .dossier-meta {
+            font-size: 0.9rem;
+            opacity: 0.65;
+            margin-bottom: 1rem;
+        }
+
+        .dossier-description {
+            font-size: 0.95rem;
+            opacity: 0.85;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .speaker-bio {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .speaker-bio { grid-template-columns: 1fr; }
+            .hero-content { flex-direction: column; }
+            .hero-info h1 { font-size: 1.8rem; }
+        }
+
+        .bio-section h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #d4f1f4;
+            margin-bottom: 1rem;
+        }
+
+        .bio-section p {
+            font-size: 0.95rem;
+            opacity: 0.85;
+            line-height: 1.7;
+            margin-bottom: 0.75rem;
+        }
+
+        .objectives-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .objectives-grid { grid-template-columns: 1fr; }
+        }
+
+        .objective-item {
+            background: rgba(5, 10, 8, 0.5);
+            border: 1px solid rgba(212, 175, 106, 0.15);
+            border-radius: 8px;
+            padding: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            backdrop-filter: blur(15px);
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .objective-number {
+            flex-shrink: 0;
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--accent-secondary) 0%, #b89b5e 100%);
+            color: var(--bg-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+        }
+
+        .objective-text h4 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #d4f1f4;
+            margin-bottom: 0.35rem;
+        }
+
+        .objective-text p {
+            font-size: 0.9rem;
+            opacity: 0.75;
+        }
+
+        .question-taxonomy {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .taxonomy-item {
+            background: rgba(5, 10, 8, 0.5);
+            border: 1px solid rgba(212, 175, 106, 0.15);
+            border-radius: 8px;
+            padding: 1.25rem;
+            backdrop-filter: blur(15px);
+        }
+
+        .taxonomy-item strong {
+            color: var(--accent-secondary);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .taxonomy-item p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .discussion-prompt {
+            background: rgba(5, 10, 8, 0.5);
+            border: 1px dashed rgba(212, 175, 106, 0.3);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            opacity: 0.9;
+            backdrop-filter: blur(15px);
+        }
+
+        .work-in-progress-note {
+            background: rgba(224, 120, 86, 0.15);
+            border: 1px solid rgba(224, 120, 86, 0.3);
+            border-left: 4px solid #e07856;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(15px);
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        .work-in-progress-note strong {
+            color: #e07856;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .watermark {
+            position: absolute;
+            top: 1rem;
+            right: 2rem;
+            font-family: 'Outfit', sans-serif;
+            font-size: 4rem;
+            font-weight: 700;
+            opacity: 0.04;
+            pointer-events: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .scu-footer {
+            background: linear-gradient(135deg, #050a08 0%, #050805 100%);
+            border-top: 1px solid rgba(212, 175, 106, 0.2);
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+            text-align: center;
+            animation: fadeInUp 0.8s ease-out 0.7s both;
+        }
+
+        .scu-footer p {
+            font-size: 0.9rem;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+
+<main>
+    <section class="scu-hero-card">
+        <div class="watermark">WEEK 08</div>
+
+        <svg class="hero-svg-bg" viewBox="0 0 1200 280" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <defs>
+                <filter id="cycloneGlow">
+                    <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+                    <feMerge>
+                        <feMergeNode in="coloredBlur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                </filter>
+            </defs>
+            <g class="cyclone-container">
+                <circle cx="150" cy="140" r="40" stroke="#2b9b9b" stroke-width="2" fill="none" opacity="0.5"/>
+                <circle cx="150" cy="140" r="60" stroke="#2b9b9b" stroke-width="1" fill="none" opacity="0.3"/>
+                <path d="M 150 100 Q 180 120, 160 160" stroke="#4a7c59" stroke-width="2" fill="none" opacity="0.6"/>
+                <path d="M 150 100 Q 120 120, 140 160" stroke="#4a7c59" stroke-width="2" fill="none" opacity="0.6"/>
+            </g>
+            <g filter="url(#cycloneGlow)">
+                <circle cx="750" cy="60" r="6" fill="#2b9b9b" opacity="0.7" style="animation: drift 6s ease-in-out infinite;"/>
+                <circle cx="850" cy="100" r="5" fill="#2b9b9b" opacity="0.6" style="animation: drift 6s ease-in-out 1s infinite;"/>
+                <circle cx="920" cy="150" r="6" fill="#4a7c59" opacity="0.7" style="animation: drift 6s ease-in-out 2s infinite;"/>
+            </g>
+        </svg>
+
+        <div class="hero-content">
+            <div class="speaker-avatar">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="35" r="18" fill="#050a08" opacity="0.7"/>
+                    <path d="M 25 55 Q 50 48 75 55 Q 75 72 50 75 Q 25 72 25 55" fill="#050a08" opacity="0.7"/>
+                </svg>
+            </div>
+
+            <div class="hero-info">
+                <div class="hero-tag">Guest Speaker / Week 08</div>
+                <h1>Emma Krasovich <span class="scu-gradient-text">Southworth</span></h1>
+                <p class="role">PhD Candidate, Stanford University (E-IPER Program)</p>
+                <p class="talk-title"><strong>Tropical Cyclones and Dengue Transmission: Work in Progress</strong></p>
+                <div class="logistics-bar">
+                    <div class="logistics-item">
+                        <div class="logistics-label">Date & Time</div>
+                        <div class="logistics-value">Wednesday, May 20 • 5:25–6:30 PM</div>
+                    </div>
+                    <div class="logistics-item">
+                        <div class="logistics-label">Location</div>
+                        <div class="logistics-value">Santa Clara Campus, In Person</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="scu-course-wrapper">
+
+        <div class="work-in-progress-note">
+            <strong>This is work in progress.</strong>
+            You'll see how a scientific project develops, including uncertainty. This is not a finished paper—it's an opportunity to witness real-time research thinking. Emma is presenting her dissertation research as it unfolds, which means some questions are still open, some data are preliminary, and some directions haven't been explored yet.
+        </div>
+
+        <div class="section-header"><h2>Pre-Class Preparation</h2></div>
+
+        <p style="font-size: 1.05rem; margin-bottom: 2rem; opacity: 0.85; animation: fadeInUp 0.8s ease-out 0.65s both;">Preparing for Emma's talk will help you understand her dissertation research in context. Please complete these before Wednesday.</p>
+
+        <div class="dossier-card primary" style="animation-delay: 0.7s;">
+            <span class="dossier-label">Background Reading</span>
+            <h3 class="dossier-title">Background Paper on Tropical Cyclones & Infectious Disease</h3>
+            <p class="dossier-meta">Paper TBD • Link to be posted on Camino</p>
+            <p class="dossier-description">This background paper provides context for understanding how environmental events shape disease transmission. Emma's presentation will cover her own research—unpublished, dissertation work still in development. The pre-reading gives you the scientific foundation needed to appreciate the questions she's tackling.</p>
+        </div>
+
+        <div class="dossier-card optional" style="animation-delay: 0.75s;">
+            <span class="dossier-label">Optional Context</span>
+            <h3 class="dossier-title">Ecological & Epidemiological Modeling Primer</h3>
+            <p class="dossier-meta">If you want to understand the methods Emma uses.</p>
+            <p class="dossier-description">Emma's work integrates ecology, climate science, and epidemiology. Explore supplementary resources on how scientists model disease transmission or how climate data feeds into biological predictions.</p>
+        </div>
+
+        <div class="dossier-card study-aid" style="animation-delay: 0.8s;">
+            <span class="dossier-label">Study Guide</span>
+            <h3 class="dossier-title">Key Concepts: Dengue, Tropical Cyclones & Transmission Dynamics</h3>
+            <p style="margin-bottom: 1rem;"><strong>Dengue fever:</strong> Mosquito-borne viral disease affecting hundreds of millions annually. <strong>Aedes mosquito:</strong> Primary vector for dengue; thrives in warm, wet conditions. <strong>Tropical cyclone:</strong> Rotating storm with strong winds and heavy rainfall. Can drastically alter vector habitat and disease dynamics. <strong>Transmission rate:</strong> Probability that an infected individual transmits to a susceptible individual. <strong>Epidemiological modeling:</strong> Mathematical models to understand and predict disease spread patterns.</p>
+        </div>
+
+        <hr class="section-divider">
+
+        <div class="section-header"><h2>Meet the Speaker</h2></div>
+
+        <div class="speaker-bio">
+            <div class="bio-section">
+                <h3>Background & Training</h3>
+                <p>Emma is a PhD candidate in the Environment & Resources program at Stanford University, co-advised by Erin Mordecai and Marshall Burke. Her research sits at the intersection of ecology, climate science, and public health. She is an NSF GRFP Fellow, a Stanford Data Science Scholar, and an EDGE Fellow.</p>
+            </div>
+            <div class="bio-section">
+                <h3>Research Focus</h3>
+                <p>Emma's dissertation examines how tropical cyclones influence dengue fever transmission in Southeast Asia. She combines ecological theory, climate modeling, and epidemiological data to explore mechanisms linking extreme weather to disease outbreaks, addressing urgent questions about how climate change will affect disease risk.</p>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <div class="section-header"><h2>What You'll Learn</h2></div>
+
+        <div class="objectives-grid">
+            <div class="objective-item delay-1">
+                <div class="objective-number">1</div>
+                <div class="objective-text"><h4>Environmental Change & Disease</h4><p>Understand how extreme weather events can dramatically alter infectious disease transmission dynamics.</p></div>
+            </div>
+            <div class="objective-item delay-2">
+                <div class="objective-number">2</div>
+                <div class="objective-text"><h4>Evaluate Work in Progress</h4><p>Learn to identify what's established, what's preliminary, and what questions remain open in ongoing research.</p></div>
+            </div>
+            <div class="objective-item delay-3">
+                <div class="objective-number">3</div>
+                <div class="objective-text"><h4>Interdisciplinary Research</h4><p>See how ecology, climate science, epidemiology, and data science come together to address complex health challenges.</p></div>
+            </div>
+            <div class="objective-item delay-4">
+                <div class="objective-number">4</div>
+                <div class="objective-text"><h4>Inside a Dissertation</h4><p>Understand what a PhD project looks like from the inside—including iteration, uncertainty, and genuine questions researchers face.</p></div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <div class="section-header"><h2>During the Seminar</h2></div>
+
+        <p style="font-size: 1.05rem; margin-bottom: 1.5rem; opacity: 0.85;">The seminar will follow this structure:</p>
+
+        <div class="scu-glass-panel accent-primary" style="animation-delay: 0.85s;">
+            <div style="display: flex; gap: 1.5rem; align-items: flex-start; margin-bottom: 1.25rem;">
+                <div style="background: var(--accent-secondary); color: var(--bg-dark); padding: 0.5rem 0.75rem; border-radius: 6px; font-weight: 600; font-size: 0.85rem; white-space: nowrap;">5:25–5:35</div>
+                <div style="flex: 1;"><p style="font-weight: 600; color: #d4f1f4; margin-bottom: 0.25rem;">Introduction</p><p style="font-size: 0.9rem; opacity: 0.75;">Welcome to Emma. Framing: what it means to present work in progress and why that's valuable in science.</p></div>
+            </div>
+            <div style="display: flex; gap: 1.5rem; align-items: flex-start; margin-bottom: 1.25rem;">
+                <div style="background: var(--accent-secondary); color: var(--bg-dark); padding: 0.5rem 0.75rem; border-radius: 6px; font-weight: 600; font-size: 0.85rem; white-space: nowrap;">5:35–6:10</div>
+                <div style="flex: 1;"><p style="font-weight: 600; color: #d4f1f4; margin-bottom: 0.25rem;">Research Presentation</p><p style="font-size: 0.9rem; opacity: 0.75;">Emma presents her dissertation research on tropical cyclones and dengue transmission, including methods, preliminary findings, and open questions.</p></div>
+            </div>
+            <div style="display: flex; gap: 1.5rem; align-items: flex-start;">
+                <div style="background: var(--accent-secondary); color: var(--bg-dark); padding: 0.5rem 0.75rem; border-radius: 6px; font-weight: 600; font-size: 0.85rem; white-space: nowrap;">6:10–6:30</div>
+                <div style="flex: 1;"><p style="font-weight: 600; color: #d4f1f4; margin-bottom: 0.25rem;">Q&A & Discussion</p><p style="font-size: 0.9rem; opacity: 0.75;">Ask questions about her research, methods, or the uncertainties she's grappling with. This is a chance to see how a researcher thinks through open problems.</p></div>
+            </div>
+        </div>
+
+        <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.15rem; font-weight: 600; color: #d4f1f4; margin-top: 2rem; margin-bottom: 1rem;">Questions Worth Asking</h3>
+
+        <p style="font-size: 0.95rem; opacity: 0.85; margin-bottom: 1.5rem;">When you ask questions about work in progress, consider the unique aspects of this talk:</p>
+
+        <div class="question-taxonomy">
+            <div class="taxonomy-item">
+                <strong>Clarification</strong>
+                <p>"Can you explain [concept] more?" or "I'm not sure what you mean by [term]."</p>
+            </div>
+            <div class="taxonomy-item">
+                <strong>Evidence</strong>
+                <p>"What's your strongest evidence for that?" or "How confident are you in [finding]?"</p>
+            </div>
+            <div class="taxonomy-item">
+                <strong>Open Questions</strong>
+                <p>"What question would you want to tackle next?" or "What's the biggest gap in your work right now?"</p>
+            </div>
+            <div class="taxonomy-item">
+                <strong>Method & Logic</strong>
+                <p>"Why did you choose [approach] over [alternative]?" or "How would you test [hypothesis]?"</p>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <div class="section-header"><h2>Post-Seminar Reflection</h2></div>
+
+        <p style="font-size: 1.05rem; margin-bottom: 2rem; opacity: 0.85;">Within one week of the seminar, respond to both prompts below in approximately 200–300 words total. This assignment is at the "Evaluate" level: you're assessing the quality and completeness of research in progress.</p>
+
+        <div class="scu-glass-panel" style="animation-delay: 0.9s;">
+            <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.15rem; font-weight: 600; color: #d4f1f4; margin-bottom: 1.5rem;">Two Reflection Prompts</h3>
+
+            <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                <div>
+                    <p style="color: var(--accent-secondary); font-weight: 600; margin-bottom: 0.5rem;">1. Strongest Evidence & Remaining Gaps</p>
+                    <p style="opacity: 0.85; margin-bottom: 0.5rem;">Based on what Emma presented, what do you think is the strongest piece of evidence supporting her hypothesis? What is the biggest remaining gap or uncertainty?</p>
+                    <p style="font-size: 0.9rem; opacity: 0.7; font-style: italic;">Note: There is no "right" answer here. The goal is to practice evaluating evidence, even when it's incomplete.</p>
+                </div>
+                <div style="border-top: 1px solid rgba(212, 175, 106, 0.15); padding-top: 1.5rem;">
+                    <p style="color: var(--accent-secondary); font-weight: 600; margin-bottom: 0.5rem;">2. Interdisciplinary Research</p>
+                    <p style="opacity: 0.85;">Emma works at the intersection of ecology, climate science, and public health. How does her interdisciplinary approach compare to the more narrowly focused research you've seen in earlier weeks? What are the advantages and challenges of interdisciplinary work?</p>
+                </div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <div class="section-header"><h2>Before Class: Discussion Board Post</h2></div>
+
+        <p style="font-size: 1.05rem; margin-bottom: 2rem; opacity: 0.85;">Before Wednesday, post one genuine question to the Discussion Board. It should reflect that you've read the background paper and are thinking about Emma's work.</p>
+
+        <div class="discussion-prompt">
+            "After reading the background paper, post a question that could help you understand the work Emma is developing. Consider: What would need to be true for her hypothesis to hold? What kind of data would test it? What's something you're curious about or confused about?"
+        </div>
+
+    </section>
+
+    <div class="scu-footer">
+        <p>BIOL 101 • Biology Research Seminar • Week 08</p>
+        <p>Emma Krasovich Southworth • May 20, 2026</p>
+        <p style="margin-top: 1rem; font-size: 0.85rem;">Questions? Email Giorgio at glagna@scu.edu</p>
+    </div>
+
+</main>
+
+</body>
+</html>

@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Francesca Vacante: CRISPRa & Non-Coding RNA | BIOL 101</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --accent-primary: #00f0ff;
+            --accent-secondary: #b052ff;
+            --text-main: #e0dcd8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(135deg, #05080f 0%, #0a0f18 50%, #050a12 100%);
+            color: var(--text-main);
+            line-height: 1.6;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -20%;
+            width: 80%;
+            height: 80%;
+            background: radial-gradient(circle, rgba(0, 240, 255, 0.15) 0%, transparent 70%);
+            z-index: 0;
+            pointer-events: none;
+            filter: blur(120px);
+            opacity: 0.15;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -50%;
+            right: -20%;
+            width: 80%;
+            height: 80%;
+            background: radial-gradient(circle, rgba(176, 82, 255, 0.12) 0%, transparent 70%);
+            z-index: 0;
+            pointer-events: none;
+            filter: blur(120px);
+            opacity: 0.15;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.5; filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.7)); }
+            50% { opacity: 0.9; filter: drop-shadow(0 0 20px rgba(176, 82, 255, 1)); }
+        }
+
+        @keyframes helixRotate {
+            from { transform: rotateZ(0deg); }
+            to { transform: rotateZ(360deg); }
+        }
+
+        main { position: relative; z-index: 1; }
+
+        .scu-hero-card {
+            background: linear-gradient(135deg, #0f1f3a 0%, #0a1628 100%);
+            color: var(--text-main);
+            padding: 3.5rem 2rem;
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid rgba(0, 240, 255, 0.3);
+            border-bottom: 1px solid rgba(176, 82, 255, 0.2);
+        }
+
+        .scu-hero-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(0, 240, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(176, 82, 255, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            align-items: flex-start;
+            gap: 2.5rem;
+            animation: fadeInDown 0.9s ease-out;
+        }
+
+        .speaker-avatar {
+            width: 140px;
+            height: 140px;
+            background: linear-gradient(135deg, #00f0ff 0%, #b052ff 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 8px 32px rgba(0, 240, 255, 0.2);
+            font-size: 3rem;
+            animation: pulseGlow 2.5s ease-in-out infinite;
+        }
+
+        .hero-info {
+            flex: 1;
+            padding-top: 0.5rem;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.75rem;
+            opacity: 0.85;
+        }
+
+        .hero-info h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            line-height: 1.1;
+            background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-info .role {
+            font-size: 1.15rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            opacity: 0.95;
+        }
+
+        .hero-info .talk-title {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+            max-width: 500px;
+            line-height: 1.6;
+        }
+
+        .logistics-bar {
+            display: flex;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .logistics-item {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .logistics-label {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .logistics-value {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .scu-glass-panel {
+            background: rgba(20, 15, 30, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: all 300ms ease;
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        .scu-glass-panel:hover {
+            background: rgba(20, 15, 30, 0.8);
+            border-color: rgba(0, 240, 255, 0.35);
+            transform: translateY(-4px);
+        }
+
+        .scu-glass-panel.accent-gold { border-left: 4px solid #d4af6a; }
+        .scu-glass-panel.accent-cyan { border-left: 4px solid var(--accent-primary); }
+        .scu-glass-panel.accent-blue { border-left: 4px solid #3498db; }
+
+        .scu-container { max-width: 1000px; margin: 0 auto; padding: 0 1.5rem; }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 3rem 0 2rem 0;
+        }
+
+        .section-header h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin: 0;
+        }
+
+        .section-header::before {
+            content: '';
+            width: 4px;
+            height: 35px;
+            background: var(--accent-primary);
+            border-radius: 2px;
+            flex-shrink: 0;
+        }
+
+        .section-divider { border: none; height: 1px; background: rgba(0, 240, 255, 0.15); margin: 3rem 0; }
+
+        .dossier-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            border-radius: 10px;
+            padding: 1.75rem;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        .dossier-card:nth-child(1) { animation-delay: 0.3s; }
+        .dossier-card:nth-child(3) { animation-delay: 0.5s; }
+
+        .dossier-card.primary { border-left: 4px solid #e07856; }
+        .dossier-card.optional { border-left: 4px solid #1abc9c; }
+        .dossier-card.study-aid { border-left: 4px solid #9b59b6; }
+
+        .dossier-label {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 0.35rem 0.75rem;
+            border-radius: 4px;
+            margin-bottom: 0.75rem;
+        }
+
+        .dossier-card.primary .dossier-label { background: rgba(224, 120, 86, 0.2); color: #e07856; }
+        .dossier-card.optional .dossier-label { background: rgba(26, 188, 156, 0.2); color: #1abc9c; }
+        .dossier-card.study-aid .dossier-label { background: rgba(155, 89, 182, 0.2); color: #9b59b6; }
+
+        .dossier-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+
+        .dossier-description {
+            font-size: 0.95rem;
+            opacity: 0.85;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .speaker-bio {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+            animation-delay: 0.4s;
+        }
+
+        .bio-section h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 1rem;
+        }
+
+        .bio-section p {
+            font-size: 0.95rem;
+            opacity: 0.85;
+            line-height: 1.7;
+            margin-bottom: 0.75rem;
+        }
+
+        .objectives-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .objective-item {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(0, 240, 255, 0.15);
+            border-radius: 8px;
+            padding: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        .objective-item:nth-child(1) { animation-delay: 0.3s; }
+        .objective-item:nth-child(2) { animation-delay: 0.4s; }
+        .objective-item:nth-child(3) { animation-delay: 0.5s; }
+        .objective-item:nth-child(4) { animation-delay: 0.6s; }
+
+        .objective-number {
+            flex-shrink: 0;
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+            color: #050505;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+
+        .objective-text h4 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 0.35rem;
+        }
+
+        .objective-text p { font-size: 0.9rem; opacity: 0.75; }
+
+        .discussion-prompt {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px dashed rgba(0, 240, 255, 0.3);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            opacity: 0.9;
+            animation: fadeInUp 0.8s ease-out forwards;
+            animation-delay: 0.6s;
+        }
+
+        .question-taxonomy {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .taxonomy-item {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(0, 240, 255, 0.15);
+            border-radius: 8px;
+            padding: 1.25rem;
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        .taxonomy-item:nth-child(1) { animation-delay: 0.5s; }
+        .taxonomy-item:nth-child(2) { animation-delay: 0.55s; }
+        .taxonomy-item:nth-child(3) { animation-delay: 0.6s; }
+        .taxonomy-item:nth-child(4) { animation-delay: 0.65s; }
+
+        .taxonomy-item strong {
+            color: #d4af6a;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .taxonomy-item p { font-size: 0.9rem; opacity: 0.8; }
+
+        .scu-btn-primary {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+            color: #050505;
+            padding: 0.875rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 300ms ease;
+            border: none;
+            cursor: pointer;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .scu-btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 240, 255, 0.25);
+        }
+
+        .scu-footer {
+            background: linear-gradient(135deg, #050505 0%, #0a0a10 100%);
+            border-top: 1px solid rgba(0, 240, 255, 0.15);
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .scu-footer p { font-size: 0.9rem; opacity: 0.6; }
+
+        strong { color: #d4af6a; }
+
+        @media (max-width: 768px) {
+            .hero-content { flex-direction: column; }
+            .section-header h2 { font-size: 1.4rem; }
+            .objectives-grid { grid-template-columns: 1fr; }
+            .speaker-bio { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<main>
+    <section class="scu-hero-card">
+        <svg style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.1; pointer-events: none;" viewBox="0 0 1200 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <defs>
+                <filter id="glow2">
+                    <feGaussianBlur stdDeviation="10" result="blur"/>
+                    <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                </filter>
+            </defs>
+            <g stroke="#00f0ff" stroke-width="2" fill="none" opacity="0.4">
+                <path d="M 100 80 Q 150 120, 100 160" stroke-width="3"/>
+                <path d="M 150 80 Q 200 120, 150 160" stroke-width="3"/>
+                <path d="M 200 80 Q 250 120, 200 160" stroke-width="3"/>
+                <circle cx="100" cy="80" r="5" fill="#00f0ff" opacity="0.6" filter="url(#glow2)"/>
+                <circle cx="150" cy="80" r="5" fill="#b052ff" opacity="0.5" filter="url(#glow2)"/>
+                <circle cx="200" cy="80" r="5" fill="#00f0ff" opacity="0.6" filter="url(#glow2)"/>
+            </g>
+            <g stroke="#b052ff" stroke-width="1.5" fill="none" opacity="0.3">
+                <circle cx="800" cy="100" r="8" fill="#b052ff" opacity="0.4" filter="url(#glow2)"/>
+                <line x1="800" y1="100" x2="900" y2="150"/><circle cx="900" cy="150" r="6" fill="#b052ff" opacity="0.3"/>
+                <line x1="900" y1="150" x2="1000" y2="100"/><circle cx="1000" cy="100" r="7" fill="#b052ff" opacity="0.25"/>
+            </g>
+        </svg>
+
+        <div class="hero-content">
+            <div class="speaker-avatar">👩‍🔬</div>
+            <div class="hero-info">
+                <div class="hero-tag">Guest Speaker / Week 02</div>
+                <h1>Dr. Francesca Vacante</h1>
+                <p class="role">Postdoctoral Scholar, Stanford Cardiovascular Institute (Joseph Wu Lab)</p>
+                <p class="talk-title">
+                    <strong>CRISPRa-Driven Gene Activation: Non-Coding RNA as a Therapeutic Target in Cardiovascular Disease</strong>
+                </p>
+                <div class="logistics-bar">
+                    <div class="logistics-item">
+                        <div class="logistics-label">Date & Time</div>
+                        <div class="logistics-value">Wednesday, April 8 • 5:25 PM - 6:30 PM</div>
+                    </div>
+                    <div class="logistics-item">
+                        <div class="logistics-label">Location</div>
+                        <div class="logistics-value">Santa Clara University campus, In Person</div>
+                    </div>
+                    <div class="logistics-item">
+                        <div class="logistics-label">Format</div>
+                        <div class="logistics-value">Seminar + Q&A</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="scu-container">
+        <div class="section-header">
+            <h2>Pre-Class Preparation</h2>
+        </div>
+
+        <p style="font-size: 1.05rem; margin-bottom: 2rem; opacity: 0.85;">
+            Preparing thoroughly for this seminar will significantly deepen your engagement with Dr. Vacante's work. Please complete these before Wednesday's session.
+        </p>
+
+        <div class="dossier-card primary">
+            <span class="dossier-label">Primary Reading</span>
+            <h3 class="dossier-title">CARMN/miR-143/145 CRISPRa: Epigenetic Activation of Non-Coding RNAs in Cardiovascular Homeostasis</h3>
+            <p style="font-size: 0.9rem; opacity: 0.65; margin-bottom: 1rem;">
+                Francesca F. Vacante, et al. (2025) • Arteriosclerosis, Thrombosis, and Vascular Biology (ATVB)
+            </p>
+            <p class="dossier-description">
+                This is the primary research paper Dr. Vacante will present. Focus on the abstract, introduction, and key figures. You don't need to master every technical detail—aim to understand the main research question, the experimental approach, and the key findings. Pay special attention to what CRISPR activation (CRISPRa) is and why targeting non-coding RNAs matters for cardiovascular disease.
+            </p>
+            <a href="#" class="scu-btn-primary" style="display: inline-block; margin-top: 1rem;">Read Paper ↓</a>
+        </div>
+
+        <div class="dossier-card optional">
+            <span class="dossier-label">Optional Resources</span>
+            <h3 class="dossier-title">Two Supplementary Papers</h3>
+            <p style="font-size: 0.9rem; opacity: 0.65; margin-bottom: 1rem;">If you want to go deeper, check these out—but they're truly optional.</p>
+            <p class="dossier-description">
+                <strong>MIR503HG and Long Non-Coding RNA Regulation of Vascular Function</strong> (Vascular Pharmacology)<br>
+                Explores the broader landscape of how long non-coding RNAs regulate vascular biology, providing context for understanding CARMN's role.
+            </p>
+            <p style="margin-bottom: 1rem; opacity: 0.8; font-size: 0.9rem;">
+                <strong>CRISPR-Based Epigenetic Editing of Non-Coding RNA Loci</strong> (Nature Reviews Cardiology)<br>
+                A commentary on the emerging field of using CRISPRa to activate therapeutic non-coding RNAs.
+            </p>
+        </div>
+
+        <div class="dossier-card study-aid">
+            <span class="dossier-label">Study Guide</span>
+            <h3 class="dossier-title">Glossary: Key Concepts & Technical Terms</h3>
+            <p style="font-size: 0.9rem; opacity: 0.65; margin-bottom: 1rem;">Don't know a term? Start here.</p>
+            <p style="margin-bottom: 1rem;">
+                <strong>cis-regulatory elements:</strong> DNA sequences that regulate genes in the same chromosome region.<br/>
+                <strong>lncRNA:</strong> Long non-coding RNA—RNA molecules >200 nucleotides that don't code for proteins but regulate genes.<br/>
+                <strong>miRNA:</strong> Small non-coding RNAs that typically repress genes by binding to mRNA.<br/>
+                <strong>CRISPRa:</strong> CRISPR activation—a modified CRISPR system that activates (turns on) genes without cutting DNA.<br/>
+                <strong>cis-ON system:</strong> Dr. Vacante's innovation: using RNA transcripts as recruiters to guide CRISPRa to target genes.<br/>
+                <strong>Cardiovascular disease:</strong> Diseases affecting the heart and blood vessels—a major focus of therapeutic research.
+            </p>
+            <p style="font-size: 0.9rem; opacity: 0.75;"><em>As you read the paper, jot down any other terms that confuse you. Bring them to class—asking "What does [term] mean?" is always a great question.</em></p>
+        </div>
+
+        <hr class="section-divider">
+
+        <div class="section-header">
+            <h2>Meet the Speaker</h2>
+        </div>
+
+        <div class="speaker-bio">
+            <div class="bio-section">
+                <h3>Background & Training</h3>
+                <p>
+                    Francesca is a postdoctoral scholar in the Joseph Wu Lab at Stanford Cardiovascular Institute, where she develops new gene activation strategies for cardiovascular disease. She completed her Ph.D. at the University of Edinburgh in the Andrew Baker laboratory, focusing on non-coding RNA biology.
+                </p>
+                <p>
+                    Her work bridges fundamental molecular biology and translational medicine: understanding how non-coding RNAs control cardiovascular physiology and leveraging that knowledge to develop new therapies.
+                </p>
+            </div>
+
+            <div class="bio-section">
+                <h3>Awards & Recognition</h3>
+                <p>Francesca has received multiple recognitions for her research and mentoring:</p>
+                <ul style="padding-left: 1.5rem; opacity: 0.85; font-size: 0.95rem;">
+                    <li>2025 Young Scientist Award</li>
+                    <li>Stanford Cardiovascular Institute Recognition Award</li>
+                    <li>Postdoc Champion Award</li>
+                    <li>Chan-Zuckerberg Initiative Next-Gen Researcher Fellow</li>
+                    <li>Founder of iWISH-Talks, a mentoring initiative for early-career women in science</li>
+                </ul>
+            </div>
+        </div>
+
+        <p style="font-size: 0.95rem; opacity: 0.8; margin-bottom: 2rem;">
+            <strong>Email:</strong> fvacante@stanford.edu
+        </p>
+
+        <hr class="section-divider">
+
+        <div class="section-header">
+            <h2>What You'll Learn</h2>
+        </div>
+
+        <div class="objectives-grid">
+            <div class="objective-item">
+                <div class="objective-number">1</div>
+                <div class="objective-text">
+                    <h4>Understand CRISPRa Technology</h4>
+                    <p>Learn how CRISPRa differs from standard CRISPR gene editing and why activating (rather than cutting) is therapeutically valuable.</p>
+                </div>
+            </div>
+            <div class="objective-item">
+                <div class="objective-number">2</div>
+                <div class="objective-text">
+                    <h4>Non-Coding RNA in Disease</h4>
+                    <p>Grasp how long and short non-coding RNAs regulate cardiovascular function and what happens when they're dysregulated.</p>
+                </div>
+            </div>
+            <div class="objective-item">
+                <div class="objective-number">3</div>
+                <div class="objective-text">
+                    <h4>From Bench to Clinic</h4>
+                    <p>See how basic research discoveries translate into therapeutic strategies for real disease and the experimental validation required.</p>
+                </div>
+            </div>
+            <div class="objective-item">
+                <div class="objective-number">4</div>
+                <div class="objective-text">
+                    <h4>Career as an Early-Stage Researcher</h4>
+                    <p>Hear about Francesca's path from PhD to postdoc, her experience in two labs and two countries, and how she's building her independent research identity.</p>
+                </div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <div class="section-header">
+            <h2>During the Seminar</h2>
+        </div>
+
+        <div class="scu-glass-panel accent-gold">
+            <div style="display: flex; gap: 1.5rem; align-items: flex-start; margin-bottom: 1.25rem;">
+                <div style="background: #d4af6a; color: #0f1419; padding: 0.5rem 0.75rem; border-radius: 6px; font-weight: 600; font-size: 0.85rem; white-space: nowrap;">5:25–5:30</div>
+                <div style="flex: 1;">
+                    <p style="font-weight: 600; color: var(--text-main); margin-bottom: 0.25rem;">Welcome & Context Setting</p>
+                    <p style="font-size: 0.9rem; opacity: 0.75;">Introduction to Dr. Vacante, her work, and the broader landscape of non-coding RNA therapeutics.</p>
+                </div>
+            </div>
+            <div style="display: flex; gap: 1.5rem; align-items: flex-start; margin-bottom: 1.25rem;">
+                <div style="background: #d4af6a; color: #0f1419; padding: 0.5rem 0.75rem; border-radius: 6px; font-weight: 600; font-size: 0.85rem; white-space: nowrap;">5:30–6:00</div>
+                <div style="flex: 1;">
+                    <p style="font-weight: 600; color: var(--text-main); margin-bottom: 0.25rem;">Research Presentation</p>
+                    <p style="font-size: 0.9rem; opacity: 0.75;">Dr. Vacante will present her work on CARMN, the cis-ON system, and implications for cardiovascular disease treatment.</p>
+                </div>
+            </div>
+            <div style="display: flex; gap: 1.5rem; align-items: flex-start;">
+                <div style="background: #d4af6a; color: #0f1419; padding: 0.5rem 0.75rem; border-radius: 6px; font-weight: 600; font-size: 0.85rem; white-space: nowrap;">6:00–6:30</div>
+                <div style="flex: 1;">
+                    <p style="font-weight: 600; color: var(--text-main); margin-bottom: 0.25rem;">Q&A & Discussion</p>
+                    <p style="font-size: 0.9rem; opacity: 0.75;">Ask questions about the research, the methods, the findings, or anything else. This is your time to engage directly with an active researcher.</p>
+                </div>
+            </div>
+        </div>
+
+        <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.15rem; font-weight: 600; color: var(--text-main); margin-top: 2rem; margin-bottom: 1rem;">The Power of Good Questions</h3>
+
+        <p style="font-size: 0.95rem; opacity: 0.85; margin-bottom: 1.5rem;">
+            Use the question taxonomy below to frame your thinking. All four types of questions are valuable and welcomed:
+        </p>
+
+        <div class="question-taxonomy">
+            <div class="taxonomy-item">
+                <strong>Clarification</strong>
+                <p>"What does [term] mean?" or "Can you explain [concept] in simpler terms?"</p>
+            </div>
+            <div class="taxonomy-item">
+                <strong>Method</strong>
+                <p>"Why did you use [approach] instead of [alternative]?" or "How did you control for [variable]?"</p>
+            </div>
+            <div class="taxonomy-item">
+                <strong>Interpretation</strong>
+                <p>"Could there be an alternative explanation for [finding]?" or "What about [confounding factor]?"</p>
+            </div>
+            <div class="taxonomy-item">
+                <strong>Extension</strong>
+                <p>"What would happen if [scenario]?" or "How would this approach work for [related disease]?"</p>
+            </div>
+        </div>
+
+        <p style="font-size: 0.9rem; opacity: 0.75; font-style: italic; margin-top: 1.5rem;">
+            Don't worry about asking a "perfect" question. Researchers appreciate genuine curiosity and thoughtful engagement. If you say, "I'm confused about [topic]—can you help me understand it?" you've already started a productive conversation.
+        </p>
+
+        <hr class="section-divider">
+
+        <div class="section-header">
+            <h2>Post-Seminar Reflection</h2>
+        </div>
+
+        <p style="font-size: 1.05rem; margin-bottom: 2rem; opacity: 0.85;">
+            Within one week of the seminar, write a short reflection (200–300 words) on one of the prompts below. This consolidates your learning and helps you articulate what the research means to you.
+        </p>
+
+        <div class="scu-glass-panel accent-cyan">
+            <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.15rem; font-weight: 600; color: var(--text-main); margin-bottom: 1.25rem;">
+                Choose One Reflection Prompt
+            </h3>
+
+            <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+                <div>
+                    <p style="color: #d4af6a; font-weight: 600; margin-bottom: 0.5rem;">1. Key Insight</p>
+                    <p style="opacity: 0.85;">
+                        What was one key finding or concept from Dr. Vacante's research that surprised you or changed how you think about non-coding RNA? Explain what it means and why it matters.
+                    </p>
+                </div>
+                <div style="border-top: 1px solid rgba(0, 240, 255, 0.15); padding-top: 1.25rem;">
+                    <p style="color: #d4af6a; font-weight: 600; margin-bottom: 0.5rem;">2. Career Reflection</p>
+                    <p style="opacity: 0.85;">
+                        Francesca works at the intersection of fundamental research and translational medicine. Does that appeal to you? Why or why not? What aspects of her path resonated?
+                    </p>
+                </div>
+                <div style="border-top: 1px solid rgba(0, 240, 255, 0.15); padding-top: 1.25rem;">
+                    <p style="color: #d4af6a; font-weight: 600; margin-bottom: 0.5rem;">3. Science Question</p>
+                    <p style="opacity: 0.85;">
+                        What question about this research didn't get answered during the seminar? What would you want to investigate next, and how would you approach it?
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.15rem; font-weight: 600; color: var(--text-main); margin-top: 2rem; margin-bottom: 1rem;">A Note on Reflection</h3>
+        <p style="font-size: 0.95rem; opacity: 0.85; margin-bottom: 1.5rem;">
+            Reflections are not formal essays. Write conversationally, but thoughtfully. Be honest: if something confused you, say so. If the research didn't grab you, that's okay—explain what would have made it more engaging. The goal is to deepen your thinking, not to impress with jargon.
+        </p>
+
+        <hr class="section-divider">
+
+        <div class="section-header">
+            <h2>Before Class: Discussion Board Post</h2>
+        </div>
+
+        <p style="font-size: 1.05rem; margin-bottom: 2rem; opacity: 0.85;">
+            Before Wednesday, post one genuine question about the paper to the Discussion Board. It should reflect that you've read the abstract and looked at the figures. Your post doesn't need to be polished—just thoughtful.
+        </p>
+
+        <div class="discussion-prompt">
+            "After reading the Vacante et al. paper, what is one question you have about the research? It could be about the science, the methods, the motivation, or a term you don't understand. The only rule: it cannot be answered with 'yes' or 'no.'"
+        </div>
+
+        <p style="font-size: 0.95rem; opacity: 0.8; margin-top: 1.5rem;">
+            These posts help you arrive at the seminar already thinking about the research, and they give Dr. Vacante insight into what interests and confuses students. Speakers find these questions valuable.
+        </p>
+
+        <hr class="section-divider">
+
+        <div class="scu-glass-panel accent-blue">
+            <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.15rem; font-weight: 600; color: var(--text-main); margin-bottom: 1rem;">
+                What If You Can't Attend?
+            </h3>
+            <p style="margin-bottom: 1rem;">
+                If you must miss the seminar, you can still complete this module by:
+            </p>
+            <ol style="padding-left: 1.5rem; opacity: 0.85; font-size: 0.95rem;">
+                <li style="margin-bottom: 0.5rem;">Watching the recording (if available) within one week</li>
+                <li style="margin-bottom: 0.5rem;">Completing an extended reflection (400 words) instead of the standard 200–300</li>
+                <li>Submitting your discussion board post anyway</li>
+            </ol>
+            <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.75;">
+                Email Giorgio if you need to make arrangements.
+            </p>
+        </div>
+
+    </section>
+
+    <div class="scu-footer">
+        <p>BIOL 101 • Biology Research Seminar • Week 02</p>
+        <p>Dr. Francesca Vacante • April 8, 2026</p>
+        <p style="margin-top: 1rem; font-size: 0.85rem;">Questions? Email Giorgio at glagna@scu.edu</p>
+    </div>
+
+</main>
+
+</body>
+</html>

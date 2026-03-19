@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connecting the Threads: Synthesis Workshop | BIOL 101</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --accent-primary: #2b9b9b;
+            --accent-secondary: #d4af6a;
+            --bg-dark: #0a0f0f;
+            --text-light: #e0dcd8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(135deg, #0a0f0f 0%, #0a0f0a 50%, #050805 100%);
+            color: var(--text-light);
+            line-height: 1.6;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%; left: -20%;
+            width: 80%; height: 80%;
+            background: radial-gradient(circle, rgba(43, 155, 155, 0.15) 0%, transparent 70%);
+            filter: blur(120px);
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -30%; right: -10%;
+            width: 60%; height: 60%;
+            background: radial-gradient(circle, rgba(212, 175, 106, 0.15) 0%, transparent 70%);
+            filter: blur(120px);
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes rotateRing {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes fadeInLine {
+            0% { stroke-dasharray: 300; stroke-dashoffset: 300; opacity: 0; }
+            100% { stroke-dasharray: 300; stroke-dashoffset: 0; opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+
+        main { position: relative; z-index: 1; animation: fadeInUp 0.8s ease-out; }
+
+        .scu-hero-card {
+            background: linear-gradient(135deg, #0a2a2a 0%, #0f1a1a 100%);
+            color: #d4f1f4;
+            padding: 4rem 2rem;
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid rgba(43, 155, 155, 0.3);
+            border-bottom: 1px solid rgba(43, 155, 155, 0.2);
+        }
+
+        .scu-hero-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(43, 155, 155, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(212, 175, 106, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-svg-bg {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+        .ring-container {
+            animation: rotateRing 30s linear infinite;
+            transform-origin: center;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .scu-hero-card h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--accent-secondary) 0%, #f0e68c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .scu-hero-card .subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+            animation: fadeInUp 0.8s ease-out 0.3s both;
+        }
+
+        .scu-hero-card .tagline {
+            font-size: 1.05rem;
+            opacity: 0.85;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .scu-glass-panel {
+            background: rgba(10, 15, 15, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .scu-glass-panel.accent-primary {
+            border-left: 4px solid var(--accent-primary);
+        }
+
+        .scu-course-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 3rem 0 2rem 0;
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .section-header h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-secondary) 0%, #f0e68c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-header::before {
+            content: '';
+            width: 4px;
+            height: 35px;
+            background: var(--accent-primary);
+            border-radius: 2px;
+            flex-shrink: 0;
+        }
+
+        .section-divider {
+            border: none;
+            height: 1px;
+            background: rgba(212, 175, 106, 0.15);
+            margin: 3rem 0;
+        }
+
+        .objectives-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .objectives-grid { grid-template-columns: 1fr; }
+            .scu-hero-card h1 { font-size: 2rem; }
+        }
+
+        .objective-item {
+            background: rgba(10, 15, 15, 0.5);
+            border: 1px solid rgba(212, 175, 106, 0.15);
+            border-radius: 8px;
+            padding: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            backdrop-filter: blur(15px);
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .objective-number {
+            flex-shrink: 0;
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--accent-secondary) 0%, #b89b5e 100%);
+            color: var(--bg-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+        }
+
+        .objective-text h4 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #d4f1f4;
+            margin-bottom: 0.35rem;
+        }
+
+        .objective-text p {
+            font-size: 0.9rem;
+            opacity: 0.75;
+        }
+
+        .activity-card {
+            background: rgba(10, 15, 15, 0.5);
+            border: 1px solid rgba(212, 175, 106, 0.15);
+            border-radius: 10px;
+            padding: 1.75rem;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(15px);
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .activity-label {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            background: rgba(212, 175, 106, 0.15);
+            color: var(--accent-secondary);
+            padding: 0.35rem 0.75rem;
+            border-radius: 4px;
+            margin-bottom: 0.75rem;
+        }
+
+        .activity-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #d4f1f4;
+            margin-bottom: 0.75rem;
+        }
+
+        .activity-content {
+            font-size: 0.95rem;
+            opacity: 0.85;
+            line-height: 1.7;
+        }
+
+        .activity-content ul {
+            padding-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .activity-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .discussion-card {
+            background: rgba(10, 15, 15, 0.5);
+            border: 1px solid rgba(212, 175, 106, 0.15);
+            border-radius: 10px;
+            padding: 1.75rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(15px);
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .discussion-card h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #d4f1f4;
+            margin-bottom: 1rem;
+        }
+
+        .discussion-card p {
+            font-size: 0.95rem;
+            opacity: 0.85;
+            margin-bottom: 0.75rem;
+        }
+
+        .discussion-card ul {
+            padding-left: 1.5rem;
+        }
+
+        .discussion-card li {
+            margin-bottom: 0.5rem;
+            opacity: 0.85;
+        }
+
+        .concept-guide {
+            background: rgba(10, 15, 15, 0.5);
+            border: 1px solid rgba(212, 175, 106, 0.15);
+            border-radius: 10px;
+            padding: 1.75rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(15px);
+        }
+
+        .concept-guide h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #d4f1f4;
+            margin-bottom: 1rem;
+        }
+
+        .concept-section {
+            border-top: 1px solid rgba(212, 175, 106, 0.1);
+            padding-top: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .concept-section:first-of-type {
+            border-top: none;
+            padding-top: 0;
+            margin-top: 0;
+        }
+
+        .concept-subtitle {
+            color: var(--accent-secondary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .concept-text {
+            font-size: 0.95rem;
+            opacity: 0.85;
+            line-height: 1.7;
+        }
+
+        .concept-text ul {
+            padding-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .highlight-box {
+            background: rgba(212, 175, 106, 0.1);
+            border-left: 3px solid var(--accent-secondary);
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1.5rem 0;
+            font-style: italic;
+            backdrop-filter: blur(10px);
+        }
+
+        .watermark {
+            position: absolute;
+            top: 1rem;
+            right: 2rem;
+            font-family: 'Outfit', sans-serif;
+            font-size: 4rem;
+            font-weight: 700;
+            opacity: 0.04;
+            pointer-events: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .scu-footer {
+            background: linear-gradient(135deg, #0a0f0f 0%, #050805 100%);
+            border-top: 1px solid rgba(212, 175, 106, 0.2);
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+            text-align: center;
+            animation: fadeInUp 0.8s ease-out 0.7s both;
+        }
+
+        .scu-footer p {
+            font-size: 0.9rem;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+
+<main>
+    <section class="scu-hero-card">
+        <div class="watermark">WEEK 09</div>
+
+        <svg class="hero-svg-bg" viewBox="0 0 1200 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <defs>
+                <filter id="ringGlow">
+                    <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                    <feMerge>
+                        <feMergeNode in="coloredBlur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                </filter>
+            </defs>
+            <g class="ring-container" filter="url(#ringGlow)">
+                <circle cx="600" cy="200" r="80" stroke="#2b9b9b" stroke-width="2" fill="none" opacity="0.6" stroke-dasharray="251 502"/>
+                <circle cx="600" cy="200" r="120" stroke="#d4af6a" stroke-width="1" fill="none" opacity="0.3"/>
+            </g>
+            <g stroke="#d4af6a" stroke-width="1.5" fill="none" opacity="0.4">
+                <line x1="150" y1="100" x2="600" y2="200" style="animation: fadeInLine 4s ease-out forwards;"/>
+                <line x1="400" y1="80" x2="600" y2="200" style="animation: fadeInLine 4s ease-out 0.5s forwards;"/>
+                <line x1="900" y1="120" x2="600" y2="200" style="animation: fadeInLine 4s ease-out 1s forwards;"/>
+                <line x1="1050" cy="200" x2="600" y2="200" style="animation: fadeInLine 4s ease-out 1.5s forwards;"/>
+            </g>
+        </svg>
+
+        <div class="hero-content">
+            <h1>Connecting the Threads</h1>
+            <p class="subtitle">BIOL 101 • Synthesis Workshop • May 27</p>
+            <p class="tagline">Step back and see the whole picture. What themes, methods, and questions connect the five talks you've heard? What has changed in how you think about science and your future?</p>
+        </div>
+    </section>
+
+    <section class="scu-course-wrapper">
+
+        <div class="scu-glass-panel accent-primary" style="margin-top: 3rem; animation-delay: 0.6s;">
+            <p style="margin: 0; font-size: 1.05rem; line-height: 1.8;"><strong>Time:</strong> Wednesday, May 27, 5:25–6:30 PM<br/><strong>Location:</strong> Santa Clara Campus, In Person<br/><strong>Format:</strong> Concept mapping exercise + class discussion + final synthesis preview</p>
+        </div>
+
+        <div class="section-header"><h2>What This Week Is About</h2></div>
+
+        <div class="objectives-grid">
+            <div class="objective-item delay-1">
+                <div class="objective-number">1</div>
+                <div class="objective-text"><h4>Identify Themes Across Talks</h4><p>Find common threads connecting at least three of the five speakers.</p></div>
+            </div>
+            <div class="objective-item delay-2">
+                <div class="objective-number">2</div>
+                <div class="objective-text"><h4>Articulate Your Evolution</h4><p>Recognize how your thinking about biology and science careers has changed since Week 1.</p></div>
+            </div>
+            <div class="objective-item delay-3">
+                <div class="objective-number">3</div>
+                <div class="objective-text"><h4>Practice Synthesis</h4><p>Synthesize ideas from multiple sources into a coherent argument—a key intellectual skill.</p></div>
+            </div>
+            <div class="objective-item delay-4">
+                <div class="objective-number">4</div>
+                <div class="objective-text"><h4>Prepare for the Final Sprint</h4><p>Get ready for our final speaker (Week 10) and the capstone reflection (Week 11).</p></div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <div class="section-header"><h2>Before Class: Identify One Connecting Theme</h2></div>
+
+        <p style="font-size: 1.05rem; margin-bottom: 2rem; opacity: 0.85; animation: fadeInUp 0.8s ease-out 0.65s both;"><strong>Due by 11:59 PM Monday, May 25.</strong> Review your five post-class reflections from Weeks 2, 3, 5, 6, and 8. Write a short paragraph (~100 words):</p>
+
+        <div class="activity-card" style="animation-delay: 0.7s;">
+            <span class="activity-label">Pre-Class Assignment</span>
+            <div class="activity-title">Look Across All Five Talks</div>
+            <div class="activity-content">
+                Identify <strong>one theme or question</strong> that connects at least three of the five speakers. Write a short paragraph explaining the connection. What is the theme? How does it show up in each of the talks? Why does this connection matter?
+                <br/><br/>
+                <strong>Possible themes to explore:</strong>
+                <ul>
+                    <li><strong>Methods:</strong> Did multiple speakers use sequencing, CRISPR, modeling, or other shared techniques?</li>
+                    <li><strong>Career paths:</strong> Notice how several speakers are postdocs, or how some made unexpected transitions?</li>
+                    <li><strong>The gap between basic research and human health:</strong> How do different researchers bridge bench and bedside?</li>
+                    <li><strong>Interdisciplinarity:</strong> How do speakers combine different fields?</li>
+                    <li><strong>How researchers frame uncertainty:</strong> How comfortable are they with not knowing?</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            <strong>Reflection tip:</strong> Write conversationally. The goal is to notice connections and articulate them for yourself—and for your classmates when you share today.
+        </div>
+
+        <hr class="section-divider">
+
+        <div class="section-header"><h2>During Class: Concept Mapping & Synthesis</h2></div>
+
+        <p style="font-size: 1.05rem; margin-bottom: 2rem; opacity: 0.85;">Week 9 is a working class. No lecture, no speaker. Just you, your classmates, and the ideas you've been gathering all quarter.</p>
+
+        <div class="discussion-card" style="animation-delay: 0.75s;">
+            <h3>Part 1: Concept Mapping (25 minutes)</h3>
+            <p>You'll work in groups of 3–4 to create a visual "concept map" on a large sheet of paper. At the center, write "Biology Research in 2026." Around it, add the five speakers (Francesca, Camilla, David, Julie, Emma) with their topics, methods, career stages, and anything else important. Then draw connections: shared methods, shared motivations, shared career features, shared skills. Each group presents their map (2 minutes each).</p>
+        </div>
+
+        <div class="discussion-card" style="animation-delay: 0.8s;">
+            <h3>Part 2: "What I Wish I'd Known" Discussion (15 minutes)</h3>
+            <p>Whole class reflection:</p>
+            <ul>
+                <li><strong>What do you know now about scientific research that you didn't know in Week 1?</strong> Be specific.</li>
+                <li><strong>What surprised you most across the talks?</strong> What stuck with you?</li>
+                <li><strong>What kinds of skills do these researchers share, beyond their specific scientific expertise?</strong> Think about communication, persistence, collaboration, comfort with uncertainty, resilience.</li>
+            </ul>
+        </div>
+
+        <div class="discussion-card" style="animation-delay: 0.85s;">
+            <h3>Part 3: Final Synthesis Preview (15 minutes)</h3>
+            <p><strong>Introducing the Final Synthesis Reflection:</strong> Due Week 11. Approximately 400 words. Three components:</p>
+            <ul>
+                <li><strong>Part 1: Connections.</strong> Choose a theme, method, or question from at least three talks. Explain how it manifested in each.</li>
+                <li><strong>Part 2: Growth.</strong> How has your approach to reading scientific papers changed since Week 1?</li>
+                <li><strong>Part 3: Looking Forward.</strong> Based on everything you experienced this quarter, what is one thing you want to explore, learn, or do next?</li>
+            </ul>
+        </div>
+
+        <hr class="section-divider">
+
+        <div class="section-header"><h2>Concept Mapping Guide</h2></div>
+
+        <p style="font-size: 1.05rem; margin-bottom: 2rem; opacity: 0.85;">Need help visualizing the connections? Here's a structure to get your group started:</p>
+
+        <div class="scu-glass-panel accent-primary" style="animation-delay: 0.9s;">
+            <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.2rem; font-weight: 700; color: #d4f1f4; margin-bottom: 1.25rem;">How to Build Your Concept Map</h3>
+
+            <div class="concept-guide" style="border: none; padding: 0; background: none;">
+
+                <div class="concept-section">
+                    <p class="concept-subtitle">Start with the center</p>
+                    <p class="concept-text">Write "Biology Research in 2026" in the middle of your paper. Everything else radiates from this central idea.</p>
+                </div>
+
+                <div class="concept-section">
+                    <p class="concept-subtitle">Add the five speakers</p>
+                    <p class="concept-text">Around the center, add nodes for each speaker. Include their names and a one-sentence description of their work: Francesca Vacante (CRISPRa, non-coding RNA, postdoc), Camilla Teng (tissue fusion, craniofacial biology, postdoc), David Hess (genomic surveillance, public health), Julie Frouard (HIV sequencing, virology), Emma Krasovich Southworth (tropical cyclones & dengue, PhD candidate).</p>
+                </div>
+
+                <div class="concept-section">
+                    <p class="concept-subtitle">Add their methods</p>
+                    <p class="concept-text">For each speaker, jot down key techniques: CRISPR, sequencing, modeling, microscopy, fieldwork, computational analysis.</p>
+                </div>
+
+                <div class="concept-section">
+                    <p class="concept-subtitle">Draw connections</p>
+                    <p class="concept-text">Draw lines between speakers where connections exist. Label those lines. Examples: "Both use sequencing," "Both are postdocs," "Both bridge basic science and health outcomes," "Both use computational tools."</p>
+                </div>
+
+                <div class="concept-section">
+                    <p class="concept-subtitle">Step back and look</p>
+                    <p class="concept-text">What patterns emerge? Are there clusters of speakers? Universal themes? A unifying question threading through all five talks? Your group's insights matter.</p>
+                </div>
+
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <div class="section-header"><h2>The Home Stretch</h2></div>
+
+        <div class="scu-glass-panel accent-primary" style="animation-delay: 0.95s;">
+            <p style="margin-bottom: 1rem; font-size: 0.95rem; opacity: 0.85;">You've listened to five different scientists. You've conducted an informational interview and presented it. You've thought deeply about what connects these speakers and what their work means for you.</p>
+            <p style="opacity: 0.85;">Two weeks left: Week 10 brings our final speaker (Samhita Jain, the clinician-scientist), and Week 11 is celebration and wrap-up. By then, you will have heard from six different people at different career stages, connected by the shared practice of biology.</p>
+            <p style="opacity: 0.85;">You're almost there. Keep thinking. Keep connecting. Keep growing.</p>
+        </div>
+
+    </section>
+
+    <div class="scu-footer">
+        <p>BIOL 101 • Biology Research Seminar • Week 09</p>
+        <p>Synthesis Workshop: Connecting the Threads • May 27, 2026</p>
+        <p style="margin-top: 1rem; font-size: 0.85rem;">Questions? Email Giorgio at glagna@scu.edu</p>
+    </div>
+
+</main>
+
+</body>
+</html>

@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Camilla Teng: Cellular Mechanics of Tissue Fusion | BIOL 101</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --accent-primary: #00ffcc;
+            --accent-secondary: #00ff66;
+            --accent-tertiary: #00aaff;
+            --text-main: #e0dcd8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(135deg, #050a08 0%, #0a0f0a 50%, #050805 100%);
+            color: var(--text-main);
+            line-height: 1.6;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -20%;
+            width: 80%;
+            height: 80%;
+            background: radial-gradient(circle, rgba(0, 255, 204, 0.15) 0%, transparent 70%);
+            z-index: 0;
+            pointer-events: none;
+            filter: blur(120px);
+            opacity: 0.15;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -50%;
+            right: -20%;
+            width: 80%;
+            height: 80%;
+            background: radial-gradient(circle, rgba(0, 255, 102, 0.12) 0%, transparent 70%);
+            z-index: 0;
+            pointer-events: none;
+            filter: blur(120px);
+            opacity: 0.15;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.5; filter: drop-shadow(0 0 10px rgba(0, 255, 204, 0.7)); }
+            50% { opacity: 0.9; filter: drop-shadow(0 0 20px rgba(0, 255, 102, 1)); }
+        }
+
+        @keyframes cellFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(2deg); }
+        }
+
+        main { position: relative; z-index: 1; }
+
+        .scu-hero-card {
+            background: linear-gradient(135deg, #0f2820 0%, #0a1f16 100%);
+            color: var(--text-main);
+            padding: 3.5rem 2rem;
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid rgba(0, 255, 204, 0.3);
+            border-bottom: 1px solid rgba(0, 255, 102, 0.2);
+        }
+
+        .scu-hero-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(0, 255, 204, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 255, 102, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            align-items: flex-start;
+            gap: 2.5rem;
+            animation: fadeInDown 0.9s ease-out;
+        }
+
+        .speaker-avatar {
+            width: 140px;
+            height: 140px;
+            background: linear-gradient(135deg, #00ffcc 0%, #00ff66 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 8px 32px rgba(0, 255, 204, 0.2);
+            font-size: 3rem;
+            animation: cellFloat 4s ease-in-out infinite;
+        }
+
+        .hero-info {
+            flex: 1;
+            padding-top: 0.5rem;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.75rem;
+            opacity: 0.85;
+        }
+
+        .hero-info h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            line-height: 1.1;
+            background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-info .role {
+            font-size: 1.15rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            opacity: 0.95;
+        }
+
+        .hero-info .talk-title {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+            max-width: 500px;
+            line-height: 1.6;
+        }
+
+        .logistics-bar {
+            display: flex;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .logistics-item {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .logistics-label {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .logistics-value {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .scu-glass-panel {
+            background: rgba(20, 15, 30, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: all 300ms ease;
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        .scu-glass-panel:nth-child(1) { animation-delay: 0.3s; }
+        .scu-glass-panel:nth-child(2) { animation-delay: 0.4s; }
+        .scu-glass-panel:nth-child(3) { animation-delay: 0.5s; }
+
+        .scu-glass-panel:hover {
+            background: rgba(20, 15, 30, 0.8);
+            border-color: rgba(0, 255, 204, 0.35);
+            transform: translateY(-4px);
+        }
+
+        .scu-glass-panel.accent-gold { border-left: 4px solid #d4af6a; }
+        .scu-glass-panel.accent-cyan { border-left: 4px solid var(--accent-primary); }
+        .scu-glass-panel.accent-blue { border-left: 4px solid #3498db; }
+
+        .scu-container { max-width: 1000px; margin: 0 auto; padding: 0 1.5rem; }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 3rem 0 2rem 0;
+        }
+
+        .section-header h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin: 0;
+        }
+
+        .section-header::before {
+            content: '';
+            width: 4px;
+            height: 35px;
+            background: var(--accent-primary);
+            border-radius: 2px;
+            flex-shrink: 0;
+        }
+
+        .section-divider { border: none; height: 1px; background: rgba(0, 255, 204, 0.15); margin: 3rem 0; }
+
+        .dossier-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(0, 255, 204, 0.2);
+            border-radius: 10px;
+            padding: 1.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .dossier-card.primary { border-left: 4px solid #e07856; }
+        .dossier-card.optional { border-left: 4px solid #1abc9c; }
+        .dossier-card.study-aid { border-left: 4px solid #9b59b6; }
+
+        .dossier-label {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 0.35rem 0.75rem;
+            border-radius: 4px;
+            margin-bottom: 0.75rem;
+        }
+
+        .dossier-card.primary .dossier-label { background: rgba(224, 120, 86, 0.2); color: #e07856; }
+        .dossier-card.optional .dossier-label { background: rgba(26, 188, 156, 0.2); color: #1abc9c; }
+        .dossier-card.study-aid .dossier-label { background: rgba(155, 89, 182, 0.2); color: #9b59b6; }
+
+        .dossier-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+
+        .dossier-description {
+            font-size: 0.95rem;
+            opacity: 0.85;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .speaker-bio {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .bio-section h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 1rem;
+        }
+
+        .bio-section p {
+            font-size: 0.95rem;
+            opacity: 0.85;
+            line-height: 1.7;
+            margin-bottom: 0.75rem;
+        }
+
+        .objectives-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .objective-item {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(0, 255, 204, 0.15);
+            border-radius: 8px;
+            padding: 1.5rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .objective-number {
+            flex-shrink: 0;
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+            color: #050505;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .objective-text h4 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 0.35rem;
+        }
+
+        .objective-text p { font-size: 0.9rem; opacity: 0.75; }
+
+        .discussion-prompt {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px dashed rgba(0, 255, 204, 0.3);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            opacity: 0.9;
+        }
+
+        .question-taxonomy {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .taxonomy-item {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(0, 255, 204, 0.15);
+            border-radius: 8px;
+            padding: 1.25rem;
+        }
+
+        .taxonomy-item strong {
+            color: #d4af6a;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .taxonomy-item p { font-size: 0.9rem; opacity: 0.8; }
+
+        .scu-btn-primary {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+            color: #050505;
+            padding: 0.875rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 300ms ease;
+            border: none;
+            cursor: pointer;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .scu-btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 255, 204, 0.25);
+        }
+
+        .scu-footer {
+            background: linear-gradient(135deg, #050505 0%, #0a0a10 100%);
+            border-top: 1px solid rgba(0, 255, 204, 0.15);
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .scu-footer p { font-size: 0.9rem; opacity: 0.6; }
+
+        strong { color: #d4af6a; }
+
+        @media (max-width: 768px) {
+            .hero-content { flex-direction: column; }
+            .section-header h2 { font-size: 1.4rem; }
+            .objectives-grid { grid-template-columns: 1fr; }
+            .speaker-bio { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<main>
+    <section class="scu-hero-card">
+        <!-- Cellular Voronoi Lattice SVG Background -->
+        <svg style="position:absolute;top:0;left:0;width:100%;height:100%;opacity:0.2;pointer-events:none;z-index:0;" viewBox="0 0 1000 400" preserveAspectRatio="xMidYMid slice">
+            <defs>
+                <filter id="glow-teal" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur stdDeviation="10" result="blur"/>
+                    <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                </filter>
+            </defs>
+            <g stroke="rgba(0, 255, 204, 0.4)" stroke-width="2" fill="none" filter="url(#glow-teal)">
+                <path d="M100,200 L250,150 L350,250 L200,300 Z" fill="rgba(0,255,204,0.05)"/>
+                <path d="M350,250 L500,200 L600,350 L450,400 Z" fill="rgba(0,255,102,0.05)"/>
+                <path d="M500,200 L650,100 L800,180 L650,280 Z" fill="rgba(0,255,204,0.05)"/>
+                <path d="M800,180 L950,150 L1050,300 L900,350 Z" fill="rgba(0,170,255,0.05)"/>
+                <line x1="250" y1="150" x2="500" y2="200" stroke-width="4" stroke="rgba(0,255,102,0.6)">
+                    <animate attributeName="x2" values="500;480;500" dur="4s" repeatCount="indefinite"/>
+                </line>
+                <line x1="500" y1="200" x2="650" y2="100" stroke-width="4" stroke="rgba(0,255,204,0.6)">
+                    <animate attributeName="y1" values="200;220;200" dur="5s" repeatCount="indefinite"/>
+                </line>
+                <line x1="650" y1="280" x2="800" y2="180" stroke-width="4" stroke="rgba(0,170,255,0.6)">
+                    <animate attributeName="x1" values="650;670;650" dur="6s" repeatCount="indefinite"/>
+                </line>
+                <circle cx="250" cy="150" r="8" fill="#00ffcc"><animate attributeName="r" values="6;10;6" dur="3s" repeatCount="indefinite"/></circle>
+                <circle cx="350" cy="250" r="8" fill="#00ff66"><animate attributeName="r" values="7;11;7" dur="4s" repeatCount="indefinite"/></circle>
+                <circle cx="500" cy="200" r="10" fill="#00ffcc"><animate attributeName="r" values="8;12;8" dur="3.5s" repeatCount="indefinite"/></circle>
+                <circle cx="650" cy="100" r="8" fill="#00aaff"/>
+                <circle cx="650" cy="280" r="8" fill="#00ff66"/>
+                <circle cx="800" cy="180" r="10" fill="#00ffcc"><animate attributeName="r" values="8;12;8" dur="5s" repeatCount="indefinite"/></circle>
+            </g>
+        </svg>
+        <div class="hero-content">
+            <div class="speaker-avatar">👩‍🔬</div>
+            <div class="hero-info">
+                <div class="hero-tag">Guest Speaker / Week 03</div>
+                <h1>Dr. Camilla Teng</h1>
+                <p class="role">Postdoctoral Researcher, UCSF (Bush Lab, Department of Cell & Tissue Biology)</p>
+                <p class="talk-title">
+                    <strong>Cellular Mechanics of Tissue Fusion in Craniofacial Development</strong>
+                </p>
+                <div class="logistics-bar">
+                    <div class="logistics-item">
+                        <div class="logistics-label">Date & Time</div>
+                        <div class="logistics-value">Wednesday, April 15 • 5:25 PM - 6:30 PM</div>
+                    </div>
+                    <div class="logistics-item">
+                        <div class="logistics-label">Location</div>
+                        <div class="logistics-value">Santa Clara University campus, In Person</div>
+                    </div>
+                    <div class="logistics-item">
+                        <div class="logistics-label">Format</div>
+                        <div class="logistics-value">Seminar + Q&A</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="scu-container">
+        <div class="section-header">
+            <h2>Pre-Class Preparation</h2>
+        </div>
+
+        <p style="font-size: 1.05rem; margin-bottom: 2rem; opacity: 0.85;">
+            Preparing thoroughly for this seminar will deepen your engagement with Dr. Teng's work on how cells migrate and tissues fuse during face formation. Please complete these before Wednesday's session.
+        </p>
+
+        <div class="dossier-card primary">
+            <span class="dossier-label">Primary Reading</span>
+            <h3 class="dossier-title">Paper to be announced by Dr. Teng</h3>
+            <p style="font-size: 0.9rem; opacity: 0.65; margin-bottom: 1rem;">
+                Recommended preprint or recent publication on tissue fusion mechanics in craniofacial development
+            </p>
+            <p class="dossier-description">
+                Dr. Teng will announce her key paper early in the week. The paper focuses on how cells generate and respond to mechanical forces during the fusion of facial tissues. As you read, pay attention to the experimental techniques she uses to visualize and measure these forces. Don't worry about mastering every technical detail—aim to understand the central research question and why studying tissue mechanics matters for understanding birth defects like cleft lip and palate.
+            </p>
+            <p style="font-size: 0.9rem; opacity: 0.75; margin-top: 1rem; font-style: italic;">
+                Paper link will be posted on Camino by Monday, April 13.
+            </p>
+        </div>
+
+        <div class="dossier-card study-aid">
+            <span class="dossier-label">Study Guide</span>
+            <h3 class="dossier-title">Glossary: Key Concepts in Tissue Mechanics</h3>
+            <p style="font-size: 0.9rem; opacity: 0.65; margin-bottom: 1rem;">
+                Start here if you're new to thinking about cells as physical objects.
+            </p>
+            <p style="margin-bottom: 1rem;">
+                <strong>Cellular migration:</strong> The movement of individual cells through tissue, driven by cell-cell contacts and mechanical forces.<br/>
+                <strong>Tissue fusion:</strong> The process by which two separate tissues merge into one, requiring coordinated cell migration and shape changes.<br/>
+                <strong>Craniofacial development:</strong> The formation of the head, face, and jaw during embryonic development—a highly organized process requiring precise cell movements.<br/>
+                <strong>Mechanical forces:</strong> Physical stresses (tension, compression, shear) that act on cells and tissues and influence their behavior.<br/>
+                <strong>Traction forces:</strong> Forces that cells exert on their surroundings, measurable using specialized microscopy techniques.<br/>
+                <strong>Cleft lip/palate:</strong> A birth defect where tissues don't fuse properly during development, affecting about 1 in 600 births. Understanding normal fusion helps explain when it goes wrong.
+            </p>
+            <p style="font-size: 0.9rem; opacity: 0.75;">
+                <em>As you read the paper, jot down any terms you encounter that aren't on this list. Bring them to class—asking "What does [term] mean?" is always a great question.</em>
+            </p>
+        </div>
+
+        <hr class="section-divider">
+
+        <div class="section-header">
+            <h2>Meet the Speaker</h2>
+        </div>
+
+        <div class="speaker-bio">
+            <div class="bio-section">
+                <h3>Background & Training</h3>
+                <p>
+                    Camilla is a postdoctoral researcher in the Bush Laboratory at UCSF's Department of Cell & Tissue Biology, where she studies how mechanical forces guide cell migration and tissue fusion during craniofacial development. She completed her PhD in developmental biology, focusing on the cellular and molecular mechanisms underlying face formation.
+                </p>
+                <p>
+                    Her work bridges experimental embryology and mechanical biology: she combines live imaging, force measurement, and molecular analysis to understand how cells "know" when and where to fuse, with implications for understanding and potentially preventing birth defects.
+                </p>
+            </div>
+
+            <div class="bio-section">
+                <h3>Awards & Recognition</h3>
+                <p>Camilla has received recognition for her research and exceptional communication skills:</p>
+                <ul style="padding-left: 1.5rem; opacity: 0.85; font-size: 0.95rem;">
+                    <li>2024 UCSF Postdoc Slam Finalist</li>
+                    <li>Northwestern Society for Developmental Biology (NW SDB) Postdoctoral Platform Award Winner</li>
+                    <li>NIH/NSF-funded research on developmental mechanics</li>
+                    <li>Invited speaker at multiple developmental biology conferences</li>
+                    <li>Mentor to undergraduate researchers in the Bush Lab</li>
+                </ul>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <div class="section-header">
+            <h2>What You'll Learn</h2>
+        </div>
+
+        <div class="objectives-grid">
+            <div class="objective-item">
+                <div class="objective-number">1</div>
+                <div class="objective-text">
+                    <h4>Cellular Mechanics in Development</h4>
+                    <p>Understand how cells generate and respond to mechanical forces, and why these forces are essential for coordinating tissue formation.</p>
+                </div>
+            </div>
+            <div class="objective-item">
+                <div class="objective-number">2</div>
+                <div class="objective-text">
+                    <h4>Craniofacial Tissue Fusion</h4>
+                    <p>Learn how multiple tissues merge during face formation, what can go wrong (cleft lip/palate), and how studying normal fusion reveals disease mechanisms.</p>
+                </div>
+            </div>
+            <div class="objective-item">
+                <div class="objective-number">3</div>
+                <div class="objective-text">
+                    <h4>Experimental Techniques for Measuring Forces</h4>
+                    <p>See how researchers visualize and quantify mechanical forces in living tissues using microscopy and specialized tools.</p>
+                </div>
+            </div>
+            <div class="objective-item">
+                <div class="objective-number">4</div>
+                <div class="objective-text">
+                    <h4>Research Communication & Career</h4>
+                    <p>Witness how an award-winning researcher presents complex ideas clearly, and learn about her path from PhD to postdoc in a competitive field.</p>
+                </div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <div class="section-header">
+            <h2>During the Seminar</h2>
+        </div>
+
+        <div class="scu-glass-panel accent-gold">
+            <div style="display: flex; gap: 1.5rem; align-items: flex-start; margin-bottom: 1.25rem;">
+                <div style="background: #d4af6a; color: #0f1419; padding: 0.5rem 0.75rem; border-radius: 6px; font-weight: 600; font-size: 0.85rem; white-space: nowrap;">5:25–5:30</div>
+                <div style="flex: 1;">
+                    <p style="font-weight: 600; color: var(--text-main); margin-bottom: 0.25rem;">Welcome & Context Setting</p>
+                    <p style="font-size: 0.9rem; opacity: 0.75;">Introduction to Dr. Teng, her work, and the broader importance of understanding how tissues form correctly.</p>
+                </div>
+            </div>
+            <div style="display: flex; gap: 1.5rem; align-items: flex-start; margin-bottom: 1.25rem;">
+                <div style="background: #d4af6a; color: #0f1419; padding: 0.5rem 0.75rem; border-radius: 6px; font-weight: 600; font-size: 0.85rem; white-space: nowrap;">5:30–6:00</div>
+                <div style="flex: 1;">
+                    <p style="font-weight: 600; color: var(--text-main); margin-bottom: 0.25rem;">Research Presentation</p>
+                    <p style="font-size: 0.9rem; opacity: 0.75;">Dr. Teng will present her research on cellular mechanics of tissue fusion, including live imaging data and force measurements.</p>
+                </div>
+            </div>
+            <div style="display: flex; gap: 1.5rem; align-items: flex-start;">
+                <div style="background: #d4af6a; color: #0f1419; padding: 0.5rem 0.75rem; border-radius: 6px; font-weight: 600; font-size: 0.85rem; white-space: nowrap;">6:00–6:30</div>
+                <div style="flex: 1;">
+                    <p style="font-weight: 600; color: var(--text-main); margin-bottom: 0.25rem;">Q&A & Discussion</p>
+                    <p style="font-size: 0.9rem; opacity: 0.75;">Ask questions about the research, methods, findings, or her path as a researcher. This is your time to engage directly with an active scientist.</p>
+                </div>
+            </div>
+        </div>
+
+        <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.15rem; font-weight: 600; color: var(--text-main); margin-top: 2rem; margin-bottom: 1rem;">The Power of Good Questions</h3>
+
+        <p style="font-size: 0.95rem; opacity: 0.85; margin-bottom: 1.5rem;">
+            This week, challenge yourself to ask <strong>Method</strong> or <strong>Interpretation</strong> questions—not just clarifications. Use the taxonomy below as a guide:
+        </p>
+
+        <div class="question-taxonomy">
+            <div class="taxonomy-item">
+                <strong>Clarification</strong>
+                <p>"What does [term] mean?" or "Can you explain [concept] in simpler terms?"</p>
+            </div>
+            <div class="taxonomy-item">
+                <strong>Method</strong>
+                <p>"Why did you use [approach] instead of [alternative]?" or "How did you measure [force/process]?"</p>
+            </div>
+            <div class="taxonomy-item">
+                <strong>Interpretation</strong>
+                <p>"Could there be an alternative explanation for [finding]?" or "What about [confounding variable]?"</p>
+            </div>
+            <div class="taxonomy-item">
+                <strong>Extension</strong>
+                <p>"What would happen if [scenario]?" or "Could this mechanism apply to [other tissue]?"</p>
+            </div>
+        </div>
+
+        <p style="font-size: 0.9rem; opacity: 0.75; font-style: italic; margin-top: 1.5rem;">
+            Don't worry about asking a "perfect" question. Researchers appreciate genuine curiosity and thoughtful engagement.
+        </p>
+
+        <hr class="section-divider">
+
+        <div class="section-header">
+            <h2>Post-Seminar Reflection</h2>
+        </div>
+
+        <p style="font-size: 1.05rem; margin-bottom: 2rem; opacity: 0.85;">
+            Within one week of the seminar, write a short reflection (200–300 words) responding to both prompts below. This consolidates your learning and helps you articulate what the research means to you.
+        </p>
+
+        <div class="scu-glass-panel accent-cyan">
+            <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.15rem; font-weight: 600; color: var(--text-main); margin-bottom: 1.25rem;">
+                Reflection Prompts
+            </h3>
+
+            <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+                <div>
+                    <p style="color: #d4af6a; font-weight: 600; margin-bottom: 0.5rem;">1. Comparing Approaches</p>
+                    <p style="opacity: 0.85;">
+                        Dr. Vacante (Week 2) used CRISPRa to study gene regulation in blood vessel cells. Dr. Teng studies mechanical forces in developing tissues. What do these two lines of research have in common, and how do they differ in their approach to understanding human disease?
+                    </p>
+                </div>
+                <div style="border-top: 1px solid rgba(0, 255, 204, 0.15); padding-top: 1.25rem;">
+                    <p style="color: #d4af6a; font-weight: 600; margin-bottom: 0.5rem;">2. Explaining a Technique</p>
+                    <p style="opacity: 0.85;">
+                        Choose one experimental technique that Dr. Teng described and explain, in terms a non-scientist friend could understand, (a) what it measures and (b) why it was the right tool for her question.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.15rem; font-weight: 600; color: var(--text-main); margin-top: 2rem; margin-bottom: 1rem;">
+            A Note on Reflection
+        </h3>
+        <p style="font-size: 0.95rem; opacity: 0.85; margin-bottom: 1.5rem;">
+            Reflections are not formal essays. Write conversationally, but thoughtfully. Be honest about what you understood and what confused you. The goal is to deepen your thinking, not to impress with jargon.
+        </p>
+
+        <hr class="section-divider">
+
+        <div class="section-header">
+            <h2>Before Class: Discussion Board Post</h2>
+        </div>
+
+        <p style="font-size: 1.05rem; margin-bottom: 2rem; opacity: 0.85;">
+            Before Wednesday, post one genuine question about the paper to the Discussion Board. This week, challenge yourself: ask a <strong>Method</strong> or <strong>Interpretation</strong> question, not a clarification question.
+        </p>
+
+        <div class="discussion-prompt">
+            "After reading Dr. Teng's paper, what is one question you have about the methods or interpretation? For example: Why did the researchers use this particular approach? Could there be an alternative explanation for their findings? What assumption might be wrong?"
+        </div>
+
+        <p style="font-size: 0.95rem; opacity: 0.8; margin-top: 1.5rem;">
+            These posts help you arrive at the seminar already thinking deeply about the research, and they give Dr. Teng insight into what intrigues and confuses students. Speakers appreciate seeing that you've done the work.
+        </p>
+
+        <hr class="section-divider">
+
+        <div class="scu-glass-panel accent-blue">
+            <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.15rem; font-weight: 600; color: var(--text-main); margin-bottom: 1rem;">
+                What If You Can't Attend?
+            </h3>
+            <p style="margin-bottom: 1rem;">
+                If you must miss the seminar, you can still complete this module by:
+            </p>
+            <ol style="padding-left: 1.5rem; opacity: 0.85; font-size: 0.95rem;">
+                <li style="margin-bottom: 0.5rem;">Watching the recording (if available) within one week</li>
+                <li style="margin-bottom: 0.5rem;">Completing an extended reflection (400 words) instead of the standard 200–300</li>
+                <li>Submitting your discussion board post anyway</li>
+            </ol>
+            <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.75;">
+                Email Giorgio if you need to make arrangements.
+            </p>
+        </div>
+
+    </section>
+
+    <div class="scu-footer">
+        <p>BIOL 101 • Biology Research Seminar • Week 03</p>
+        <p>Dr. Camilla Teng • April 15, 2026</p>
+        <p style="margin-top: 1rem; font-size: 0.85rem;">Questions? Email Giorgio at glagna@scu.edu</p>
+    </div>
+
+</main>
+
+</body>
+</html>
