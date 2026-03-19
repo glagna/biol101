@@ -364,6 +364,25 @@
             opacity: 0.9;
         }
 
+        .scu-btn-primary {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+            color: #0f1419;
+            padding: 0.875rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 300ms ease;
+            border: none;
+            cursor: pointer;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .scu-btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(224, 120, 86, 0.25);
+        }
+
         .scu-footer {
             background: linear-gradient(135deg, #0a1117 0%, #0f1419 100%);
             border-top: 1px solid rgba(212, 175, 106, 0.2);
@@ -488,7 +507,21 @@
             <p class="dossier-description">
                 This is the core paper Dr. Hess will discuss. It shows how genomic sequencing of a dangerous fungal pathogen helps public health officials track outbreaks and prevent spread. Focus on the abstract, introduction, and key findings. Pay attention to: What problem was Dr. Hess trying to solve? Why is <em>Candida auris</em> dangerous? How does sequencing data lead to public health action?
             </p>
-            <a href="https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2023.1198189/full" target="_blank" style="display:inline-flex;align-items:center;gap:0.5rem;background:rgba(212,175,106,0.15);color:#d4af6a;padding:0.6rem 1.2rem;border-radius:8px;font-family:'Outfit',sans-serif;font-weight:600;font-size:0.95rem;text-decoration:none;border:1px solid rgba(212,175,106,0.3);margin-top:1rem;transition:all 0.2s;">📄 Read the Paper</a>
+            <a href="https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2023.1198189/full" target="_blank" class="scu-btn-primary" style="display: inline-block; margin-top: 1rem;">Read Paper ↗</a>
+        </div>
+
+        <div class="dossier-card" style="border-left: 4px solid #9b59b6; background: rgba(255, 255, 255, 0.04); border-color: rgba(155, 89, 182, 0.2); border-left-color: #9b59b6;">
+            <span class="dossier-label" style="background: rgba(155, 89, 182, 0.2); color: #9b59b6;">Study Guide</span>
+            <h3 class="dossier-title">Key Concepts: Genomic Surveillance & Emerging Pathogens</h3>
+            <p style="margin-bottom: 1rem;">
+                <strong><em>Candida auris</em>:</strong> Emerging fungal pathogen first identified in 2009; spreads readily in healthcare settings and is often resistant to multiple antifungal drugs.<br/>
+                <strong>Whole-genome sequencing (WGS):</strong> A technique that determines the complete DNA sequence of an organism, enabling precise identification of genetic variants and relationships between isolates.<br/>
+                <strong>Single-nucleotide polymorphism (SNP):</strong> A variation at a single DNA base pair between individuals; used to measure how closely related different pathogen strains are.<br/>
+                <strong>Clade:</strong> A genetically distinct group of organisms sharing a common ancestor. <em>C. auris</em> has five known clades, each associated with a different geographic origin.<br/>
+                <strong>Phylogenetic analysis:</strong> A method for examining evolutionary relationships between organisms using genetic data, often visualized as a branching tree diagram.<br/>
+                <strong>Antifungal resistance:</strong> The ability of a fungus to survive exposure to drugs designed to kill or inhibit it, making infections harder to treat.<br/>
+                <strong>Genomic surveillance:</strong> The systematic use of DNA sequencing to monitor pathogen populations, track outbreaks, and guide public health decisions.
+            </p>
         </div>
 
         <hr class="section-divider">
@@ -561,34 +594,6 @@
                     <p style="font-size: 0.9rem; opacity: 0.75;">Ask questions about the genomics, the public health implications, his career transition, or anything else. Medical Micro students: bring your clinical insights!</p>
                 </div>
             </div>
-        </div>
-
-        <hr class="section-divider">
-
-        <div class="section-header">
-            <h2>Before Class: Discussion Board Post</h2>
-        </div>
-
-        <p style="font-size: 1.05rem; margin-bottom: 2rem; opacity: 0.85;">
-            Before Wednesday, post one genuine question to the Discussion Board about the paper.
-        </p>
-
-        <a href="https://camino.instructure.com/courses/118251/discussion_topics/703622" target="_blank" style="display:inline-flex;align-items:center;gap:0.5rem;background:rgba(212,175,106,0.15);color:#d4af6a;padding:0.6rem 1.2rem;border-radius:8px;font-family:'Outfit',sans-serif;font-weight:600;font-size:0.95rem;text-decoration:none;border:1px solid rgba(212,175,106,0.3);margin-top:1rem;margin-bottom:1.5rem;transition:all 0.2s;">💬 Go to Discussion Board</a>
-
-        <hr class="section-divider">
-
-        <div class="section-header">
-            <h2>Post-Seminar Reflection</h2>
-        </div>
-
-        <p style="font-size: 1.05rem; margin-bottom: 2rem; opacity: 0.85;">
-            Within one week of the seminar, submit your reflection.
-        </p>
-
-        <a href="https://camino.instructure.com/courses/118251/assignments/1012693" target="_blank" style="display:inline-flex;align-items:center;gap:0.5rem;background:rgba(212,175,106,0.15);color:#d4af6a;padding:0.6rem 1.2rem;border-radius:8px;font-family:'Outfit',sans-serif;font-weight:600;font-size:0.95rem;text-decoration:none;border:1px solid rgba(212,175,106,0.3);margin-top:1rem;margin-bottom:1.5rem;transition:all 0.2s;">📝 Submit Reflection</a>
-
-        <div style="margin-top:2rem;padding:1.2rem 1.5rem;background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.2);border-radius:12px;font-size:0.95rem;color:#fbbf24;">
-            <strong>📅 Heads-up:</strong> Your informational interview presentations are in Week 7 (May 13). If you haven't scheduled your interview yet, reach out this week!
         </div>
 
     </section>

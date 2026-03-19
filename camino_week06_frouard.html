@@ -453,6 +453,25 @@
             letter-spacing: 2px;
         }
 
+        .scu-btn-primary {
+            display: inline-block;
+            background: linear-gradient(135deg, #9b59b6 0%, #d4af6a 100%);
+            color: #050505;
+            padding: 0.875rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 300ms ease;
+            border: none;
+            cursor: pointer;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .scu-btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(155, 89, 182, 0.25);
+        }
+
         .scu-footer {
             background: linear-gradient(135deg, #0a0710 0%, #0f0510 100%);
             border-top: 1px solid rgba(212, 175, 106, 0.2);
@@ -520,7 +539,7 @@
         </svg>
 
         <div class="hero-content">
-            <div class="speaker-avatar"><img src="julie_frouard.jpg" alt="Dr. Julie Frouard" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;"></div>
+            <div class="speaker-avatar"><img src="https://cfar.ucsf.edu/sites/default/files/pictures/Frouard_DS.jpg" alt="Dr. Julie Frouard" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;"></div>
 
             <div class="hero-info">
                 <div class="hero-tag">Guest Speaker / Week 06</div>
@@ -554,14 +573,21 @@
         <div class="dossier-card primary" style="animation-delay: 0.65s;">
             <span class="dossier-label">Primary Reading</span>
             <h3 class="dossier-title">HIV-seq: Single-Cell Characterization of HIV Latent Reservoirs</h3>
-            <p class="dossier-meta">Frouard et al. • Nature Communications (link to be posted on Camino)</p>
+            <p class="dossier-meta">Frouard et al. (2026) • Nature Communications</p>
             <p class="dossier-description">Dr. Frouard's key paper showcasing HIV-seq development. Focus on abstract and key figures. Understand: What is a latent reservoir? Why is it a problem? Why were existing methods insufficient? How does HIV-seq solve the problem?</p>
+            <a href="https://doi.org/10.1038/s41467-026-68797-3" target="_blank" class="scu-btn-primary" style="display: inline-block; margin-top: 1rem;">Read Paper ↗</a>
         </div>
 
         <div class="dossier-card study-aid" style="animation-delay: 0.7s;">
             <span class="dossier-label">Study Guide</span>
             <h3 class="dossier-title">Glossary: HIV, Single-Cell Sequencing & Cure Research</h3>
-            <p style="margin-bottom: 1rem;"><strong>HIV:</strong> Retrovirus attacking CD4+ T cells. Modern ART suppresses replication but cannot cure. <strong>Latent reservoir:</strong> Cells with integrated viral DNA that don't produce virus. <strong>Single-cell sequencing:</strong> DNA/RNA sequencing of individual cells. <strong>HIV-seq:</strong> Tool for identifying HIV-infected cells. <strong>Analytical sensitivity:</strong> Ability to detect rare events.</p>
+            <p style="margin-bottom: 1rem;">
+                <strong>HIV:</strong> Retrovirus attacking CD4+ T cells. Modern ART suppresses replication but cannot cure.<br/>
+                <strong>Latent reservoir:</strong> Cells with integrated viral DNA that don't produce virus.<br/>
+                <strong>Single-cell sequencing:</strong> DNA/RNA sequencing of individual cells.<br/>
+                <strong>HIV-seq:</strong> Tool for identifying HIV-infected cells.<br/>
+                <strong>Analytical sensitivity:</strong> Ability to detect rare events.
+            </p>
         </div>
 
         <hr class="section-divider">
@@ -642,26 +668,12 @@
 
         <hr class="section-divider">
 
-        <div class="section-header"><h2>Post-Seminar Reflection</h2></div>
-
-        <p style="font-size: 1.05rem; margin-bottom: 2rem; opacity: 0.85;">Within one week of the seminar, submit your reflection.</p>
-
-        <a href="https://camino.instructure.com/courses/118251/assignments/1012694" target="_blank" style="display:inline-flex;align-items:center;gap:0.5rem;background:rgba(212,175,106,0.15);color:#d4af6a;padding:0.6rem 1.2rem;border-radius:8px;font-family:'Outfit',sans-serif;font-weight:600;font-size:0.95rem;text-decoration:none;border:1px solid rgba(212,175,106,0.3);margin-top:1rem;margin-bottom:1.5rem;transition:all 0.2s;">📝 Submit Reflection</a>
-
-        <hr class="section-divider">
-
         <div class="section-header"><h2>Before Class: Discussion Board Post</h2></div>
 
         <p style="font-size: 1.05rem; margin-bottom: 2rem; opacity: 0.85;">Post one genuine question comparing Dr. Hess's and Dr. Frouard's approaches. Both use sequencing to tackle infectious disease, but at very different scales.</p>
 
-        <a href="https://camino.instructure.com/courses/118251/discussion_topics/703623" target="_blank" style="display:inline-flex;align-items:center;gap:0.5rem;background:rgba(212,175,106,0.15);color:#d4af6a;padding:0.6rem 1.2rem;border-radius:8px;font-family:'Outfit',sans-serif;font-weight:600;font-size:0.95rem;text-decoration:none;border:1px solid rgba(212,175,106,0.3);margin-top:1rem;margin-bottom:1.5rem;transition:all 0.2s;">💬 Go to Discussion Board</a>
-
         <div class="discussion-prompt">
             "Last week, Dr. Hess used whole-genome sequencing to track a pathogen across hospital wards. This week, Dr. Frouard uses single-cell sequencing to find a virus hiding inside individual human cells. Post a question exploring the differences or connections between these two uses of sequencing technology."
-        </div>
-
-        <div style="margin-top:2rem;padding:1.2rem 1.5rem;background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.2);border-radius:12px;font-size:0.95rem;color:#fbbf24;">
-            <strong>📅 Reminder:</strong> Informational interview presentations are NEXT WEEK (Week 7, May 13). Your written summary is due May 18.
         </div>
 
     </section>

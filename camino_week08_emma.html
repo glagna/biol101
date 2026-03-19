@@ -479,6 +479,45 @@
             letter-spacing: 2px;
         }
 
+        .scu-btn-primary {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+            color: #050505;
+            padding: 0.875rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 300ms ease;
+            border: none;
+            cursor: pointer;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .scu-btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(43, 155, 155, 0.25);
+        }
+
+        .scu-btn-optional {
+            display: inline-block;
+            background: rgba(26, 188, 156, 0.15);
+            color: #1abc9c;
+            padding: 0.875rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 300ms ease;
+            border: 1px solid rgba(26, 188, 156, 0.3);
+            cursor: pointer;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .scu-btn-optional:hover {
+            transform: translateY(-2px);
+            background: rgba(26, 188, 156, 0.25);
+            box-shadow: 0 8px 20px rgba(26, 188, 156, 0.15);
+        }
+
         .scu-footer {
             background: linear-gradient(135deg, #050a08 0%, #050805 100%);
             border-top: 1px solid rgba(212, 175, 106, 0.2);
@@ -576,6 +615,7 @@
             <h3 class="dossier-title">Harris et al. (2026) — Tropical Cyclones & Infectious Disease</h3>
             <p class="dossier-meta">Strongly recommended • Case study that Emma's work builds on</p>
             <p class="dossier-description">This paper is key background for Emma's talk — it's the case study her dissertation research builds on directly. Read it carefully to understand the connection between tropical cyclones and disease outcomes. Emma's presentation will extend these ideas with her own unpublished, in-progress dissertation work.</p>
+            <a href="https://www.cell.com/one-earth/fulltext/S2590-3322(26)00020-5" target="_blank" class="scu-btn-primary" style="display: inline-block; margin-top: 1rem;">Read Paper ↗</a>
         </div>
 
         <div class="dossier-card optional" style="animation-delay: 0.75s;">
@@ -583,12 +623,19 @@
             <h3 class="dossier-title">Totaro et al. (2025) — Dengue Background</h3>
             <p class="dossier-meta">Optional additional background reading on dengue.</p>
             <p class="dossier-description">This paper provides additional context on dengue transmission and epidemiology. If you want a deeper understanding of the disease system Emma studies, this is a good place to start. Not required, but helpful if you want more background before the talk.</p>
+            <a href="https://doi.org/10.1080/20477724.2025.2595384" target="_blank" class="scu-btn-optional" style="display: inline-block; margin-top: 1rem;">Read Paper ↗</a>
         </div>
 
         <div class="dossier-card study-aid" style="animation-delay: 0.8s;">
             <span class="dossier-label">Study Guide</span>
             <h3 class="dossier-title">Key Concepts: Dengue, Tropical Cyclones & Transmission Dynamics</h3>
-            <p style="margin-bottom: 1rem;"><strong>Dengue fever:</strong> Mosquito-borne viral disease affecting hundreds of millions annually. <strong>Aedes mosquito:</strong> Primary vector for dengue; thrives in warm, wet conditions. <strong>Tropical cyclone:</strong> Rotating storm with strong winds and heavy rainfall. Can drastically alter vector habitat and disease dynamics. <strong>Transmission rate:</strong> Probability that an infected individual transmits to a susceptible individual. <strong>Causal inference:</strong> Statistical methods for determining whether one factor (e.g., a cyclone) actually causes changes in another (e.g., disease outcomes), as opposed to merely being correlated with it.</p>
+            <p style="margin-bottom: 1rem;">
+                <strong>Dengue fever:</strong> Mosquito-borne viral disease affecting hundreds of millions annually.<br/>
+                <strong>Aedes mosquito:</strong> Primary vector for dengue; thrives in warm, wet conditions.<br/>
+                <strong>Tropical cyclone:</strong> Rotating storm with strong winds and heavy rainfall. Can drastically alter vector habitat and disease dynamics.<br/>
+                <strong>Transmission rate:</strong> Probability that an infected individual transmits to a susceptible individual.<br/>
+                <strong>Causal inference:</strong> Statistical methods for determining whether one factor (e.g., a cyclone) actually causes changes in another (e.g., disease outcomes), as opposed to merely being correlated with it.
+            </p>
         </div>
 
         <hr class="section-divider">
