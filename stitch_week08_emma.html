@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Emma Krasovich Southworth: Tropical Cyclones & Dengue Transmission | BIOL 101</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;family=Space+Grotesk:wght@300..700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-background": "#ffffff",
+              "primary": "#86fea7",
+              "surface-container-lowest": "#000000",
+              "on-surface": "#ffffff",
+              "on-tertiary-fixed-variant": "#50158d",
+              "surface-container-highest": "#262627",
+              "error-container": "#9f0519",
+              "on-surface-variant": "#adaaab",
+              "tertiary-fixed": "#c99dff",
+              "on-error": "#490006",
+              "surface-container-high": "#201f21",
+              "on-primary-container": "#002910",
+              "tertiary-fixed-dim": "#bf8bff",
+              "inverse-primary": "#006e36",
+              "error-dim": "#d7383b",
+              "tertiary": "#c799ff",
+              "secondary-container": "#006875",
+              "primary-fixed-dim": "#78ef9a",
+              "error": "#ff716c",
+              "surface-dim": "#0e0e0f",
+              "surface-bright": "#2c2c2d",
+              "on-primary": "#00612f",
+              "secondary-fixed": "#26e6ff",
+              "surface-variant": "#262627",
+              "on-tertiary-container": "#340064",
+              "background": "#0e0e0f",
+              "on-secondary-fixed-variant": "#005964",
+              "primary-container": "#3bb668",
+              "surface": "#0e0e0f",
+              "secondary": "#00e3fd",
+              "surface-tint": "#86fea7",
+              "outline-variant": "#484849",
+              "on-secondary-fixed": "#003a42",
+              "on-primary-fixed": "#004c23",
+              "inverse-surface": "#fcf8f9",
+              "tertiary-container": "#bc87fe",
+              "on-tertiary": "#440080",
+              "on-secondary-container": "#e8fbff",
+              "on-primary-fixed-variant": "#006c35",
+              "tertiary-dim": "#ba85fb",
+              "secondary-fixed-dim": "#00d7f0",
+              "on-error-container": "#ffa8a3",
+              "primary-dim": "#78ef9a",
+              "outline": "#767576",
+              "on-tertiary-fixed": "#25004b",
+              "surface-container": "#1a191b",
+              "inverse-on-surface": "#565556",
+              "secondary-dim": "#00d4ec",
+              "primary-fixed": "#86fea7",
+              "surface-container-low": "#131314",
+              "on-secondary": "#004d57"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Plus Jakarta Sans"],
+              "label": ["Plus Jakarta Sans"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .voronoi-bg {
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 10L20 40L10 80L50 90L90 70L80 20L50 10Z' fill='none' stroke='%2386fea7' stroke-opacity='0.05'/%3E%3C/svg%3E");
+        }
+        .atmospheric-blur {
+            filter: blur(80px);
+            opacity: 0.15;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary selection:text-on-primary-container">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-[#131314]/60 backdrop-blur-2xl">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
+<div class="text-xl font-bold tracking-tighter text-emerald-400 font-headline">BIOL 101</div>
+<div class="hidden md:flex items-center space-x-8 font-headline tracking-tight text-sm uppercase">
+<a class="text-zinc-400 hover:text-emerald-300 transition-colors duration-300" href="stitch_homepage.html">About</a>
+<a class="text-zinc-400 hover:text-emerald-300 transition-colors duration-300" href="stitch_homepage.html#modules">Modules</a>
+<a class="text-zinc-400 hover:text-emerald-300 transition-colors duration-300" href="stitch_syllabus.html">Syllabus</a>
+</div>
+</div>
+<div class="bg-gradient-to-r from-emerald-400/10 via-transparent to-emerald-400/10 h-[1px] w-full absolute bottom-0"></div>
+</nav>
+<main class="pt-32 pb-24 px-6 md:px-12 max-w-screen-2xl mx-auto relative overflow-hidden">
+<!-- Background Biological Accents -->
+<div class="absolute top-20 right-0 w-96 h-96 bg-primary rounded-full atmospheric-blur -z-10"></div>
+<div class="absolute bottom-20 left-0 w-72 h-72 bg-tertiary rounded-full atmospheric-blur -z-10"></div>
+<!-- Header Section -->
+<header class="mb-20 grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+<div class="lg:col-span-8">
+<div class="flex items-center gap-4 mb-6">
+<span class="px-4 py-1 rounded-full bg-primary/10 text-primary border border-primary/20 text-xs font-headline uppercase tracking-widest">Week 08</span>
+<span class="flex items-center gap-2 text-on-surface-variant text-xs font-headline uppercase tracking-widest">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">warning</span>
+Work in Progress
+</span>
+</div>
+<h1 class="text-5xl md:text-7xl font-headline font-bold leading-none tracking-tighter mb-6 text-on-surface">
+Tropical Cyclones <br/>
+<span class="text-primary">&amp; Dengue Transmission</span>
+</h1>
+<p class="text-xl text-on-surface-variant max-w-2xl font-light">
+Guest Lecturer: <span class="text-on-surface font-semibold">Emma Krasovich Southworth</span>.
+Exploring the intersection of climate resilience, atmospheric pressure shifts, and mosquito-borne epidemiology.
+</p>
+</div>
+<div class="lg:col-span-4 flex justify-start lg:justify-end">
+<div class="w-full aspect-square max-w-[280px] rounded-lg bg-surface-container-high relative p-6 border border-outline-variant/15 flex flex-col justify-center overflow-hidden">
+<div class="absolute inset-0 voronoi-bg opacity-30"></div>
+<div class="relative z-10 text-center">
+<span class="material-symbols-outlined text-5xl text-secondary mb-4" style="font-variation-settings: 'FILL' 1;">cyclone</span>
+<div class="text-xs font-headline text-secondary tracking-widest uppercase mb-1">Status</div>
+<div class="text-2xl font-headline font-bold">In Progress</div>
+<div class="text-[10px] text-on-surface-variant mt-2">DISSERTATION RESEARCH</div>
+</div>
+</div>
+</header>
+<!-- Main Content Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Key Learning Module -->
+<section class="md:col-span-8 bg-surface-container-low rounded-lg p-10 border-l-2 border-primary relative overflow-hidden">
+<div class="absolute top-0 right-0 p-8 opacity-10">
+<span class="material-symbols-outlined text-9xl">bug_report</span>
+</div>
+<h2 class="text-2xl font-headline font-bold mb-8 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">science</span>
+Interdisciplinary Focus
+</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-12 text-on-surface-variant leading-relaxed">
+<div>
+<h3 class="text-on-surface font-semibold mb-3 flex items-center gap-2">
+<div class="w-1.5 h-1.5 rounded-full bg-secondary"></div>
+The Vector Variable
+</h3>
+<p>Analysis of <i>Aedes aegypti</i> breeding patterns post-cyclone. How stagnant water and humidity surges create "Epidemiological Hotspots" in urban tropical environments.</p>
+</div>
+<div>
+<h3 class="text-on-surface font-semibold mb-3 flex items-center gap-2">
+<div class="w-1.5 h-1.5 rounded-full bg-tertiary"></div>
+Climatic Forcing
+</h3>
+<p>Understanding the role of rising SST (Sea Surface Temperatures) in increasing the frequency and intensity of cyclones, directly impacting public health infrastructure.</p>
+</div>
+</div>
+</section>
+<!-- Reading Sidebar -->
+<aside class="md:col-span-4 bg-surface-container-high rounded-lg p-8 flex flex-col justify-between border-t-2 border-secondary">
+<div>
+<div class="text-xs font-headline text-secondary tracking-widest uppercase mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">menu_book</span>
+Required Reading
+</div>
+<h3 class="text-xl font-headline font-bold mb-4">Harris et al. (2026)</h3>
+<p class="text-sm text-on-surface-variant italic mb-6">
+"Tropical Cyclones & Infectious Disease: Synergistic Effects of Post-Cyclone Humidity on Viral Load in Urban Tropics"
+</p>
+</div>
+<button class="w-full py-4 rounded-full bg-primary text-on-primary font-headline font-bold uppercase tracking-wider text-xs flex items-center justify-center gap-2 shadow-[0_0_12px_rgba(134,254,167,0.2)] hover:bg-primary-dim transition-all">
+Access Lab Document
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</aside>
+<!-- Research Evaluation Bento -->
+<section class="md:col-span-4 bg-surface-container-high rounded-lg p-8 border-l-2 border-tertiary">
+<h3 class="text-xs font-headline text-tertiary tracking-widest uppercase mb-6">Deep Research Phase</h3>
+<h4 class="text-lg font-headline font-bold mb-4">Evaluation Prompts</h4>
+<ul class="space-y-4 text-sm text-on-surface-variant">
+<li class="flex gap-3">
+<span class="text-tertiary font-bold">01</span>
+What is the strongest piece of evidence supporting Emma's hypothesis about cyclone-driven dengue transmission dynamics?
+</li>
+<li class="flex gap-3">
+<span class="text-tertiary font-bold">02</span>
+What is the biggest remaining gap or uncertainty in her dissertation work?
+</li>
+</ul>
+</section>
+<!-- Visual Mapping Card -->
+<section class="md:col-span-8 bg-surface-container-low rounded-lg overflow-hidden relative group">
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+<img alt="Satellite imagery of tropical cyclone" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 opacity-60" data-alt="Satellite imagery showing a powerful cyclone over tropical waters" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSJ-bCcmNVYeOCZ108A31V_BtxRuQuzIv6-4q9v5inaGDHLM0RWxFoBJAqGlw0lBaeHq22AQ7msdGoOiJuUD1UlmUpPYMnLM0sdQQD_Owe4JFo2P8Mu192PWsYDy-eNmY-KwPIfXKB6e_41QxYLLp-Y1CiEaZMIqbNao6MvRW3GaEuXDmCrvUmqMj_3HzZK0hS5ln84uvFNT9_TDG5wdkveu-X-mXC8xrSUuNEUvA5dQ02NEPekY41Blv8PjZc_PM6rNHBjRCJ69k"/>
+<div class="absolute bottom-0 left-0 p-10 z-20">
+<h3 class="text-2xl font-headline font-bold text-white mb-2">Emma's Research Program</h3>
+<p class="text-on-surface-variant text-sm max-w-md">PhD Candidate, Stanford University (Environment & Resources Program). Co-advised by Erin Mordecai and Marshall Burke. NSF GRFP Fellow, Stanford Data Science Scholar, EDGE Fellow.</p>
+</div>
+</section>
+</div>
+</main>
+
+<!-- Speaker Bio Section -->
+<section class="bg-surface-container p-10 md:p-16 my-20 max-w-screen-2xl mx-auto rounded-lg">
+<div class="max-w-screen-2xl mx-auto">
+<h2 class="text-3xl font-headline font-bold text-on-surface mb-12">Meet the Speaker</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<div>
+<h3 class="text-xl font-headline font-bold text-on-surface mb-4">Background & Training</h3>
+<p class="text-on-surface-variant leading-relaxed mb-4">Emma is a PhD candidate in the Environment & Resources program at Stanford University, co-advised by Erin Mordecai and Marshall Burke. Her research sits at the intersection of ecology, climate science, and public health. She is an NSF GRFP Fellow, a Stanford Data Science Scholar, and an EDGE Fellow.</p>
+</div>
+<div>
+<h3 class="text-xl font-headline font-bold text-on-surface mb-4">Research Focus</h3>
+<p class="text-on-surface-variant leading-relaxed mb-4">Emma's dissertation research is united by the question: how can we protect human health in the face of intensifying and extreme environmental change? Her research aims to measure how extreme climate events lead to environmental degradation, harmful exposures, and disease outcomes—with a focus on tropical cyclones and dengue transmission dynamics in the Caribbean and Pacific regions.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Pre-Class Preparation -->
+<section class="max-w-screen-2xl mx-auto mb-20">
+<h2 class="text-3xl font-headline font-bold mb-12">Pre-Class Preparation</h2>
+<p class="text-on-surface-variant mb-8 text-lg">Preparing for Emma's talk will help you understand her dissertation research in context. Please complete these before Wednesday.</p>
+
+<div class="bg-surface-container-low rounded-lg p-8 mb-6 border-l-2 border-primary">
+<div class="text-xs font-headline text-primary tracking-widest uppercase mb-2">Required Reading</div>
+<h3 class="text-xl font-headline font-bold text-on-surface mb-2">Harris et al. (2026) — Tropical Cyclones & Infectious Disease</h3>
+<p class="text-sm text-on-surface-variant mb-4">Strongly recommended • Case study that Emma's work builds on</p>
+<p class="text-on-surface-variant leading-relaxed mb-4">This paper is key background for Emma's talk—it's the case study her dissertation research builds on directly. Read it carefully to understand the connection between tropical cyclones and disease outcomes. Emma's presentation will extend these ideas with her own unpublished, in-progress dissertation work.</p>
+<a href="https://www.cell.com/one-earth/fulltext/S2590-3322(26)00020-5" target="_blank" class="inline-block px-6 py-2 rounded-full bg-primary text-on-primary font-headline font-bold text-sm hover:bg-primary-dim transition-all">Read Paper ↗</a>
+</div>
+
+<div class="bg-surface-container-high rounded-lg p-8 mb-6 border-l-2 border-secondary">
+<div class="text-xs font-headline text-secondary tracking-widest uppercase mb-2">Optional Background</div>
+<h3 class="text-xl font-headline font-bold text-on-surface mb-2">Totaro et al. (2025) — Dengue Background</h3>
+<p class="text-sm text-on-surface-variant mb-4">Optional additional background reading on dengue.</p>
+<p class="text-on-surface-variant leading-relaxed mb-4">This paper provides additional context on dengue transmission and epidemiology. If you want a deeper understanding of the disease system Emma studies, this is a good place to start. Not required, but helpful if you want more background before the talk.</p>
+<a href="https://doi.org/10.1080/20477724.2025.2595384" target="_blank" class="inline-block px-6 py-2 rounded-full border border-secondary/20 bg-secondary/5 text-secondary font-headline font-bold text-sm hover:bg-secondary/10 transition-all">Read Paper ↗</a>
+</div>
+
+<div class="bg-surface-container-low rounded-lg p-8 border-l-2 border-tertiary">
+<div class="text-xs font-headline text-tertiary tracking-widest uppercase mb-2">Study Guide</div>
+<h3 class="text-xl font-headline font-bold text-on-surface mb-4">Key Concepts: Dengue, Tropical Cyclones & Transmission Dynamics</h3>
+<div class="space-y-3 text-on-surface-variant text-sm">
+<p><strong class="text-on-surface">Dengue fever:</strong> Mosquito-borne viral disease affecting hundreds of millions annually.</p>
+<p><strong class="text-on-surface">Aedes mosquito:</strong> Primary vector for dengue; thrives in warm, wet conditions.</p>
+<p><strong class="text-on-surface">Tropical cyclone:</strong> Rotating storm with strong winds and heavy rainfall. Can drastically alter vector habitat and disease dynamics.</p>
+<p><strong class="text-on-surface">Transmission rate:</strong> Probability that an infected individual transmits to a susceptible individual.</p>
+<p><strong class="text-on-surface">Causal inference:</strong> Statistical methods for determining whether one factor (e.g., a cyclone) actually causes changes in another (e.g., disease outcomes).</p>
+</div>
+</div>
+</section>
+
+<!-- During the Seminar -->
+<section class="max-w-screen-2xl mx-auto mb-20">
+<h2 class="text-3xl font-headline font-bold mb-12">During the Seminar</h2>
+<p class="text-on-surface-variant mb-8 text-lg">The seminar will follow this structure:</p>
+
+<div class="bg-surface-container-low rounded-lg p-10 space-y-6">
+<div class="flex gap-6 items-start pb-6 border-b border-outline-variant/20">
+<div class="bg-secondary/20 px-3 py-1 rounded text-secondary font-bold text-sm whitespace-nowrap">5:25–5:35</div>
+<div>
+<h3 class="font-headline font-bold text-on-surface mb-1">Introduction</h3>
+<p class="text-on-surface-variant text-sm">Welcome to Emma. Framing: what it means to present work in progress and why that's valuable in science.</p>
+</div>
+</div>
+<div class="flex gap-6 items-start pb-6 border-b border-outline-variant/20">
+<div class="bg-secondary/20 px-3 py-1 rounded text-secondary font-bold text-sm whitespace-nowrap">5:35–6:10</div>
+<div>
+<h3 class="font-headline font-bold text-on-surface mb-1">Research Presentation</h3>
+<p class="text-on-surface-variant text-sm">Emma presents her dissertation research on tropical cyclones and dengue transmission, including methods, preliminary findings, and open questions.</p>
+</div>
+</div>
+<div class="flex gap-6 items-start">
+<div class="bg-secondary/20 px-3 py-1 rounded text-secondary font-bold text-sm whitespace-nowrap">6:10–6:30</div>
+<div>
+<h3 class="font-headline font-bold text-on-surface mb-1">Q&A & Discussion</h3>
+<p class="text-on-surface-variant text-sm">Ask questions about her research, methods, or the uncertainties she's grappling with. This is a chance to see how a researcher thinks through open problems.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Questions & Reflection -->
+<section class="max-w-screen-2xl mx-auto mb-20">
+<h2 class="text-3xl font-headline font-bold mb-8">Questions Worth Asking</h2>
+<p class="text-on-surface-variant mb-8">When you ask questions about work in progress, consider the unique aspects of this talk:</p>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
+<div class="bg-surface-container-high p-6 rounded-lg border border-outline-variant/10">
+<h3 class="font-headline font-bold text-secondary text-sm uppercase mb-2">Clarification</h3>
+<p class="text-xs text-on-surface-variant">"Can you explain [concept] more?" or "I'm not sure what you mean by [term]."</p>
+</div>
+<div class="bg-surface-container-high p-6 rounded-lg border border-outline-variant/10">
+<h3 class="font-headline font-bold text-secondary text-sm uppercase mb-2">Evidence</h3>
+<p class="text-xs text-on-surface-variant">"What's your strongest evidence for that?" or "How confident are you in [finding]?"</p>
+</div>
+<div class="bg-surface-container-high p-6 rounded-lg border border-outline-variant/10">
+<h3 class="font-headline font-bold text-secondary text-sm uppercase mb-2">Open Questions</h3>
+<p class="text-xs text-on-surface-variant">"What question would you want to tackle next?" or "What's the biggest gap in your work right now?"</p>
+</div>
+<div class="bg-surface-container-high p-6 rounded-lg border border-outline-variant/10">
+<h3 class="font-headline font-bold text-secondary text-sm uppercase mb-2">Method & Logic</h3>
+<p class="text-xs text-on-surface-variant">"Why did you choose [approach] over [alternative]?" or "How would you test [hypothesis]?"</p>
+</div>
+</div>
+
+<h2 class="text-3xl font-headline font-bold mb-8">Post-Seminar Reflection</h2>
+<p class="text-on-surface-variant mb-8">Within one week of the seminar, respond to both prompts below in approximately 200–300 words total. This assignment is at the "Evaluate" level: you're assessing the quality and completeness of research in progress.</p>
+
+<div class="bg-surface-container-low rounded-lg p-10 space-y-6">
+<h3 class="text-xl font-headline font-bold text-on-surface">Two Reflection Prompts</h3>
+<div class="space-y-6">
+<div>
+<p class="text-secondary font-headline font-bold mb-2">1. Strongest Evidence & Remaining Gaps</p>
+<p class="text-on-surface-variant mb-2">Based on what Emma presented, what do you think is the strongest piece of evidence supporting her hypothesis? What is the biggest remaining gap or uncertainty?</p>
+<p class="text-xs text-on-surface-variant italic">Note: There is no "right" answer here. The goal is to practice evaluating evidence, even when it's incomplete.</p>
+</div>
+<div class="border-t border-outline-variant/20 pt-6">
+<p class="text-secondary font-headline font-bold mb-2">2. Interdisciplinary Research</p>
+<p class="text-on-surface-variant">Emma works at the intersection of ecology, climate science, and public health. How does her interdisciplinary approach compare to the more narrowly focused research you've seen in earlier weeks? What are the advantages and challenges of interdisciplinary work?</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Discussion Board -->
+<section class="max-w-screen-2xl mx-auto mb-20">
+<h2 class="text-3xl font-headline font-bold mb-8">Before Class: Discussion Board Post</h2>
+<p class="text-on-surface-variant mb-8">Before Wednesday, post one genuine question to the Discussion Board. It should reflect that you've read the background paper and are thinking about Emma's work.</p>
+
+<div class="bg-surface-container-low rounded-lg p-8 border border-outline-variant/10 italic text-on-surface-variant">
+"After reading the background paper, post a question that could help you understand the work Emma is developing. Consider: What would need to be true for her hypothesis to hold? What kind of data would test it? What's something you're curious about or confused about?"
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-[#0e0e0f] dark:bg-[#0e0e0f] w-full py-12 px-8 border-t border-zinc-800/30">
+<div class="max-w-screen-2xl mx-auto text-center">
+<p class="font-headline text-on-surface-variant text-sm">BIOL 101 • Biology Research Seminar • Week 08</p>
+<p class="font-body text-on-surface-variant text-sm mt-2">Emma Krasovich Southworth • May 20, 2026</p>
+</div>
+</footer>
+
+</body></html>

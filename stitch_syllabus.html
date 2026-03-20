@@ -7,7 +7,6 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -95,22 +94,14 @@
     </style>
 </head>
 <body class="bg-background text-on-surface font-body selection:bg-primary/30 min-h-screen">
-<!-- TopNavBar (Shared Component) -->
+<!-- TopNavBar -->
 <nav class="fixed top-0 left-0 w-full z-[100] flex justify-between items-center px-12 py-4 max-w-[1920px] mx-auto bg-[#0e0e0f]/60 backdrop-blur-[20px] shadow-[0_8px_32px_0_rgba(0,0,0,0.36)]">
 <div class="flex items-center gap-8">
 <span class="text-2xl font-bold text-[#86fea7] font-['Space_Grotesk'] tracking-tighter">BIOL 101</span>
 <div class="hidden md:flex items-center gap-6 font-['Space_Grotesk'] tracking-tight text-sm uppercase">
-<a class="text-[#adaaab] hover:text-[#86fea7] transition-colors" href="#">Modules</a>
-<a class="text-[#adaaab] hover:text-[#86fea7] transition-colors" href="#">Discussions</a>
-<a class="text-[#86fea7] border-b-2 border-[#86fea7] pb-1" href="#">Syllabus</a>
-<a class="text-[#adaaab] hover:text-[#86fea7] transition-colors" href="#">Resources</a>
-</div>
-</div>
-<div class="flex items-center gap-4">
-<button class="material-symbols-outlined text-[#adaaab] hover:bg-[#86fea7]/10 p-2 rounded-full transition-all scale-95 active:scale-90">notifications</button>
-<button class="material-symbols-outlined text-[#adaaab] hover:bg-[#86fea7]/10 p-2 rounded-full transition-all scale-95 active:scale-90">science</button>
-<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center border border-outline-variant/20 overflow-hidden">
-<img alt="Student Profile Avatar" class="w-full h-full object-cover" data-alt="Close up of a student profile avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-5WL5z0IDMABQ_MBCuKkcwt9jAqzHlLTIPTReKxvTdYYkGZkJq7di4xOmODR4h8H4hdJlMkN8oGMnMaLbvDQu7df0q7isCiB_otUq5VzGHy6Ey0z8Xw3_7EyN1rH5xXLjLqLI_JGZsj_mZzOakEhGGOJx1rhfcaO2QrEdTEN8BY-0gqaM-RfSctbBd6heSlyYq2SL5wv7beq9NhosMM5TFXE7GtWAH5ZP9xvCb-P1i1RM8eGP5-r8z8IS8rb2Wo2kPiKK7dYk4_M"/>
+<a class="text-[#adaaab] hover:text-[#86fea7] transition-colors" href="stitch_homepage.html">About</a>
+<a class="text-[#adaaab] hover:text-[#86fea7] transition-colors" href="stitch_homepage.html#modules">Modules</a>
+<a class="text-[#86fea7] border-b-2 border-[#86fea7] pb-1" href="stitch_syllabus.html">Syllabus</a>
 </div>
 </div>
 <div class="bg-gradient-to-r from-transparent via-[#484849]/15 to-transparent h-[1px] w-full absolute bottom-0"></div>
@@ -124,11 +115,10 @@
                 </div>
 <h1 class="text-6xl md:text-8xl font-headline font-bold text-on-surface tracking-tighter leading-none mb-4">Course Syllabus</h1>
 <p class="text-xl md:text-2xl text-on-surface-variant font-light tracking-tight">
-                    BIOL 101 <span class="mx-2 text-outline-variant">•</span> Spring 2026
+                    BIOL 101 <span class="mx-2 text-outline-variant">&bull;</span> Spring 2026
                 </p>
 </div>
 <div class="relative w-48 h-48 opacity-20 hidden md:block">
-<!-- Abstract Scroll/Book Pattern -->
 <svg class="w-full h-full fill-primary" viewbox="0 0 200 200">
 <path d="M40 20h120v140H40zM40 160c-10 0-20 10-20 20s10 20 20 20h120c10 0 20-10 20-20s-10-20-20-20H40z" fill-opacity="0.1"></path>
 <rect height="2" rx="1" width="100" x="50" y="40"></rect>
@@ -139,6 +129,7 @@
 </svg>
 </div>
 </header>
+
 <!-- Course & Faculty Info Bento -->
 <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
 <!-- Faculty Info -->
@@ -146,19 +137,22 @@
 <div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
 <span class="material-symbols-outlined text-8xl" style="font-variation-settings: 'FILL' 1;">account_circle</span>
 </div>
-<h3 class="font-headline text-xs font-bold uppercase tracking-widest text-outline">Faculty Lead</h3>
+<h3 class="font-headline text-xs font-bold uppercase tracking-widest text-outline">Faculty Coordinator</h3>
 <div class="flex flex-col gap-1">
-<span class="text-2xl font-semibold text-primary">Dr. Giorgio Lagna</span>
-<span class="text-on-surface-variant text-sm">Lab Director &amp; Senior Fellow</span>
+<span class="text-2xl font-semibold text-primary">Giorgio Lagna, Ph.D.</span>
 </div>
 <div class="space-y-3 mt-4 text-sm">
 <div class="flex items-center gap-3">
 <span class="material-symbols-outlined text-primary text-sm">mail</span>
-<span class="text-on-surface-variant">g.lagna@biolum.lab.edu</span>
+<span class="text-on-surface-variant">glagna@scu.edu</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm">schedule</span>
+<span class="text-on-surface-variant">Office Hours: By appointment</span>
 </div>
 <div class="flex items-center gap-3">
 <span class="material-symbols-outlined text-primary text-sm">corporate_fare</span>
-<span class="text-on-surface-variant">Inst. for Deep Sea Bioluminescence</span>
+<span class="text-on-surface-variant">Department of Biology, SCU &amp; Cardiovascular Research Institute, UCSF</span>
 </div>
 </div>
 </div>
@@ -166,27 +160,30 @@
 <div class="md:col-span-2 bg-surface-container-low p-8 rounded-lg grid grid-cols-2 md:grid-cols-4 gap-8 border-l-2 border-primary/30">
 <div class="flex flex-col gap-2">
 <span class="font-headline text-[10px] font-bold uppercase tracking-widest text-outline">Academic Term</span>
-<span class="text-lg font-medium">Spring Quarter 2026</span>
+<span class="text-lg font-medium">Spring 2026</span>
+<span class="text-xs text-on-surface-variant">April 1 &ndash; June 10</span>
 </div>
 <div class="flex flex-col gap-2">
 <span class="font-headline text-[10px] font-bold uppercase tracking-widest text-outline">Location</span>
-<span class="text-lg font-medium">Lab 402 / Virtual Hub</span>
+<span class="text-lg font-medium">Rm 116, Bergin Hall</span>
+<span class="text-xs text-on-surface-variant">Santa Clara University</span>
 </div>
 <div class="flex flex-col gap-2">
 <span class="font-headline text-[10px] font-bold uppercase tracking-widest text-outline">Course Units</span>
-<span class="text-lg font-medium">5.0 Quarter Units</span>
+<span class="text-lg font-medium">2 Units, P/NP</span>
 </div>
 <div class="flex flex-col gap-2">
 <span class="font-headline text-[10px] font-bold uppercase tracking-widest text-outline">Meeting Time</span>
-<span class="text-lg font-medium">Tue/Thu 14:00 - 15:30</span>
+<span class="text-lg font-medium">Wed 5:25 &ndash; 6:30 PM</span>
 </div>
 <div class="col-span-full pt-6 mt-2 border-t border-outline-variant/10">
 <p class="text-on-surface-variant text-sm leading-relaxed max-w-2xl">
-                        This course operates on a P/NP (Pass/No Pass) basis, focusing on mastery-based learning and research participation rather than traditional letter grades.
+                        <strong class="text-on-surface">Prerequisite:</strong> BIOL 1C (or equivalent introductory biology series). This course operates on a Pass/No Pass basis, focusing on engagement and participation rather than traditional letter grades.
                     </p>
 </div>
 </div>
 </section>
+
 <!-- Course Description & Objectives -->
 <section class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
 <div class="space-y-6">
@@ -194,7 +191,7 @@
 <div class="obsidian-glass p-8 rounded-lg border border-outline-variant/15 relative overflow-hidden">
 <div class="voronoi-bg absolute inset-0 opacity-10 pointer-events-none"></div>
 <p class="text-on-surface-variant leading-relaxed relative z-10">
-                        An immersive exploration into the biological mechanisms of light production in living organisms. From the deep-sea abyss to terrestrial fungi, students will analyze the chemical pathways of luciferin-luciferase reactions and their evolution across phyla. The course emphasizes direct laboratory observation and the potential applications of bioluminescence in modern biotechnology.
+                        A forum for the exploration of active research themes in the life sciences. Invited scientists from a range of universities and institutes present their current research and engage in discussion with seminar participants. This course gives students direct interactions with research academics in a range of fields, awareness of career opportunities, and contacts in those fields. This quarter features postdoctoral researchers and graduate students alongside established PIs, reflecting the full spectrum of scientific careers.
                     </p>
 </div>
 </div>
@@ -203,126 +200,199 @@
 <ul class="space-y-4">
 <li class="flex gap-4 items-start group">
 <span class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xs flex-shrink-0 group-hover:bg-primary group-hover:text-on-primary transition-all">01</span>
-<p class="text-on-surface-variant pt-1">Identify and distinguish between biochemical markers of bioluminescence vs. fluorescence.</p>
+<p class="text-on-surface-variant pt-1">Read and critically analyze primary research papers across diverse biological disciplines</p>
 </li>
 <li class="flex gap-4 items-start group">
 <span class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xs flex-shrink-0 group-hover:bg-primary group-hover:text-on-primary transition-all">02</span>
-<p class="text-on-surface-variant pt-1">Model the evolutionary divergence of light-emitting structures in cephalopods.</p>
+<p class="text-on-surface-variant pt-1">Formulate productive scientific questions using a structured question taxonomy</p>
 </li>
 <li class="flex gap-4 items-start group">
 <span class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xs flex-shrink-0 group-hover:bg-primary group-hover:text-on-primary transition-all">03</span>
-<p class="text-on-surface-variant pt-1">Synthesize laboratory data from deep-sea sediment luminescence readings.</p>
+<p class="text-on-surface-variant pt-1">Engage directly with active researchers through seminar Q&amp;A and discussion</p>
 </li>
 <li class="flex gap-4 items-start group">
 <span class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xs flex-shrink-0 group-hover:bg-primary group-hover:text-on-primary transition-all">04</span>
-<p class="text-on-surface-variant pt-1">Analyze ethical implications of transgenic bioluminescent organisms.</p>
+<p class="text-on-surface-variant pt-1">Reflect on how different research approaches, methods, and career paths relate to your own interests</p>
 </li>
 <li class="flex gap-4 items-start group">
 <span class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xs flex-shrink-0 group-hover:bg-primary group-hover:text-on-primary transition-all">05</span>
-<p class="text-on-surface-variant pt-1">Propose a novel application for bioluminescent sensors in human medicine.</p>
+<p class="text-on-surface-variant pt-1">Develop professional skills through informational interviews and science communication practice</p>
 </li>
 </ul>
 </div>
 </section>
-<!-- Structure & Schedule -->
+
+<!-- Course Structure (NEW section, Stitch styling) -->
 <section class="mb-20 space-y-8">
-<h2 class="text-3xl font-headline font-bold tracking-tight">Academic Schedule</h2>
+<h2 class="text-3xl font-headline font-bold tracking-tight">Course Structure</h2>
+<div class="obsidian-glass p-8 rounded-lg border border-outline-variant/15 relative overflow-hidden">
+<div class="voronoi-bg absolute inset-0 opacity-10 pointer-events-none"></div>
+<div class="relative z-10 space-y-6">
+<p class="text-on-surface-variant leading-relaxed">
+                        The quarter alternates between speaker weeks and activity weeks. Each speaker week follows a structured learning cycle: read the assigned paper, post a question to the Discussion Board, attend the seminar, and write a structured reflection. Activity weeks feature orientation, mid-quarter reflection, informational interview presentations, synthesis workshop, and final celebration.
+                    </p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+<div class="bg-surface-container-low/60 p-5 rounded-lg border border-outline-variant/10">
+<div class="flex items-center gap-3 mb-3">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">record_voice_over</span>
+<h4 class="font-headline font-bold text-xs uppercase tracking-wider text-on-surface">Speaker Weeks (2, 3, 5, 6, 8, 10)</h4>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed">Read paper &rarr; Post question to Discussion Board &rarr; Attend seminar &rarr; Write structured reflection</p>
+</div>
+<div class="bg-surface-container-low/60 p-5 rounded-lg border border-outline-variant/10">
+<div class="flex items-center gap-3 mb-3">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">groups</span>
+<h4 class="font-headline font-bold text-xs uppercase tracking-wider text-on-surface">Activity Weeks (1, 4, 7, 9, 11)</h4>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed">Orientation, mid-quarter reflection, informational interview presentations, synthesis workshop, final celebration</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Schedule -->
+<section class="mb-20 space-y-8">
+<h2 class="text-3xl font-headline font-bold tracking-tight">Spring 2026 Schedule</h2>
 <div class="overflow-x-auto">
 <table class="w-full text-left border-separate border-spacing-y-2">
 <thead>
 <tr class="text-outline uppercase text-[10px] tracking-widest font-bold">
-<th class="px-6 py-4">Module / Week</th>
-<th class="px-6 py-4">Primary Subject</th>
-<th class="px-6 py-4">Featured Speaker</th>
-<th class="px-6 py-4">Status</th>
+<th class="px-6 py-4">Week</th>
+<th class="px-6 py-4">Date</th>
+<th class="px-6 py-4">Session</th>
 </tr>
 </thead>
 <tbody class="text-sm">
 <tr class="bg-surface-container-low hover:bg-surface-container transition-colors group">
-<td class="px-6 py-5 rounded-l-lg font-medium text-on-surface">Module 01</td>
-<td class="px-6 py-5 text-on-surface-variant">The Physics of Photons: Cold Light Origins</td>
-<td class="px-6 py-5 text-primary font-medium italic">Dr. Giorgio Lagna</td>
-<td class="px-6 py-5 rounded-r-lg">
-<span class="px-2 py-1 rounded bg-primary/10 text-primary text-[10px] uppercase font-bold tracking-tight">Complete</span>
-</td>
+<td class="px-6 py-5 rounded-l-lg font-medium text-primary">1</td>
+<td class="px-6 py-5 text-on-surface-variant">Apr 1</td>
+<td class="px-6 py-5 rounded-r-lg text-on-surface-variant">Welcome &amp; How to Read a Scientific Paper</td>
 </tr>
 <tr class="bg-surface-container-low/50 hover:bg-surface-container transition-colors group">
-<td class="px-6 py-5 rounded-l-lg font-medium text-on-surface">Module 02</td>
-<td class="px-6 py-5 text-on-surface-variant">Chemistry: Luciferin &amp; Luciferase Pathways</td>
-<td class="px-6 py-5 text-primary font-medium italic">Prof. Elena Vance</td>
-<td class="px-6 py-5 rounded-r-lg">
-<span class="px-2 py-1 rounded bg-secondary/10 text-secondary text-[10px] uppercase font-bold tracking-tight">In Progress</span>
-</td>
+<td class="px-6 py-5 rounded-l-lg font-medium text-primary">2</td>
+<td class="px-6 py-5 text-on-surface-variant">Apr 8</td>
+<td class="px-6 py-5 rounded-r-lg text-on-surface-variant">Dr. Francesca Vacante (Stanford CVI) &mdash; CRISPRa &amp; Non-Coding RNA</td>
+</tr>
+<tr class="bg-surface-container-low hover:bg-surface-container transition-colors group">
+<td class="px-6 py-5 rounded-l-lg font-medium text-primary">3</td>
+<td class="px-6 py-5 text-on-surface-variant">Apr 15</td>
+<td class="px-6 py-5 rounded-r-lg text-on-surface-variant">Dr. Camilla Teng (UCSF) &mdash; Tissue Fusion in Craniofacial Development</td>
 </tr>
 <tr class="bg-surface-container-low/50 hover:bg-surface-container transition-colors group">
-<td class="px-6 py-5 rounded-l-lg font-medium text-on-surface">Module 03</td>
-<td class="px-6 py-5 text-on-surface-variant">Marine Ecosystems: The Deep Sea Trenches</td>
-<td class="px-6 py-5 text-primary font-medium italic">Dr. Giorgio Lagna</td>
-<td class="px-6 py-5 rounded-r-lg">
-<span class="px-2 py-1 rounded bg-outline-variant/20 text-outline text-[10px] uppercase font-bold tracking-tight">Upcoming</span>
-</td>
+<td class="px-6 py-5 rounded-l-lg font-medium text-primary">4</td>
+<td class="px-6 py-5 text-on-surface-variant">Apr 22</td>
+<td class="px-6 py-5 rounded-r-lg text-on-surface-variant">Mid-Quarter Reflection &amp; Career Paths</td>
+</tr>
+<tr class="bg-surface-container-low hover:bg-surface-container transition-colors group">
+<td class="px-6 py-5 rounded-l-lg font-medium text-primary">5</td>
+<td class="px-6 py-5 text-on-surface-variant">Apr 29</td>
+<td class="px-6 py-5 rounded-r-lg text-on-surface-variant">Dr. David Hess (Nevada Public Health Lab) &mdash; <em>C. auris</em> Genomic Surveillance</td>
 </tr>
 <tr class="bg-surface-container-low/50 hover:bg-surface-container transition-colors group">
-<td class="px-6 py-5 rounded-l-lg font-medium text-on-surface">Module 04</td>
-<td class="px-6 py-5 text-on-surface-variant">Mid-Quarter Research Symposium</td>
-<td class="px-6 py-5 text-primary font-medium italic">Collaborative Panel</td>
-<td class="px-6 py-5 rounded-r-lg">
-<span class="px-2 py-1 rounded bg-outline-variant/20 text-outline text-[10px] uppercase font-bold tracking-tight">Upcoming</span>
-</td>
+<td class="px-6 py-5 rounded-l-lg font-medium text-primary">6</td>
+<td class="px-6 py-5 text-on-surface-variant">May 6</td>
+<td class="px-6 py-5 rounded-r-lg text-on-surface-variant">Dr. Julie Frouard (Gladstone/UCSF) &mdash; HIV-seq <span class="text-xs text-outline">[Zoom]</span></td>
+</tr>
+<tr class="bg-surface-container-low hover:bg-surface-container transition-colors group">
+<td class="px-6 py-5 rounded-l-lg font-medium text-primary">7</td>
+<td class="px-6 py-5 text-on-surface-variant">May 13</td>
+<td class="px-6 py-5 rounded-r-lg text-on-surface-variant">Informational Interview Presentations</td>
+</tr>
+<tr class="bg-surface-container-low/50 hover:bg-surface-container transition-colors group">
+<td class="px-6 py-5 rounded-l-lg font-medium text-primary">8</td>
+<td class="px-6 py-5 text-on-surface-variant">May 20</td>
+<td class="px-6 py-5 rounded-r-lg text-on-surface-variant">Emma Krasovich Southworth (Stanford) &mdash; Tropical Cyclones &amp; Dengue</td>
+</tr>
+<tr class="bg-surface-container-low hover:bg-surface-container transition-colors group">
+<td class="px-6 py-5 rounded-l-lg font-medium text-primary">9</td>
+<td class="px-6 py-5 text-on-surface-variant">May 27</td>
+<td class="px-6 py-5 rounded-r-lg text-on-surface-variant">Synthesis Workshop: Connecting the Threads</td>
+</tr>
+<tr class="bg-surface-container-low/50 hover:bg-surface-container transition-colors group">
+<td class="px-6 py-5 rounded-l-lg font-medium text-primary">10</td>
+<td class="px-6 py-5 text-on-surface-variant">Jun 3</td>
+<td class="px-6 py-5 rounded-r-lg text-on-surface-variant">Dr. Samhita Jain (UCSF) &mdash; Microglia &amp; GABAergic Neurogenesis</td>
+</tr>
+<tr class="bg-surface-container-low hover:bg-surface-container transition-colors group">
+<td class="px-6 py-5 rounded-l-lg font-medium text-primary">11</td>
+<td class="px-6 py-5 text-on-surface-variant">Jun 10</td>
+<td class="px-6 py-5 rounded-r-lg text-on-surface-variant">Final Reflection &amp; Course Wrap-Up</td>
 </tr>
 </tbody>
 </table>
 </div>
 </section>
-<!-- Grading & Policies -->
+
+<!-- Grading & Assignments -->
 <section class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
-<!-- Grading Table -->
+<!-- Grading -->
 <div class="space-y-8">
-<h2 class="text-3xl font-headline font-bold tracking-tight">Course Requirements</h2>
+<h2 class="text-3xl font-headline font-bold tracking-tight">Grading (Pass/No Pass)</h2>
+<div class="obsidian-glass p-6 rounded-lg border border-outline-variant/15 mb-6">
+<p class="text-on-surface-variant leading-relaxed text-sm">
+                        To pass, complete at least <strong class="text-primary">5 of 6 speaker cycles</strong> + both activity week deliverables.
+                    </p>
+</div>
 <div class="bg-surface-container-low rounded-lg p-6">
 <table class="w-full text-sm">
 <thead>
 <tr class="text-outline uppercase text-[10px] tracking-widest font-bold border-b border-outline-variant/10">
-<th class="pb-4 text-left">Assignment Category</th>
-<th class="pb-4 text-right">Qty</th>
-<th class="pb-4 text-right">Weight</th>
+<th class="pb-4 text-left">Assignment</th>
+<th class="pb-4 text-right">Count</th>
 </tr>
 </thead>
 <tbody class="text-on-surface-variant">
 <tr class="border-b border-outline-variant/5">
-<td class="py-4 text-on-surface">Weekly Lab Discussions</td>
-<td class="py-4 text-right">8</td>
-<td class="py-4 text-right font-medium">20%</td>
+<td class="py-4">
+<span class="text-on-surface font-medium">Discussion Board Posts</span>
+<br/><span class="text-xs">Post a genuine question before each speaker week. ~75 words min.</span>
+</td>
+<td class="py-4 text-right font-medium">6</td>
 </tr>
 <tr class="border-b border-outline-variant/5">
-<td class="py-4 text-on-surface">Observational Reflections</td>
-<td class="py-4 text-right">4</td>
-<td class="py-4 text-right font-medium">15%</td>
+<td class="py-4">
+<span class="text-on-surface font-medium">Post-Class Reflections</span>
+<br/><span class="text-xs">Respond to structured prompts after each talk. ~200&ndash;300 words.</span>
+</td>
+<td class="py-4 text-right font-medium">6</td>
 </tr>
 <tr class="border-b border-outline-variant/5">
-<td class="py-4 text-on-surface">Mid-Quarter Project</td>
-<td class="py-4 text-right">1</td>
-<td class="py-4 text-right font-medium">25%</td>
+<td class="py-4">
+<span class="text-on-surface font-medium">Mid-Quarter Metacognitive Reflection</span>
+<br/><span class="text-xs">Honest self-assessment. ~200 words. (Week 4)</span>
+</td>
+<td class="py-4 text-right font-medium">1</td>
+</tr>
+<tr class="border-b border-outline-variant/5">
+<td class="py-4">
+<span class="text-on-surface font-medium">Informational Interview Summary</span>
+<br/><span class="text-xs">Written summary + in-class presentation. ~300&ndash;400 words. (Week 7)</span>
+</td>
+<td class="py-4 text-right font-medium">1</td>
+</tr>
+<tr class="border-b border-outline-variant/5">
+<td class="py-4">
+<span class="text-on-surface font-medium">Final Synthesis Reflection</span>
+<br/><span class="text-xs">Connect themes across 3+ talks. ~400&ndash;500 words. (Week 11)</span>
+</td>
+<td class="py-4 text-right font-medium">1</td>
 </tr>
 <tr>
-<td class="py-4 text-on-surface">Final Research Thesis</td>
-<td class="py-4 text-right">1</td>
-<td class="py-4 text-right font-medium">40%</td>
+<td class="py-4">
+<span class="text-on-surface font-medium">Attendance</span>
+<br/><span class="text-xs">Required for all speaker sessions. Make-up: watch recording + extended reflection (400 words).</span>
+</td>
+<td class="py-4 text-right font-medium">All</td>
 </tr>
 </tbody>
-<tfoot>
-<tr class="border-t border-primary/20 bg-primary/5">
-<td class="py-4 px-2 text-primary font-bold">TOTAL</td>
-<td class="py-4 text-right font-bold text-primary">—</td>
-<td class="py-4 pr-2 text-right font-bold text-primary">100%</td>
-</tr>
-</tfoot>
 </table>
 </div>
 </div>
+
 <!-- Policies -->
 <div class="space-y-8">
-<h2 class="text-3xl font-headline font-bold tracking-tight">Institutional Policies</h2>
+<h2 class="text-3xl font-headline font-bold tracking-tight">Policies</h2>
 <div class="space-y-4">
 <div class="obsidian-glass p-6 rounded-lg amber-accent bg-surface-container-high/40">
 <div class="flex items-center gap-3 mb-2">
@@ -330,45 +400,89 @@
 <h4 class="font-headline font-bold text-xs uppercase tracking-wider text-on-surface">Academic Integrity</h4>
 </div>
 <p class="text-sm text-on-surface-variant leading-relaxed">
-                            Research ethics are the backbone of the Lab. All observations must be original. Use of AI for synthetic findings is strictly prohibited without explicit citation and justification.
+                            Discussion questions and reflections must be your own work. Borrowing words from another student is a breach of academic integrity. Copying from the internet or published papers without proper referencing is also a breach. Use quotation marks and APA-style citations when quoting. If unsure about the integrity of any work, contact the instructor.
                         </p>
 </div>
 <div class="obsidian-glass p-6 rounded-lg amber-accent bg-surface-container-high/40">
 <div class="flex items-center gap-3 mb-2">
 <span class="material-symbols-outlined text-[#ffb900] text-sm" style="font-variation-settings: 'FILL' 1;">accessibility_new</span>
-<h4 class="font-headline font-bold text-xs uppercase tracking-wider text-on-surface">OAE &amp; Accommodations</h4>
+<h4 class="font-headline font-bold text-xs uppercase tracking-wider text-on-surface">Students with Disabilities</h4>
 </div>
 <p class="text-sm text-on-surface-variant leading-relaxed">
-                            We are committed to providing an inclusive learning environment. Students requiring disability accommodations should register through the University Portal.
+                            Students with disabilities should contact the Office of Accessible Education (OAE) to arrange accommodations. The instructor is committed to creating an inclusive learning environment. For any concerns, please reach out to Giorgio Lagna at glagna@scu.edu.
                         </p>
 </div>
 <div class="obsidian-glass p-6 rounded-lg amber-accent bg-surface-container-high/40">
 <div class="flex items-center gap-3 mb-2">
 <span class="material-symbols-outlined text-[#ffb900] text-sm" style="font-variation-settings: 'FILL' 1;">forum</span>
-<h4 class="font-headline font-bold text-xs uppercase tracking-wider text-on-surface">Communication</h4>
+<h4 class="font-headline font-bold text-xs uppercase tracking-wider text-on-surface">Course Communication</h4>
 </div>
 <p class="text-sm text-on-surface-variant leading-relaxed">
-                            All academic correspondence must be conducted via university email. Dr. Lagna maintains open lab hours on Fridays via the Discord Hub.
+                            All course materials, assignments, and discussion boards will be posted to the learning management system. Announcements and important updates will be sent via email. Check your email regularly and monitor the course platform for deadlines.
                         </p>
 </div>
 </div>
 </div>
 </section>
+
+<!-- Participation Alternatives (NEW section, Stitch styling) -->
+<section class="mb-20 space-y-8">
+<h2 class="text-3xl font-headline font-bold tracking-tight">Participation Alternatives</h2>
+<div class="obsidian-glass p-8 rounded-lg border border-outline-variant/15 relative overflow-hidden">
+<div class="voronoi-bg absolute inset-0 opacity-10 pointer-events-none"></div>
+<div class="relative z-10 space-y-4">
+<p class="text-on-surface-variant leading-relaxed">
+                        Not everyone engages best through live verbal Q&amp;A. Equally valued alternatives include:
+                    </p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+<div class="flex items-start gap-3 bg-surface-container-low/60 p-4 rounded-lg border border-outline-variant/10">
+<span class="material-symbols-outlined text-primary text-sm mt-0.5" style="font-variation-settings: 'FILL' 1;">mail</span>
+<p class="text-sm text-on-surface-variant">Email questions to the speaker within 24 hours</p>
+</div>
+<div class="flex items-start gap-3 bg-surface-container-low/60 p-4 rounded-lg border border-outline-variant/10">
+<span class="material-symbols-outlined text-primary text-sm mt-0.5" style="font-variation-settings: 'FILL' 1;">record_voice_over</span>
+<p class="text-sm text-on-surface-variant">Ask the instructor to pose your question</p>
+</div>
+<div class="flex items-start gap-3 bg-surface-container-low/60 p-4 rounded-lg border border-outline-variant/10">
+<span class="material-symbols-outlined text-primary text-sm mt-0.5" style="font-variation-settings: 'FILL' 1;">edit_note</span>
+<p class="text-sm text-on-surface-variant">Submit written questions via Discussion Board</p>
+</div>
+<div class="flex items-start gap-3 bg-surface-container-low/60 p-4 rounded-lg border border-outline-variant/10">
+<span class="material-symbols-outlined text-primary text-sm mt-0.5" style="font-variation-settings: 'FILL' 1;">event_available</span>
+<p class="text-sm text-on-surface-variant">Attend office hours to discuss</p>
+</div>
+</div>
+<p class="text-on-surface-variant leading-relaxed text-sm mt-2">
+                        All modes count as authentic participation.
+                    </p>
+</div>
+</div>
+</section>
+
+<!-- Career Inclusivity (NEW section, Stitch styling) -->
+<section class="mb-20 space-y-8">
+<h2 class="text-3xl font-headline font-bold tracking-tight">Career Inclusivity</h2>
+<div class="obsidian-glass p-8 rounded-lg border border-outline-variant/15 relative overflow-hidden">
+<div class="voronoi-bg absolute inset-0 opacity-10 pointer-events-none"></div>
+<p class="text-on-surface-variant leading-relaxed relative z-10">
+                    Whether you're exploring academia, medicine, industry, policy, science communication, or something entirely different, you belong in this course. Your career path does not need to look like the speakers' paths. This seminar is designed to expose you to the full spectrum of scientific and research-adjacent careers.
+                </p>
+</div>
+</section>
+
 </main>
-<!-- Footer (Shared Component) -->
+<!-- Footer -->
 <footer class="w-full py-12 px-12 border-t border-[#484849]/15 bg-[#131314]">
 <div class="flex flex-col md:flex-row justify-between items-center w-full max-w-7xl mx-auto gap-8">
 <div class="flex flex-col gap-2">
 <span class="text-lg font-bold text-[#86fea7]">BIOL 101</span>
 <p class="font-['Plus_Jakarta_Sans'] text-xs text-[#adaaab]">
-                    © 2024 The Bioluminescent Laboratory | Lab Director: Giorgio Lagna
+                    BIOL 101 &bull; Biology Research Seminar &bull; Spring 2026 / Santa Clara University
                 </p>
 </div>
-<div class="flex gap-8 font-['Plus_Jakarta_Sans'] text-xs text-[#adaaab]">
-<a class="hover:text-[#86fea7] underline-offset-4 hover:underline transition-all opacity-80 hover:opacity-100" href="#">Main Course Homepage</a>
-<a class="hover:text-[#86fea7] underline-offset-4 hover:underline transition-all opacity-80 hover:opacity-100" href="#">University Portal</a>
-<a class="hover:text-[#86fea7] underline-offset-4 hover:underline transition-all opacity-80 hover:opacity-100" href="#">Research Archives</a>
 </div>
+<div class="mt-6 text-center">
+<p class="font-['Plus_Jakarta_Sans'] text-xs text-[#adaaab] opacity-60">Last updated: March 2026</p>
 </div>
 </footer>
 </body></html>

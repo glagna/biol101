@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BIOL 101 | Dr. Camilla Teng: Cellular Mechanics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary": "#004d57",
+              "on-secondary-container": "#e8fbff",
+              "outline-variant": "#484849",
+              "on-surface-variant": "#adaaab",
+              "background": "#0e0e0f",
+              "error-dim": "#d7383b",
+              "tertiary-fixed": "#c99dff",
+              "surface-tint": "#86fea7",
+              "on-tertiary-container": "#340064",
+              "primary-fixed-dim": "#78ef9a",
+              "inverse-primary": "#006e36",
+              "secondary-fixed": "#26e6ff",
+              "on-secondary-fixed-variant": "#005964",
+              "on-primary-container": "#002910",
+              "on-surface": "#ffffff",
+              "surface": "#0e0e0f",
+              "inverse-on-surface": "#565556",
+              "on-tertiary-fixed-variant": "#50158d",
+              "secondary": "#00e3fd",
+              "tertiary": "#c799ff",
+              "surface-container-highest": "#262627",
+              "on-tertiary-fixed": "#25004b",
+              "secondary-dim": "#00d4ec",
+              "primary": "#86fea7",
+              "tertiary-fixed-dim": "#bf8bff",
+              "outline": "#767576",
+              "surface-container-high": "#201f21",
+              "primary-container": "#3bb668",
+              "primary-fixed": "#86fea7",
+              "surface-dim": "#0e0e0f",
+              "error": "#ff716c",
+              "tertiary-container": "#bc87fe",
+              "primary-dim": "#78ef9a",
+              "surface-container": "#1a191b",
+              "surface-container-low": "#131314",
+              "surface-bright": "#2c2c2d",
+              "on-primary-fixed-variant": "#006c35",
+              "on-secondary-fixed": "#003a42",
+              "secondary-container": "#006875",
+              "inverse-surface": "#fcf8f9",
+              "surface-variant": "#262627",
+              "error-container": "#9f0519",
+              "on-primary-fixed": "#004c23",
+              "on-tertiary": "#440080",
+              "surface-container-lowest": "#000000",
+              "on-error-container": "#ffa8a3",
+              "on-error": "#490006",
+              "secondary-fixed-dim": "#00d7f0",
+              "on-background": "#ffffff",
+              "tertiary-dim": "#ba85fb",
+              "on-primary": "#00612f"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Plus Jakarta Sans"],
+              "label": ["Plus Jakarta Sans"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .voronoi-bg {
+            background-image: url("data:image/svg+xml,%3Csvg width='800' height='800' viewBox='0 0 800 800' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0L800 0L800 800L0 800Z' fill='none'/%3E%3Cpath d='M340 120L420 80L560 160L520 280L380 320L300 240Z' stroke='%233bb668' stroke-opacity='0.15' fill='none'/%3E%3Cpath d='M100 400L220 340L300 440L240 560L120 520Z' stroke='%233bb668' stroke-opacity='0.1' fill='none'/%3E%3Cpath d='M600 500L720 440L780 580L660 700L540 620Z' stroke='%233bb668' stroke-opacity='0.12' fill='none'/%3E%3C/svg%3E");
+            background-size: cover;
+        }
+        .glass-panel {
+            background: rgba(38, 38, 39, 0.6);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30">
+<!-- Top Navigation Shell -->
+<nav class="fixed top-0 left-0 w-full z-[100] flex justify-between items-center px-12 py-4 max-w-[1920px] mx-auto bg-[#0e0e0f]/60 backdrop-blur-[20px] shadow-[0_8px_32px_0_rgba(0,0,0,0.36)]">
+<div class="text-2xl font-bold text-[#86fea7] font-['Space_Grotesk'] tracking-tighter">BIOL 101</div>
+<div class="hidden md:flex gap-12 font-['Space_Grotesk'] tracking-tight text-sm uppercase">
+<a class="text-[#adaaab] hover:text-[#86fea7] transition-colors" href="stitch_homepage.html">About</a>
+<a class="text-[#adaaab] hover:text-[#86fea7] transition-colors" href="stitch_homepage.html#modules">Modules</a>
+<a class="text-[#adaaab] hover:text-[#86fea7] transition-colors" href="stitch_syllabus.html">Syllabus</a>
+</div>
+<div class="bg-gradient-to-r from-transparent via-[#484849]/15 to-transparent h-[1px] w-full absolute bottom-0"></div>
+</nav>
+<main class="pt-24 min-h-screen">
+<!-- Hero Section -->
+<section class="relative w-full px-12 py-24 overflow-hidden border-b border-outline-variant/10">
+<div class="absolute inset-0 voronoi-bg opacity-40"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 blur-[120px] rounded-full"></div>
+<div class="relative z-10 max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
+<div class="relative w-72 h-72 lg:w-96 lg:h-96 shrink-0">
+<div class="absolute inset-0 rounded-full border-2 border-primary/20 scale-110"></div>
+<div class="absolute inset-0 rounded-full border-2 border-secondary/10 scale-125 rotate-45"></div>
+<div class="w-full h-full rounded-full overflow-hidden border-4 border-surface-container-highest shadow-2xl">
+<img class="w-full h-full object-cover" data-alt="Dr. Camilla Teng, leading researcher in tissue mechanics" src="https://researcherprofiles.org/profile/Modules/CustomViewPersonGeneralInfo/PhotoHandler.ashx?NodeID=38882606&cachekey=712945ca-a626-4848-a178-17c911bb0707"/>
+</div>
+<div class="absolute -bottom-4 right-8 bg-primary px-6 py-2 rounded-full text-on-primary font-bold shadow-lg shadow-primary/20">WEEK 03</div>
+</div>
+<div class="flex-1 space-y-6">
+<div class="flex items-center gap-3 text-secondary font-headline tracking-widest text-sm uppercase">
+<span class="material-symbols-outlined text-sm">magnification_small</span>
+                        Principal Investigator Seminar
+                    </div>
+<h1 class="text-5xl lg:text-7xl font-headline font-bold leading-tight tracking-tighter text-on-surface">
+                        Dr. Camilla Teng
+                    </h1>
+<p class="text-xl lg:text-2xl text-on-surface-variant font-light max-w-2xl leading-relaxed">
+                        Cellular Mechanics of Tissue Fusion in <span class="text-primary italic">Craniofacial Development</span>.
+                    </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<div class="flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container-high border border-outline-variant/20 text-on-surface-variant text-sm">
+<span class="material-symbols-outlined text-sm">location_on</span> UCSF Research
+                        </div>
+<div class="flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container-high border border-outline-variant/20 text-on-surface-variant text-sm">
+<span class="material-symbols-outlined text-sm">workspace_premium</span> Postdoc Slam Finalist
+                        </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Logistics & Bio Grid -->
+<section class="px-12 py-20 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8">
+<div class="lg:col-span-4 space-y-8">
+<div class="p-8 rounded-lg bg-surface-container-low border-l-2 border-secondary/50 space-y-6">
+<h3 class="font-headline text-lg font-semibold flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">event_note</span>
+                        Seminar Logistics
+                    </h3>
+<ul class="space-y-4">
+<li class="flex justify-between items-center py-2 border-b border-outline-variant/10">
+<span class="text-on-surface-variant text-sm">Date</span>
+<span class="text-on-surface font-medium">Wednesday, April 15</span>
+</li>
+<li class="flex justify-between items-center py-2 border-b border-outline-variant/10">
+<span class="text-on-surface-variant text-sm">Time</span>
+<span class="text-on-surface font-medium">5:25 PM — 6:30 PM</span>
+</li>
+<li class="flex justify-between items-center py-2 border-b border-outline-variant/10">
+<span class="text-on-surface-variant text-sm">Location</span>
+<span class="text-on-surface font-medium">Rm 116, Bergin Hall, Santa Clara University</span>
+</li>
+</ul>
+<button class="w-full bg-primary text-on-primary py-3 rounded-full font-bold hover:scale-[1.02] transition-transform shadow-lg shadow-primary/10">
+                        Add to Calendar
+                    </button>
+</div>
+<div class="p-8 rounded-lg bg-surface-container-high space-y-4">
+<h3 class="font-headline text-lg font-semibold text-tertiary">Background</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">
+                        Camilla is a postdoctoral researcher in the Bush Laboratory at UCSF's Department of Cell & Tissue Biology, where she studies how mechanical forces guide cell migration and tissue fusion during craniofacial development. She bridges experimental embryology and mechanical biology, combining live imaging, force measurement, and molecular analysis.
+                    </p>
+</div>
+</div>
+<div class="lg:col-span-8 p-10 rounded-lg bg-surface-container-low space-y-8 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-8 opacity-10">
+<span class="material-symbols-outlined text-8xl" style="font-variation-settings: 'FILL' 1;">biotech</span>
+</div>
+<h2 class="text-3xl font-headline font-bold">Biography &amp; Research Focus</h2>
+<div class="space-y-6 text-on-surface-variant leading-relaxed">
+<p>
+                        Camilla is a postdoctoral researcher in the Bush Laboratory at UCSF's Department of Cell & Tissue Biology, specializing in the biomechanics of tissue morphogenesis. Her research investigates the fundamental cellular processes that drive tissue fusion—a critical step in preventing craniofacial defects like cleft lip and palate.
+                    </p>
+<p>
+                        Recognized for her ability to communicate complex science, she was a finalist in the prestigious UCSF Postdoc Slam, where she translated high-level biomechanical data into compelling narrative research. Her current work utilizes advanced live-imaging techniques to track force distribution across migrating epithelial sheets, with implications for understanding and potentially preventing birth defects.
+                    </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4">
+<div class="flex items-start gap-4 p-4 rounded-md bg-surface-container-highest/40">
+<span class="material-symbols-outlined text-primary">dynamic_form</span>
+<div>
+<div class="text-on-surface font-semibold text-sm">Cellular Migration &amp; Mechanics</div>
+<div class="text-xs text-on-surface-variant">How cells generate and respond to mechanical forces during tissue formation.</div>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 rounded-md bg-surface-container-highest/40">
+<span class="material-symbols-outlined text-secondary">visibility</span>
+<div>
+<div class="text-on-surface font-semibold text-sm">Live-Imaging Techniques</div>
+<div class="text-xs text-on-surface-variant">Real-time visualization and quantification of forces in living tissues.</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Pre-Class Preparation: Bento Grid -->
+<section class="px-12 py-20 bg-surface-container-low/30">
+<div class="max-w-7xl mx-auto space-y-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div class="space-y-2">
+<h2 class="text-4xl font-headline font-bold">Pre-Class Preparation</h2>
+<p class="text-on-surface-variant">Review the primary research and essential terminology before the seminar.</p>
+</div>
+<div class="h-[1px] flex-1 bg-gradient-to-r from-outline-variant/30 to-transparent hidden md:block mb-4"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Paper Dossier -->
+<div class="md:col-span-2 glass-panel p-10 rounded-lg border-l-4 border-primary/40 flex flex-col md:flex-row gap-8 items-start">
+<div class="w-full md:w-48 aspect-[3/4] bg-surface-container-highest rounded-md flex items-center justify-center border border-outline-variant/30 relative shadow-2xl shrink-0">
+<span class="material-symbols-outlined text-6xl text-primary/20">description</span>
+<div class="absolute inset-x-0 bottom-0 p-4 bg-primary/10">
+<div class="text-[10px] uppercase tracking-widest font-bold text-primary">Teng 2025</div>
+</div>
+</div>
+<div class="space-y-4">
+<span class="px-3 py-1 bg-primary/10 text-primary text-[10px] font-bold tracking-widest rounded uppercase">Required Reading</span>
+<h3 class="text-2xl font-headline font-bold">Actomyosin Contractility and a Threshold of Cadherin Cell Adhesion Are Required During Tissue Fusion</h3>
+<p class="text-on-surface-variant text-sm">Teng, Curtis, Brewer, Leslie-Clarkson & Bush (2025) • Journal of Cell Biology. This paper shows how actomyosin contractility and cadherin-based cell adhesion drive upper lip fusion in the mammalian embryo using live imaging and mouse genetics.</p>
+<div class="pt-4 flex gap-4">
+<a href="https://doi.org/10.1083/jcb.202503070" target="_blank" class="flex items-center gap-2 px-6 py-3 bg-surface-container-highest rounded-full text-sm font-semibold hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined text-lg">download</span> Read Paper
+                                </a>
+<button class="flex items-center gap-2 px-6 py-3 border border-outline-variant/30 rounded-full text-sm font-semibold hover:border-primary/50 transition-all">
+<span class="material-symbols-outlined text-lg">bookmark</span> Annotate
+                                </button>
+</div>
+</div>
+</div>
+<!-- Glossary -->
+<div class="bg-surface-container-high p-10 rounded-lg space-y-6">
+<h3 class="font-headline text-xl font-bold flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">list_alt</span>
+                            Glossary
+                        </h3>
+<div class="space-y-6">
+<div class="group">
+<div class="text-primary font-bold text-sm group-hover:underline cursor-help">Cellular Migration</div>
+<p class="text-xs text-on-surface-variant mt-1">Movement of cells through tissue, driven by cell-cell contacts and mechanical forces.</p>
+</div>
+<div class="group">
+<div class="text-primary font-bold text-sm group-hover:underline cursor-help">Tissue Fusion</div>
+<p class="text-xs text-on-surface-variant mt-1">Process by which two separate tissues merge into one, requiring coordinated cell migration.</p>
+</div>
+<div class="group">
+<div class="text-primary font-bold text-sm group-hover:underline cursor-help">Craniofacial Development</div>
+<p class="text-xs text-on-surface-variant mt-1">Formation of the head, face, and jaw during embryonic development.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Learning Objectives: Teal Glass Cards -->
+<section class="px-12 py-24 max-w-7xl mx-auto">
+<div class="text-center space-y-4 mb-16">
+<h2 class="text-4xl font-headline font-bold">Learning Objectives</h2>
+<div class="w-24 h-1 bg-primary/40 mx-auto rounded-full"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="glass-panel p-8 rounded-lg border-t-2 border-secondary/20 hover:border-secondary/60 transition-colors group">
+<div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-secondary">architecture</span>
+</div>
+<div class="text-on-surface font-semibold mb-2">Cellular Mechanics in Development</div>
+<p class="text-xs text-on-surface-variant leading-relaxed">Understand how cells generate and respond to mechanical forces essential for coordinating tissue formation.</p>
+</div>
+<div class="glass-panel p-8 rounded-lg border-t-2 border-secondary/20 hover:border-secondary/60 transition-colors group">
+<div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-secondary">precision_manufacturing</span>
+</div>
+<div class="text-on-surface font-semibold mb-2">Craniofacial Tissue Fusion</div>
+<p class="text-xs text-on-surface-variant leading-relaxed">Learn how multiple tissues merge during face formation and what goes wrong in cleft lip/palate.</p>
+</div>
+<div class="glass-panel p-8 rounded-lg border-t-2 border-secondary/20 hover:border-secondary/60 transition-colors group">
+<div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-secondary">biotech</span>
+</div>
+<div class="text-on-surface font-semibold mb-2">Experimental Techniques</div>
+<p class="text-xs text-on-surface-variant leading-relaxed">Visualize and quantify mechanical forces in living tissues using microscopy and specialized tools.</p>
+</div>
+<div class="glass-panel p-8 rounded-lg border-t-2 border-secondary/20 hover:border-secondary/60 transition-colors group">
+<div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-secondary">history_edu</span>
+</div>
+<div class="text-on-surface font-semibold mb-2">Research Communication</div>
+<p class="text-xs text-on-surface-variant leading-relaxed">Witness how an award-winning researcher presents complex ideas clearly and learn about her career path.</p>
+</div>
+</div>
+</section>
+<!-- During the Seminar -->
+<section class="px-12 py-20 bg-surface-container-low">
+<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+<div class="lg:col-span-5 space-y-8">
+<h2 class="text-4xl font-headline font-bold">During the Seminar</h2>
+<p class="text-on-surface-variant leading-relaxed">Dr. Teng will present her research on cellular mechanics of tissue fusion, including live imaging data and force measurements. Use the interactive notes panel to capture key data points.</p>
+<div class="space-y-4">
+<div class="flex gap-4 items-center">
+<div class="w-10 h-10 rounded-full border border-primary/20 flex items-center justify-center shrink-0 font-headline text-primary font-bold text-sm">01</div>
+<div class="text-sm">Welcome &amp; Context Setting (5 minutes)</div>
+</div>
+<div class="flex gap-4 items-center">
+<div class="w-10 h-10 rounded-full border border-primary/20 flex items-center justify-center shrink-0 font-headline text-primary font-bold text-sm">02</div>
+<div class="text-sm">Research Presentation (30 minutes)</div>
+</div>
+<div class="flex gap-4 items-center">
+<div class="w-10 h-10 rounded-full border border-primary/20 flex items-center justify-center shrink-0 font-headline text-primary font-bold text-sm">03</div>
+<div class="text-sm">Q&amp;A &amp; Discussion (25 minutes)</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-7 bg-background p-1 rounded-lg border border-outline-variant/20 shadow-2xl relative">
+<div class="absolute -top-4 -right-4 bg-secondary p-4 rounded-lg shadow-xl">
+<span class="material-symbols-outlined text-on-secondary">videocam</span>
+</div>
+<img class="w-full rounded-md opacity-80 mix-blend-screen" data-alt="Microscopic view of cellular fusion with fluorescent markers" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCs8oRsm0CLizQMqydUwIP3li8rYADlI4pcgls1I_3siHcs6IK9J-pCL5zqOZ-v-7H5MTYJoi9ISqquCorookQIn4CvcMzXYkLspfy5iLBo7q66ELlvKSySK1GlgDKW8spmUoouVJXpCcSFKKHVSgz0PqKYAiocf0IrAo0oFg1S1xN4B_RB7LcY8JHrz_wFTpz-I7DX9De4SXgJQzQVIPjzgjnlnAQEFlDmJJjZXYkMH30m_RtTL2UXR5oFPvX1XtlhDCHzdH34F2k"/>
+<div class="p-6 space-y-2">
+<div class="flex justify-between items-center">
+<span class="text-[10px] text-on-surface-variant uppercase tracking-widest font-bold">Seminar Details</span>
+<span class="flex items-center gap-2 text-on-surface-variant text-[10px] font-bold uppercase"><span class="w-2 h-2 rounded-full bg-on-surface-variant"></span> In Person</span>
+</div>
+<div class="text-sm font-medium">Rm 116, Bergin Hall, Santa Clara University</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Reflection & Discussion -->
+<section class="px-12 py-24 max-w-7xl mx-auto space-y-16">
+<div class="flex flex-col md:flex-row gap-12">
+<div class="flex-1 space-y-8">
+<h2 class="text-3xl font-headline font-bold">Post-Seminar Reflection</h2>
+<p class="text-on-surface-variant">Within one week of the seminar, write a short reflection (200–300 words) responding to the prompts below. This consolidates your learning and helps you articulate what the research means to you.</p>
+<div class="space-y-6">
+<div class="p-8 rounded-lg bg-surface-container-high border-l-2 border-tertiary/50">
+<h4 class="text-tertiary font-bold mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined">compare_arrows</span>
+                                Comparing Approaches
+                            </h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">
+                                Dr. Vacante (Week 2) used CRISPRa to study gene regulation in blood vessel cells. Dr. Teng studies mechanical forces in developing tissues. What do these two lines of research have in common, and how do they differ in their approach to understanding human disease?
+                            </p>
+</div>
+<div class="p-8 rounded-lg bg-surface-container-high border-l-2 border-primary/50">
+<h4 class="text-primary font-bold mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined">psychology</span>
+                                Explaining a Technique
+                            </h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">
+                                Choose one experimental technique that Dr. Teng described and explain, in terms a non-scientist friend could understand, (a) what it measures and (b) why it was the right tool for her question.
+                            </p>
+</div>
+</div>
+</div>
+<div class="w-full md:w-96 shrink-0 space-y-6">
+<div class="p-8 rounded-lg bg-surface-container-low border border-outline-variant/10 shadow-lg relative overflow-hidden">
+<div class="absolute -right-10 -bottom-10 opacity-5">
+<span class="material-symbols-outlined text-[12rem]">forum</span>
+</div>
+<h3 class="font-headline text-xl font-bold mb-4">Discussion Board</h3>
+<p class="text-on-surface-variant text-xs mb-8">Before Wednesday, post one genuine question about the paper to the Discussion Board. This should reflect that you've read and thought about the research.</p>
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest"></div>
+<div class="h-2 w-32 bg-outline-variant/20 rounded-full"></div>
+</div>
+<div class="h-12 w-full bg-surface-container-highest/50 rounded-md border border-outline-variant/10 flex items-center px-4 text-xs text-on-surface-variant italic">
+                                Type your response...
+                            </div>
+</div>
+<button class="w-full mt-6 py-3 rounded-full border border-primary text-primary text-sm font-bold hover:bg-primary/5 transition-all">
+                            Open Forum
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Shell -->
+<footer class="w-full py-12 px-12 bg-[#131314] border-t border-[#484849]/15 flex flex-col md:flex-row justify-between items-center mt-24">
+<div class="text-lg font-bold text-[#86fea7] font-['Space_Grotesk']">BIOL 101</div>
+<div class="flex flex-wrap justify-center gap-8 my-6 md:my-0">
+<span class="font-['Plus_Jakarta_Sans'] text-xs text-[#adaaab]">BIOL 101 • Biology Research Seminar • Week 03</span>
+</div>
+<div class="font-['Plus_Jakarta_Sans'] text-xs text-[#adaaab]">
+            Dr. Camilla Teng • April 15, 2026
+        </div>
+</footer>
+</body></html>

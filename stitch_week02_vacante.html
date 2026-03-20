@@ -7,7 +7,6 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
       tailwind.config = {
         darkMode: "class",
@@ -84,44 +83,44 @@
             mask-image: url("data:image/svg+xml,%3Csvg width='400' height='400' viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h400v400H0z' fill='none'/%3E%3Cpath d='M50 50l50 20-20 50zM150 30l40 60-60 20zM280 40l50 30-30 80zM60 180l70 40-50 60zM220 190l80 10-20 90zM330 220l40 80-90-20z' stroke='%23ffffff' stroke-width='0.5' fill='none'/%3E%3C/svg%3E");
             mask-size: cover;
         }
+        .obsidian-glass {
+            background: rgba(38, 38, 39, 0.6);
+            backdrop-filter: blur(20px);
+        }
     </style>
 </head>
 <body class="bg-background text-on-surface font-body selection:bg-tertiary/30">
 <!-- Top Navigation -->
 <nav class="fixed top-0 left-0 w-full z-[100] flex justify-between items-center px-12 py-4 max-w-[1920px] mx-auto bg-[#0e0e0f]/60 backdrop-blur-[20px] shadow-[0_8px_32px_0_rgba(0,0,0,0.36)]">
-<div class="text-2xl font-bold text-[#86fea7] font-['Space_Grotesk'] tracking-tighter">BIOL 101</div>
-<div class="hidden md:flex gap-8 items-center">
-<a class="font-['Space_Grotesk'] tracking-tight text-sm uppercase text-[#86fea7] border-b-2 border-[#86fea7] pb-1" href="#">Modules</a>
-<a class="font-['Space_Grotesk'] tracking-tight text-sm uppercase text-[#adaaab] hover:text-[#86fea7] transition-colors" href="#">Discussions</a>
-<a class="font-['Space_Grotesk'] tracking-tight text-sm uppercase text-[#adaaab] hover:text-[#86fea7] transition-colors" href="#">Syllabus</a>
-<a class="font-['Space_Grotesk'] tracking-tight text-sm uppercase text-[#adaaab] hover:text-[#86fea7] transition-colors" href="#">Resources</a>
+<div class="flex items-center gap-8">
+<span class="text-2xl font-bold text-[#86fea7] font-['Space_Grotesk'] tracking-tighter">BIOL 101</span>
+<div class="hidden md:flex items-center gap-6 font-['Space_Grotesk'] tracking-tight text-sm uppercase">
+<a class="text-[#adaaab] hover:text-[#86fea7] transition-colors" href="stitch_homepage.html">About</a>
+<a class="text-[#adaaab] hover:text-[#86fea7] transition-colors" href="stitch_homepage.html#modules">Modules</a>
+<a class="text-[#adaaab] hover:text-[#86fea7] transition-colors" href="stitch_syllabus.html">Syllabus</a>
 </div>
-<div class="flex items-center gap-6">
-<div class="flex items-center gap-4">
-<span class="material-symbols-outlined text-[#adaaab] hover:bg-[#86fea7]/10 p-2 rounded-full transition-all cursor-pointer">notifications</span>
-<span class="material-symbols-outlined text-[#adaaab] hover:bg-[#86fea7]/10 p-2 rounded-full transition-all cursor-pointer">science</span>
-</div>
-<img alt="Student Profile Avatar" class="w-10 h-10 rounded-full border border-outline-variant/30" data-alt="Student profile picture in a circle" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATSY0OAGsJnT0iT3TZl1D1t29ObYt7Ki01pYcDErPNvGcHsx3AwO9i1R8q-JR9hFrJeBytr5dCYnD82bL7YwXxVg3xv-NHnRKCV3Q0rb6IOZGnoAjF3UlWyEosDEMvXuDrz8x65nHenypbKMR4vh_Y63Tathq9NeNMuMiW3HMc6BVrw2Ek8v3YsuZP_GZhuIVYhqL-VjqgWVxwiAhJBOxLxkrzVc7Q_Gre9BzXn4Shll1c7BysyPIzCPoLxJWYeP_vfG_4exvvXbk"/>
 </div>
 <div class="bg-gradient-to-r from-transparent via-[#484849]/15 to-transparent h-[1px] w-full absolute bottom-0"></div>
 </nav>
+
 <main class="pt-24 pb-12 px-6 md:px-12 max-w-[1600px] mx-auto">
+
 <!-- Hero Section: Researcher Profile -->
 <section class="relative min-h-[500px] flex flex-col md:flex-row items-center gap-12 mb-24 overflow-hidden rounded-xl bg-surface-container-low p-8 md:p-16">
-<!-- Decorative DNA Pattern -->
+<!-- Decorative Pattern -->
 <div class="absolute inset-0 opacity-10 pointer-events-none voronoi-mask bg-gradient-to-br from-tertiary to-transparent"></div>
 <div class="absolute -right-24 -top-24 w-96 h-96 bg-tertiary/5 blur-[120px] rounded-full"></div>
 <div class="relative z-10 w-full md:w-1/3 flex flex-col items-center text-center">
 <div class="relative group">
 <div class="absolute inset-0 bg-tertiary blur-2xl opacity-20 group-hover:opacity-40 transition-opacity"></div>
-<img alt="Dr. Francesca Vacante" class="relative w-64 h-64 md:w-80 md:h-80 object-cover rounded-xl border border-tertiary/20 grayscale hover:grayscale-0 transition-all duration-700" data-alt="Professional portrait of a female medical researcher" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvkl3hoR-Ta45MJ255-sjWK9e37AaU-QSLlsNFTBsNY1a51ou1gyLirDrmzI06KdHmdAO9PDbT7WOzWtA7eFCsUyBdN1FmBcLKPqButnNyhYoNUDlwt0xDhEEiORxSIoNCpbJSdcBwv9-o1jPSkFdJ72VrQOUps9QCmst8BWZDsUFC2tAFrinvCOgP4UxriBTjC18uUzUCHKaAorLqwFJhC6WOy5PRw-Ko6907ZFuW3XZLuHaKPA4ceQhNw75WDO_w982A75ceIPw"/>
+<img alt="Dr. Francesca Vacante" class="relative w-64 h-64 md:w-80 md:h-80 object-cover rounded-xl border border-tertiary/20 grayscale hover:grayscale-0 transition-all duration-700" src="https://profiles.stanford.edu/proxy/api/cap/profiles/299527/resources/profilephoto/350x350.1755185545451.jpg"/>
 </div>
 <h1 class="mt-8 font-headline text-4xl md:text-5xl font-bold tracking-tight text-on-surface">Dr. Francesca Vacante</h1>
-<p class="mt-2 font-body text-tertiary font-medium tracking-widest uppercase text-sm">Principal Investigator | RNA Therapeutics</p>
+<p class="mt-2 font-body text-tertiary font-medium tracking-wide text-sm">Postdoctoral Scholar, Stanford Cardiovascular Institute (Joseph Wu Lab)</p>
 </div>
 <div class="relative z-10 w-full md:w-2/3 space-y-8">
 <div class="inline-block px-4 py-1 rounded-full border border-tertiary/30 bg-tertiary/5 text-tertiary text-xs font-bold uppercase tracking-widest">
-                    Week 02 Seminar Focus
+                    Week 02 &mdash; Guest Speaker
                 </div>
 <h2 class="font-headline text-3xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] text-on-surface max-w-3xl">
                     CRISPRa-Driven Gene Activation: <span class="text-tertiary">Non-Coding RNA</span> as a Therapeutic Target in Cardiovascular Disease
@@ -131,27 +130,28 @@
 <div class="flex items-center gap-3">
 <span class="material-symbols-outlined text-tertiary">calendar_today</span>
 <div>
-<p class="text-[10px] uppercase text-on-surface-variant font-bold">Date</p>
-<p class="text-sm font-medium">October 24, 2024</p>
+<p class="text-[10px] uppercase text-on-surface-variant font-bold">Date &amp; Time</p>
+<p class="text-sm font-medium">Wednesday, April 8 &bull; 5:25 &ndash; 6:30 PM</p>
 </div>
 </div>
 <div class="flex items-center gap-3">
 <span class="material-symbols-outlined text-tertiary">location_on</span>
 <div>
 <p class="text-[10px] uppercase text-on-surface-variant font-bold">Location</p>
-<p class="text-sm font-medium">Bioluminescence Hall B</p>
+<p class="text-sm font-medium">Rm 116, Bergin Hall, Santa Clara University</p>
 </div>
 </div>
 <div class="flex items-center gap-3">
 <span class="material-symbols-outlined text-tertiary">podium</span>
 <div>
 <p class="text-[10px] uppercase text-on-surface-variant font-bold">Format</p>
-<p class="text-sm font-medium">Hybrid Lecture &amp; Lab Demo</p>
+<p class="text-sm font-medium">Seminar + Q&amp;A</p>
 </div>
 </div>
 </div>
 </div>
 </section>
+
 <!-- Bio & Training Asymmetric Layout -->
 <section class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-24">
 <div class="md:col-span-7 bg-surface-container-low p-10 rounded-lg relative overflow-hidden">
@@ -161,9 +161,10 @@
                     Background &amp; Training
                 </h3>
 <div class="space-y-6 text-on-surface-variant leading-relaxed">
-<p>Dr. Vacante completed her post-doctoral fellowship at the Max Planck Institute for Heart and Lung Research, where she pioneered the use of deactivated CRISPR systems (dCas9) to modulate transcriptional activity in endothelial cells. Her work focuses on the intersection of epigenetics and non-coding RNA (ncRNA) biology.</p>
-<p>Her current laboratory investigates how CRISPRa (activation) can be utilized to re-program vascular cells in patients with chronic ischemic heart disease, specifically targeting long non-coding RNAs that regulate angiogenic signaling pathways.</p>
+<p>Francesca is a postdoctoral scholar in the Joseph Wu Lab at Stanford Cardiovascular Institute, where she develops new gene activation strategies for cardiovascular disease. She completed her Ph.D. at the University of Edinburgh in the Andrew Baker laboratory, focusing on non-coding RNA biology.</p>
+<p>Her work bridges fundamental molecular biology and translational medicine: understanding how non-coding RNAs control cardiovascular physiology and leveraging that knowledge to develop new therapies.</p>
 </div>
+<p class="mt-6 text-sm text-on-surface-variant"><strong class="text-on-surface">Email:</strong> fvacante@stanford.edu</p>
 </div>
 <div class="md:col-span-5 flex flex-col gap-8">
 <div class="bg-surface-container-high p-10 rounded-lg border-l-2 border-primary/20">
@@ -173,27 +174,36 @@
                     </h3>
 <ul class="space-y-4">
 <li class="flex gap-4 items-start">
-<span class="text-primary font-bold">2023</span>
-<span class="text-sm text-on-surface-variant">Leducq Foundation Transatlantic Career Development Award</span>
+<span class="text-primary font-bold text-sm">2025</span>
+<span class="text-sm text-on-surface-variant">Young Scientist Award</span>
 </li>
 <li class="flex gap-4 items-start">
-<span class="text-primary font-bold">2021</span>
-<span class="text-sm text-on-surface-variant">Young Investigator Award - American Heart Association</span>
+<span class="text-primary font-bold text-sm">&bull;</span>
+<span class="text-sm text-on-surface-variant">Stanford Cardiovascular Institute Recognition Award</span>
 </li>
 <li class="flex gap-4 items-start">
-<span class="text-primary font-bold">2019</span>
-<span class="text-sm text-on-surface-variant">Excellence in RNA Biology Dissertation Prize</span>
+<span class="text-primary font-bold text-sm">&bull;</span>
+<span class="text-sm text-on-surface-variant">Postdoc Champion Award</span>
+</li>
+<li class="flex gap-4 items-start">
+<span class="text-primary font-bold text-sm">&bull;</span>
+<span class="text-sm text-on-surface-variant">Chan-Zuckerberg Initiative Next-Gen Researcher Fellow</span>
+</li>
+<li class="flex gap-4 items-start">
+<span class="text-primary font-bold text-sm">&bull;</span>
+<span class="text-sm text-on-surface-variant">Founder of iWISH-Talks, a mentoring initiative for early-career women in science</span>
 </li>
 </ul>
 </div>
 </div>
 </section>
-<!-- Pre-Class Dossier (Bento Grid) -->
+
+<!-- Pre-Class Preparation (Bento Grid) -->
 <section class="mb-24">
 <div class="flex justify-between items-end mb-12">
 <div>
 <h3 class="font-headline text-3xl font-bold tracking-tight">Pre-Class Preparation</h3>
-<p class="text-on-surface-variant mt-2">Dossier must be reviewed prior to the seminar session.</p>
+<p class="text-on-surface-variant mt-2">Preparing thoroughly will significantly deepen your engagement with Dr. Vacante's work. Please complete these before Wednesday's session.</p>
 </div>
 <div class="hidden md:block h-[1px] flex-grow mx-12 bg-gradient-to-r from-outline-variant/30 to-transparent"></div>
 </div>
@@ -208,25 +218,22 @@
 <span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
                             Primary Research Article
                         </div>
-<h4 class="font-headline text-xl font-bold">Vacante et al. (2025) ATVB Journal: CRISPRa-mediated lncRNA activation in vascular repair.</h4>
-<p class="text-sm text-on-surface-variant leading-relaxed">Mandatory reading. Focus on the methodology section regarding the design of guide RNAs for the *CARMN* promoter region.</p>
-<button class="mt-4 px-6 py-2 rounded-full bg-tertiary text-on-tertiary font-bold text-sm flex items-center gap-2 hover:bg-tertiary-dim transition-all shadow-[0_0_12px_rgba(199,153,255,0.2)]">
+<h4 class="font-headline text-xl font-bold">CARMN/miR-143/145 CRISPRa: Epigenetic Activation of Non-Coding RNAs in Cardiovascular Homeostasis</h4>
+<p class="text-xs text-on-surface-variant">Francesca F. Vacante, et al. (2025) &bull; Arteriosclerosis, Thrombosis, and Vascular Biology (ATVB)</p>
+<p class="text-sm text-on-surface-variant leading-relaxed">Focus on the abstract, introduction, and key figures. You don't need to master every technical detail&mdash;aim to understand the main research question, the experimental approach, and the key findings. Pay special attention to what CRISPRa is and why targeting non-coding RNAs matters for cardiovascular disease.</p>
+<a href="https://www.ahajournals.org/doi/full/10.1161/ATVBAHA.124.322353" target="_blank" class="mt-4 px-6 py-2 rounded-full bg-tertiary text-on-tertiary font-bold text-sm inline-flex items-center gap-2 hover:bg-tertiary-dim transition-all shadow-[0_0_12px_rgba(199,153,255,0.2)]">
                             Read Paper
                             <span class="material-symbols-outlined text-sm">open_in_new</span>
-</button>
+</a>
 </div>
 </div>
 <!-- Discussion Board CTA -->
 <div class="bg-gradient-to-br from-primary-container/20 to-surface-container-low p-8 rounded-lg border border-primary/20 flex flex-col justify-between">
 <div>
 <span class="material-symbols-outlined text-primary text-4xl mb-4">forum</span>
-<h4 class="font-headline text-xl font-bold mb-2">Pre-Class Post</h4>
-<p class="text-sm text-on-surface-variant">Post one technical question about the CRISPRa mechanism to the discussion board before midnight.</p>
+<h4 class="font-headline text-xl font-bold mb-2">Pre-Class Discussion Post</h4>
+<p class="text-sm text-on-surface-variant">Before Wednesday, post one genuine question about the paper to the Discussion Board. It should reflect that you've read the abstract and looked at the figures. Your post doesn't need to be polished&mdash;just thoughtful. (~75 words min.)</p>
 </div>
-<a class="mt-6 text-primary font-bold text-sm flex items-center gap-2 hover:underline" href="#">
-                        Go to Discussions
-                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
-</a>
 </div>
 <!-- Optional Resources -->
 <div class="bg-surface-container-low p-8 rounded-lg border border-outline-variant/10">
@@ -234,69 +241,76 @@
 <span class="material-symbols-outlined text-on-surface-variant">library_books</span>
                         Optional Resources
                     </h4>
-<ul class="space-y-4 text-sm">
-<li class="flex items-center justify-between group cursor-pointer">
-<span class="text-on-surface-variant group-hover:text-on-surface">RNA-Seq Analysis Basics</span>
-<span class="material-symbols-outlined text-xs text-outline opacity-0 group-hover:opacity-100 transition-opacity">download</span>
-</li>
-<li class="flex items-center justify-between group cursor-pointer">
-<span class="text-on-surface-variant group-hover:text-on-surface">dCas9 Structural Biology</span>
-<span class="material-symbols-outlined text-xs text-outline opacity-0 group-hover:opacity-100 transition-opacity">download</span>
-</li>
-</ul>
+<div class="space-y-4 text-sm">
+<div>
+<p class="text-on-surface font-medium">MIR503HG and Long Non-Coding RNA Regulation of Vascular Function</p>
+<p class="text-xs text-on-surface-variant">Vascular Pharmacology &mdash; broader landscape of lncRNAs in vascular biology.</p>
+</div>
+<div class="border-t border-outline-variant/10 pt-4">
+<p class="text-on-surface font-medium">CRISPR-Based Epigenetic Editing of Non-Coding RNA Loci</p>
+<p class="text-xs text-on-surface-variant">Nature Reviews Cardiology &mdash; emerging field of CRISPRa for therapeutic non-coding RNAs.</p>
+</div>
+</div>
 </div>
 <!-- Study Guide Glossary -->
-<div class="md:col-span-2 bg-surface-container-low p-8 rounded-lg border border-outline-variant/10 flex items-center justify-between">
-<div class="flex gap-6 items-center">
-<div class="w-12 h-12 rounded-full bg-tertiary/10 flex items-center justify-center text-tertiary">
+<div class="md:col-span-2 bg-surface-container-low p-8 rounded-lg border border-outline-variant/10">
+<div class="flex gap-6 items-start">
+<div class="w-12 h-12 rounded-full bg-tertiary/10 flex items-center justify-center text-tertiary flex-shrink-0">
 <span class="material-symbols-outlined">menu_book</span>
 </div>
-<div>
-<h4 class="font-headline text-lg font-bold">Study Guide Glossary</h4>
-<p class="text-sm text-on-surface-variant">Key terms: CRISPRa, dCas9-VP64, Synergistic Activation Mediator (SAM).</p>
+<div class="space-y-3">
+<h4 class="font-headline text-lg font-bold">Study Guide: Key Concepts &amp; Technical Terms</h4>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2 text-sm text-on-surface-variant">
+<p><strong class="text-tertiary">cis-regulatory elements:</strong> DNA sequences that regulate genes in the same chromosome region.</p>
+<p><strong class="text-tertiary">lncRNA:</strong> Long non-coding RNA&mdash;RNA molecules &gt;200 nucleotides that don't code for proteins but regulate genes.</p>
+<p><strong class="text-tertiary">miRNA:</strong> Small non-coding RNAs that typically repress genes by binding to mRNA.</p>
+<p><strong class="text-tertiary">CRISPRa:</strong> CRISPR activation&mdash;a modified CRISPR system that activates (turns on) genes without cutting DNA.</p>
+<p><strong class="text-tertiary">cis-ON system:</strong> Dr. Vacante's innovation: using RNA transcripts as recruiters to guide CRISPRa to target genes.</p>
+<p><strong class="text-tertiary">Cardiovascular disease:</strong> Diseases affecting the heart and blood vessels&mdash;a major focus of therapeutic research.</p>
+</div>
+<p class="text-xs text-on-surface-variant italic mt-2">As you read the paper, jot down any other terms that confuse you. Bring them to class&mdash;asking "What does [term] mean?" is always a great question.</p>
 </div>
 </div>
-<button class="px-6 py-2 rounded-full border border-outline-variant text-sm font-medium hover:bg-surface-container-highest transition-colors">
-                        Download PDF
-                    </button>
 </div>
 </div>
 </section>
+
 <!-- Learning Objectives -->
 <section class="mb-24">
-<h3 class="font-headline text-3xl font-bold tracking-tight mb-12 text-center">Learning Objectives</h3>
+<h3 class="font-headline text-3xl font-bold tracking-tight mb-12 text-center">What You'll Learn</h3>
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-<!-- Goal 1 -->
 <div class="bg-surface-container-high/40 backdrop-blur-xl p-8 rounded-lg border border-tertiary/10 relative group">
 <div class="absolute inset-0 bg-tertiary/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg"></div>
 <span class="material-symbols-outlined text-tertiary text-3xl mb-4" style="font-variation-settings: 'FILL' 1;">biotech</span>
 <h4 class="text-tertiary text-xs font-bold uppercase tracking-tighter mb-2">Objective 01</h4>
-<p class="text-sm font-medium text-on-surface leading-snug">Contrast CRISPR-Cas9 gene editing with CRISPRa activation mechanisms.</p>
+<p class="text-sm font-medium text-on-surface leading-snug">Understand CRISPRa Technology</p>
+<p class="text-xs text-on-surface-variant mt-2">Learn how CRISPRa differs from standard CRISPR gene editing and why activating (rather than cutting) is therapeutically valuable.</p>
 </div>
-<!-- Goal 2 -->
 <div class="bg-surface-container-high/40 backdrop-blur-xl p-8 rounded-lg border border-tertiary/10 relative group">
 <div class="absolute inset-0 bg-tertiary/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg"></div>
 <span class="material-symbols-outlined text-tertiary text-3xl mb-4" style="font-variation-settings: 'FILL' 1;">architecture</span>
 <h4 class="text-tertiary text-xs font-bold uppercase tracking-tighter mb-2">Objective 02</h4>
-<p class="text-sm font-medium text-on-surface leading-snug">Identify the structural requirements of effective guide RNA design for transcriptional start sites.</p>
+<p class="text-sm font-medium text-on-surface leading-snug">Non-Coding RNA in Disease</p>
+<p class="text-xs text-on-surface-variant mt-2">Grasp how long and short non-coding RNAs regulate cardiovascular function and what happens when they're dysregulated.</p>
 </div>
-<!-- Goal 3 -->
 <div class="bg-surface-container-high/40 backdrop-blur-xl p-8 rounded-lg border border-tertiary/10 relative group">
 <div class="absolute inset-0 bg-tertiary/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg"></div>
 <span class="material-symbols-outlined text-tertiary text-3xl mb-4" style="font-variation-settings: 'FILL' 1;">query_stats</span>
 <h4 class="text-tertiary text-xs font-bold uppercase tracking-tighter mb-2">Objective 03</h4>
-<p class="text-sm font-medium text-on-surface leading-snug">Interpret RNA-Seq differential expression data from CRISPRa-treated vascular models.</p>
+<p class="text-sm font-medium text-on-surface leading-snug">From Bench to Clinic</p>
+<p class="text-xs text-on-surface-variant mt-2">See how basic research discoveries translate into therapeutic strategies for real disease and the experimental validation required.</p>
 </div>
-<!-- Goal 4 -->
 <div class="bg-surface-container-high/40 backdrop-blur-xl p-8 rounded-lg border border-tertiary/10 relative group">
 <div class="absolute inset-0 bg-tertiary/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg"></div>
 <span class="material-symbols-outlined text-tertiary text-3xl mb-4" style="font-variation-settings: 'FILL' 1;">health_and_safety</span>
 <h4 class="text-tertiary text-xs font-bold uppercase tracking-tighter mb-2">Objective 04</h4>
-<p class="text-sm font-medium text-on-surface leading-snug">Evaluate the ethical and translational challenges of in-vivo RNA activation therapy.</p>
+<p class="text-sm font-medium text-on-surface leading-snug">Career as an Early-Stage Researcher</p>
+<p class="text-xs text-on-surface-variant mt-2">Hear about Francesca's path from PhD to postdoc, her experience in two labs and two countries, and how she's building her independent research identity.</p>
 </div>
 </div>
 </section>
-<!-- Seminar Schedule -->
+
+<!-- During the Seminar -->
 <section class="mb-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
 <div class="bg-surface-container-low p-10 rounded-lg">
 <h3 class="font-headline text-3xl font-bold mb-8">During the Seminar</h3>
@@ -304,61 +318,131 @@
 <div class="absolute left-4 top-0 bottom-0 w-[1px] bg-outline-variant/30"></div>
 <div class="relative pl-12">
 <div class="absolute left-[13px] top-1 w-2 h-2 rounded-full bg-tertiary"></div>
-<p class="text-[10px] font-bold text-tertiary uppercase tracking-widest">5:25 – 5:40 PM</p>
-<h4 class="font-bold text-lg">Foundation: The dCas9 Toolbox</h4>
-<p class="text-sm text-on-surface-variant">Overview of transcriptional activators (VP64, P65, Rta) and their recruitment.</p>
+<p class="text-[10px] font-bold text-tertiary uppercase tracking-widest">5:25 &ndash; 5:30 PM</p>
+<h4 class="font-bold text-lg">Welcome &amp; Context Setting</h4>
+<p class="text-sm text-on-surface-variant">Introduction to Dr. Vacante, her work, and the broader landscape of non-coding RNA therapeutics.</p>
 </div>
 <div class="relative pl-12">
 <div class="absolute left-[13px] top-1 w-2 h-2 rounded-full bg-tertiary"></div>
-<p class="text-[10px] font-bold text-tertiary uppercase tracking-widest">5:40 – 6:10 PM</p>
-<h4 class="font-bold text-lg">Case Study: The CARMN Long Non-coding RNA</h4>
-<p class="text-sm text-on-surface-variant">Live walkthrough of data showing functional recovery of smooth muscle cells.</p>
+<p class="text-[10px] font-bold text-tertiary uppercase tracking-widest">5:30 &ndash; 6:00 PM</p>
+<h4 class="font-bold text-lg">Research Presentation</h4>
+<p class="text-sm text-on-surface-variant">Dr. Vacante will present her work on CARMN, the cis-ON system, and implications for cardiovascular disease treatment.</p>
 </div>
 <div class="relative pl-12">
 <div class="absolute left-[13px] top-1 w-2 h-2 rounded-full bg-tertiary"></div>
-<p class="text-[10px] font-bold text-tertiary uppercase tracking-widest">6:10 – 6:30 PM</p>
-<h4 class="font-bold text-lg">Lab Demo &amp; Micro-Q&amp;A</h4>
-<p class="text-sm text-on-surface-variant">Visualization of dCas9 localization using fluorescent microscopy.</p>
+<p class="text-[10px] font-bold text-tertiary uppercase tracking-widest">6:00 &ndash; 6:30 PM</p>
+<h4 class="font-bold text-lg">Q&amp;A &amp; Discussion</h4>
+<p class="text-sm text-on-surface-variant">Ask questions about the research, the methods, the findings, or anything else. This is your time to engage directly with an active researcher.</p>
 </div>
 </div>
 </div>
-<!-- Reflection Prompts -->
-<div class="space-y-6">
-<h3 class="font-headline text-3xl font-bold">Post-Seminar Reflection</h3>
-<p class="text-on-surface-variant">Choose one of the following prompts for your weekly lab journal entry (300 words). These are graded on depth of technical analysis.</p>
-<div class="p-6 rounded-lg bg-secondary-container/10 border border-secondary/20 flex gap-6 items-start">
-<div class="bg-secondary/20 p-2 rounded-lg">
-<span class="material-symbols-outlined text-secondary">edit_note</span>
-</div>
+
+<!-- Question Taxonomy + Reflection -->
+<div class="space-y-8">
 <div>
-<h4 class="font-bold text-secondary text-sm uppercase mb-2">Option A: Clinical Translation</h4>
-<p class="text-sm leading-relaxed">Discuss why targeting non-coding RNA might be safer or more effective than targeting traditional protein-coding genes in heart failure patients.</p>
+<h3 class="font-headline text-3xl font-bold mb-4">The Power of Good Questions</h3>
+<p class="text-on-surface-variant text-sm mb-6">Use the question taxonomy below to frame your thinking. All four types of questions are valuable and welcomed:</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="bg-surface-container-high/40 p-5 rounded-lg border border-outline-variant/10">
+<h4 class="font-bold text-tertiary text-xs uppercase mb-2">Clarification</h4>
+<p class="text-xs text-on-surface-variant">"What does [term] mean?" or "Can you explain [concept] in simpler terms?"</p>
+</div>
+<div class="bg-surface-container-high/40 p-5 rounded-lg border border-outline-variant/10">
+<h4 class="font-bold text-tertiary text-xs uppercase mb-2">Method</h4>
+<p class="text-xs text-on-surface-variant">"Why did you use [approach] instead of [alternative]?" or "How did you control for [variable]?"</p>
+</div>
+<div class="bg-surface-container-high/40 p-5 rounded-lg border border-outline-variant/10">
+<h4 class="font-bold text-tertiary text-xs uppercase mb-2">Interpretation</h4>
+<p class="text-xs text-on-surface-variant">"Could there be an alternative explanation for [finding]?" or "What about [confounding factor]?"</p>
+</div>
+<div class="bg-surface-container-high/40 p-5 rounded-lg border border-outline-variant/10">
+<h4 class="font-bold text-tertiary text-xs uppercase mb-2">Extension</h4>
+<p class="text-xs text-on-surface-variant">"What would happen if [scenario]?" or "How would this approach work for [related disease]?"</p>
 </div>
 </div>
-<div class="p-6 rounded-lg bg-secondary-container/10 border border-secondary/20 flex gap-6 items-start">
-<div class="bg-secondary/20 p-2 rounded-lg">
-<span class="material-symbols-outlined text-secondary">terminal</span>
-</div>
-<div>
-<h4 class="font-bold text-secondary text-sm uppercase mb-2">Option B: Mechanism Design</h4>
-<p class="text-sm leading-relaxed">Propose a hypothetical dCas9 system that could be "switched off" using a chemical ligand, and explain the biological necessity of this control.</p>
-</div>
+<p class="text-xs text-on-surface-variant italic mt-4">Don't worry about asking a "perfect" question. Researchers appreciate genuine curiosity and thoughtful engagement.</p>
 </div>
 </div>
 </section>
+
+<!-- Post-Seminar Reflection -->
+<section class="mb-24">
+<h3 class="font-headline text-3xl font-bold tracking-tight mb-4">Post-Seminar Reflection</h3>
+<p class="text-on-surface-variant mb-8">Within one week of the seminar, write a short reflection (200&ndash;300 words) on one of the prompts below. This consolidates your learning and helps you articulate what the research means to you.</p>
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="p-6 rounded-lg bg-secondary-container/10 border border-secondary/20 flex gap-5 items-start">
+<div class="bg-secondary/20 p-2 rounded-lg flex-shrink-0">
+<span class="material-symbols-outlined text-secondary">lightbulb</span>
+</div>
+<div>
+<h4 class="font-bold text-secondary text-sm uppercase mb-2">1. Key Insight</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">What was one key finding or concept from Dr. Vacante's research that surprised you or changed how you think about non-coding RNA? Explain what it means and why it matters.</p>
+</div>
+</div>
+<div class="p-6 rounded-lg bg-secondary-container/10 border border-secondary/20 flex gap-5 items-start">
+<div class="bg-secondary/20 p-2 rounded-lg flex-shrink-0">
+<span class="material-symbols-outlined text-secondary">explore</span>
+</div>
+<div>
+<h4 class="font-bold text-secondary text-sm uppercase mb-2">2. Career Reflection</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">Francesca works at the intersection of fundamental research and translational medicine. Does that appeal to you? Why or why not? What aspects of her path resonated?</p>
+</div>
+</div>
+<div class="p-6 rounded-lg bg-secondary-container/10 border border-secondary/20 flex gap-5 items-start">
+<div class="bg-secondary/20 p-2 rounded-lg flex-shrink-0">
+<span class="material-symbols-outlined text-secondary">science</span>
+</div>
+<div>
+<h4 class="font-bold text-secondary text-sm uppercase mb-2">3. Science Question</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">What question about this research didn't get answered during the seminar? What would you want to investigate next, and how would you approach it?</p>
+</div>
+</div>
+</div>
+
+<div class="obsidian-glass p-6 rounded-lg border border-outline-variant/15 mt-6">
+<h4 class="font-headline font-bold text-sm mb-2">A Note on Reflection</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">Reflections are not formal essays. Write conversationally, but thoughtfully. Be honest: if something confused you, say so. If the research didn't grab you, that's okay&mdash;explain what would have made it more engaging. The goal is to deepen your thinking, not to impress with jargon.</p>
+</div>
+</section>
+
+<!-- Discussion Board Post -->
+<section class="mb-24">
+<h3 class="font-headline text-3xl font-bold tracking-tight mb-4">Before Class: Discussion Board Post</h3>
+<p class="text-on-surface-variant mb-6">Before Wednesday, post one genuine question about the paper to the Discussion Board. It should reflect that you've read the abstract and looked at the figures. Your post doesn't need to be polished&mdash;just thoughtful.</p>
+
+<div class="obsidian-glass p-8 rounded-lg border border-outline-variant/15 border-l-2 border-l-tertiary">
+<p class="text-on-surface-variant italic leading-relaxed">"After reading the Vacante et al. paper, what is one question you have about the research? It could be about the science, the methods, the motivation, or a term you don't understand. The only rule: it cannot be answered with 'yes' or 'no.'"</p>
+</div>
+
+<p class="text-sm text-on-surface-variant mt-4">These posts help you arrive at the seminar already thinking about the research, and they give Dr. Vacante insight into what interests and confuses students. Speakers find these questions valuable.</p>
+</section>
+
+<!-- What If You Can't Attend -->
+<section class="mb-24">
+<div class="obsidian-glass p-8 rounded-lg border border-outline-variant/15 border-l-2 border-l-secondary">
+<h3 class="font-headline text-xl font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">event_busy</span>
+                    What If You Can't Attend?
+                </h3>
+<p class="text-on-surface-variant mb-4">If you must miss the seminar, you can still complete this module by:</p>
+<ol class="space-y-2 text-sm text-on-surface-variant list-decimal list-inside">
+<li>Watching the recording (if available) within one week</li>
+<li>Completing an extended reflection (400 words) instead of the standard 200&ndash;300</li>
+<li>Submitting your discussion board post anyway</li>
+</ol>
+<p class="text-xs text-on-surface-variant mt-4 italic">Email Giorgio if you need to make arrangements.</p>
+</div>
+</section>
+
 </main>
+
 <!-- Footer -->
 <footer class="bg-[#131314] border-t border-[#484849]/15 w-full py-12 px-12">
-<div class="max-w-[1920px] mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-<div class="flex flex-col items-center md:items-start gap-4">
+<div class="max-w-[1920px] mx-auto flex flex-col items-center gap-2">
 <div class="text-lg font-bold text-[#86fea7]">BIOL 101</div>
-<p class="font-['Plus_Jakarta_Sans'] text-xs text-[#adaaab]">© 2024 The Bioluminescent Laboratory | Lab Director: Giorgio Lagna</p>
-</div>
-<div class="flex gap-8">
-<a class="font-['Plus_Jakarta_Sans'] text-xs text-[#adaaab] hover:text-[#86fea7] transition-all" href="#">Main Course Homepage</a>
-<a class="font-['Plus_Jakarta_Sans'] text-xs text-[#adaaab] hover:text-[#86fea7] transition-all" href="#">University Portal</a>
-<a class="font-['Plus_Jakarta_Sans'] text-xs text-[#adaaab] hover:text-[#86fea7] transition-all" href="#">Research Archives</a>
-</div>
+<p class="font-['Plus_Jakarta_Sans'] text-xs text-[#adaaab]">BIOL 101 &bull; Biology Research Seminar &bull; Week 02</p>
+<p class="font-['Plus_Jakarta_Sans'] text-xs text-[#adaaab]">Dr. Francesca Vacante &bull; April 8, 2026</p>
 </div>
 </footer>
 </body></html>
