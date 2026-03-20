@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BIOL 101 | Course Syllabus</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-secondary": "#004d57",
+                        "on-secondary-container": "#e8fbff",
+                        "outline-variant": "#484849",
+                        "on-surface-variant": "#adaaab",
+                        "background": "#0e0e0f",
+                        "error-dim": "#d7383b",
+                        "tertiary-fixed": "#c99dff",
+                        "surface-tint": "#86fea7",
+                        "on-tertiary-container": "#340064",
+                        "primary-fixed-dim": "#78ef9a",
+                        "inverse-primary": "#006e36",
+                        "secondary-fixed": "#26e6ff",
+                        "on-secondary-fixed-variant": "#005964",
+                        "on-primary-container": "#002910",
+                        "on-surface": "#ffffff",
+                        "surface": "#0e0e0f",
+                        "inverse-on-surface": "#565556",
+                        "on-tertiary-fixed-variant": "#50158d",
+                        "secondary": "#00e3fd",
+                        "tertiary": "#c799ff",
+                        "surface-container-highest": "#262627",
+                        "on-tertiary-fixed": "#25004b",
+                        "secondary-dim": "#00d4ec",
+                        "primary": "#86fea7",
+                        "tertiary-fixed-dim": "#bf8bff",
+                        "outline": "#767576",
+                        "surface-container-high": "#201f21",
+                        "primary-container": "#3bb668",
+                        "primary-fixed": "#86fea7",
+                        "surface-dim": "#0e0e0f",
+                        "error": "#ff716c",
+                        "tertiary-container": "#bc87fe",
+                        "primary-dim": "#78ef9a",
+                        "surface-container": "#1a191b",
+                        "surface-container-low": "#131314",
+                        "surface-bright": "#2c2c2d",
+                        "on-primary-fixed-variant": "#006c35",
+                        "on-secondary-fixed": "#003a42",
+                        "secondary-container": "#006875",
+                        "inverse-surface": "#fcf8f9",
+                        "surface-variant": "#262627",
+                        "error-container": "#9f0519",
+                        "on-primary-fixed": "#004c23",
+                        "on-tertiary": "#440080",
+                        "surface-container-lowest": "#000000",
+                        "on-error-container": "#ffa8a3",
+                        "on-error": "#490006",
+                        "secondary-fixed-dim": "#00d7f0",
+                        "on-background": "#ffffff",
+                        "tertiary-dim": "#ba85fb",
+                        "on-primary": "#00612f"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .obsidian-glass {
+            background: rgba(38, 38, 39, 0.6);
+            backdrop-filter: blur(20px);
+        }
+        .voronoi-bg {
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0 L100 0 L100 100 L0 100 Z' fill='none' stroke='%23484849' stroke-opacity='0.1'/%3E%3Ccircle cx='20' cy='20' r='1' fill='%2386fea7' fill-opacity='0.2'/%3E%3Ccircle cx='80' cy='50' r='1' fill='%2386fea7' fill-opacity='0.2'/%3E%3C/svg%3E");
+        }
+        .amber-accent { border-left: 2px solid #ffb900; }
+        .syllabus-header-gradient {
+            background: radial-gradient(circle at top right, rgba(134, 254, 167, 0.08), transparent 40%),
+                        radial-gradient(circle at bottom left, rgba(199, 153, 255, 0.05), transparent 40%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30 min-h-screen">
+<!-- TopNavBar (Shared Component) -->
+<nav class="fixed top-0 left-0 w-full z-[100] flex justify-between items-center px-12 py-4 max-w-[1920px] mx-auto bg-[#0e0e0f]/60 backdrop-blur-[20px] shadow-[0_8px_32px_0_rgba(0,0,0,0.36)]">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-bold text-[#86fea7] font-['Space_Grotesk'] tracking-tighter">BIOL 101</span>
+<div class="hidden md:flex items-center gap-6 font-['Space_Grotesk'] tracking-tight text-sm uppercase">
+<a class="text-[#adaaab] hover:text-[#86fea7] transition-colors" href="#">Modules</a>
+<a class="text-[#adaaab] hover:text-[#86fea7] transition-colors" href="#">Discussions</a>
+<a class="text-[#86fea7] border-b-2 border-[#86fea7] pb-1" href="#">Syllabus</a>
+<a class="text-[#adaaab] hover:text-[#86fea7] transition-colors" href="#">Resources</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-[#adaaab] hover:bg-[#86fea7]/10 p-2 rounded-full transition-all scale-95 active:scale-90">notifications</button>
+<button class="material-symbols-outlined text-[#adaaab] hover:bg-[#86fea7]/10 p-2 rounded-full transition-all scale-95 active:scale-90">science</button>
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center border border-outline-variant/20 overflow-hidden">
+<img alt="Student Profile Avatar" class="w-full h-full object-cover" data-alt="Close up of a student profile avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-5WL5z0IDMABQ_MBCuKkcwt9jAqzHlLTIPTReKxvTdYYkGZkJq7di4xOmODR4h8H4hdJlMkN8oGMnMaLbvDQu7df0q7isCiB_otUq5VzGHy6Ey0z8Xw3_7EyN1rH5xXLjLqLI_JGZsj_mZzOakEhGGOJx1rhfcaO2QrEdTEN8BY-0gqaM-RfSctbBd6heSlyYq2SL5wv7beq9NhosMM5TFXE7GtWAH5ZP9xvCb-P1i1RM8eGP5-r8z8IS8rb2Wo2kPiKK7dYk4_M"/>
+</div>
+</div>
+<div class="bg-gradient-to-r from-transparent via-[#484849]/15 to-transparent h-[1px] w-full absolute bottom-0"></div>
+</nav>
+<main class="pt-32 pb-24 px-6 md:px-12 max-w-7xl mx-auto syllabus-header-gradient">
+<!-- Header Section -->
+<header class="mb-20 flex flex-col md:flex-row items-end justify-between gap-8 border-b border-outline-variant/10 pb-12">
+<div class="max-w-2xl">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20 mb-6 font-headline text-xs font-bold tracking-widest uppercase">
+                    Official Document
+                </div>
+<h1 class="text-6xl md:text-8xl font-headline font-bold text-on-surface tracking-tighter leading-none mb-4">Course Syllabus</h1>
+<p class="text-xl md:text-2xl text-on-surface-variant font-light tracking-tight">
+                    BIOL 101 <span class="mx-2 text-outline-variant">•</span> Spring 2026
+                </p>
+</div>
+<div class="relative w-48 h-48 opacity-20 hidden md:block">
+<!-- Abstract Scroll/Book Pattern -->
+<svg class="w-full h-full fill-primary" viewbox="0 0 200 200">
+<path d="M40 20h120v140H40zM40 160c-10 0-20 10-20 20s10 20 20 20h120c10 0 20-10 20-20s-10-20-20-20H40z" fill-opacity="0.1"></path>
+<rect height="2" rx="1" width="100" x="50" y="40"></rect>
+<rect height="2" rx="1" width="80" x="50" y="60"></rect>
+<rect height="2" rx="1" width="100" x="50" y="80"></rect>
+<rect height="2" rx="1" width="90" x="50" y="100"></rect>
+<rect height="2" rx="1" width="100" x="50" y="120"></rect>
+</svg>
+</div>
+</header>
+<!-- Course & Faculty Info Bento -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
+<!-- Faculty Info -->
+<div class="md:col-span-1 bg-surface-container-low p-8 rounded-lg flex flex-col gap-6 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+<span class="material-symbols-outlined text-8xl" style="font-variation-settings: 'FILL' 1;">account_circle</span>
+</div>
+<h3 class="font-headline text-xs font-bold uppercase tracking-widest text-outline">Faculty Lead</h3>
+<div class="flex flex-col gap-1">
+<span class="text-2xl font-semibold text-primary">Dr. Giorgio Lagna</span>
+<span class="text-on-surface-variant text-sm">Lab Director &amp; Senior Fellow</span>
+</div>
+<div class="space-y-3 mt-4 text-sm">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm">mail</span>
+<span class="text-on-surface-variant">g.lagna@biolum.lab.edu</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm">corporate_fare</span>
+<span class="text-on-surface-variant">Inst. for Deep Sea Bioluminescence</span>
+</div>
+</div>
+</div>
+<!-- Course Specifics -->
+<div class="md:col-span-2 bg-surface-container-low p-8 rounded-lg grid grid-cols-2 md:grid-cols-4 gap-8 border-l-2 border-primary/30">
+<div class="flex flex-col gap-2">
+<span class="font-headline text-[10px] font-bold uppercase tracking-widest text-outline">Academic Term</span>
+<span class="text-lg font-medium">Spring Quarter 2026</span>
+</div>
+<div class="flex flex-col gap-2">
+<span class="font-headline text-[10px] font-bold uppercase tracking-widest text-outline">Location</span>
+<span class="text-lg font-medium">Lab 402 / Virtual Hub</span>
+</div>
+<div class="flex flex-col gap-2">
+<span class="font-headline text-[10px] font-bold uppercase tracking-widest text-outline">Course Units</span>
+<span class="text-lg font-medium">5.0 Quarter Units</span>
+</div>
+<div class="flex flex-col gap-2">
+<span class="font-headline text-[10px] font-bold uppercase tracking-widest text-outline">Meeting Time</span>
+<span class="text-lg font-medium">Tue/Thu 14:00 - 15:30</span>
+</div>
+<div class="col-span-full pt-6 mt-2 border-t border-outline-variant/10">
+<p class="text-on-surface-variant text-sm leading-relaxed max-w-2xl">
+                        This course operates on a P/NP (Pass/No Pass) basis, focusing on mastery-based learning and research participation rather than traditional letter grades.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Course Description & Objectives -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
+<div class="space-y-6">
+<h2 class="text-3xl font-headline font-bold tracking-tight">Course Description</h2>
+<div class="obsidian-glass p-8 rounded-lg border border-outline-variant/15 relative overflow-hidden">
+<div class="voronoi-bg absolute inset-0 opacity-10 pointer-events-none"></div>
+<p class="text-on-surface-variant leading-relaxed relative z-10">
+                        An immersive exploration into the biological mechanisms of light production in living organisms. From the deep-sea abyss to terrestrial fungi, students will analyze the chemical pathways of luciferin-luciferase reactions and their evolution across phyla. The course emphasizes direct laboratory observation and the potential applications of bioluminescence in modern biotechnology.
+                    </p>
+</div>
+</div>
+<div class="space-y-6">
+<h2 class="text-3xl font-headline font-bold tracking-tight">Learning Objectives</h2>
+<ul class="space-y-4">
+<li class="flex gap-4 items-start group">
+<span class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xs flex-shrink-0 group-hover:bg-primary group-hover:text-on-primary transition-all">01</span>
+<p class="text-on-surface-variant pt-1">Identify and distinguish between biochemical markers of bioluminescence vs. fluorescence.</p>
+</li>
+<li class="flex gap-4 items-start group">
+<span class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xs flex-shrink-0 group-hover:bg-primary group-hover:text-on-primary transition-all">02</span>
+<p class="text-on-surface-variant pt-1">Model the evolutionary divergence of light-emitting structures in cephalopods.</p>
+</li>
+<li class="flex gap-4 items-start group">
+<span class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xs flex-shrink-0 group-hover:bg-primary group-hover:text-on-primary transition-all">03</span>
+<p class="text-on-surface-variant pt-1">Synthesize laboratory data from deep-sea sediment luminescence readings.</p>
+</li>
+<li class="flex gap-4 items-start group">
+<span class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xs flex-shrink-0 group-hover:bg-primary group-hover:text-on-primary transition-all">04</span>
+<p class="text-on-surface-variant pt-1">Analyze ethical implications of transgenic bioluminescent organisms.</p>
+</li>
+<li class="flex gap-4 items-start group">
+<span class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xs flex-shrink-0 group-hover:bg-primary group-hover:text-on-primary transition-all">05</span>
+<p class="text-on-surface-variant pt-1">Propose a novel application for bioluminescent sensors in human medicine.</p>
+</li>
+</ul>
+</div>
+</section>
+<!-- Structure & Schedule -->
+<section class="mb-20 space-y-8">
+<h2 class="text-3xl font-headline font-bold tracking-tight">Academic Schedule</h2>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-separate border-spacing-y-2">
+<thead>
+<tr class="text-outline uppercase text-[10px] tracking-widest font-bold">
+<th class="px-6 py-4">Module / Week</th>
+<th class="px-6 py-4">Primary Subject</th>
+<th class="px-6 py-4">Featured Speaker</th>
+<th class="px-6 py-4">Status</th>
+</tr>
+</thead>
+<tbody class="text-sm">
+<tr class="bg-surface-container-low hover:bg-surface-container transition-colors group">
+<td class="px-6 py-5 rounded-l-lg font-medium text-on-surface">Module 01</td>
+<td class="px-6 py-5 text-on-surface-variant">The Physics of Photons: Cold Light Origins</td>
+<td class="px-6 py-5 text-primary font-medium italic">Dr. Giorgio Lagna</td>
+<td class="px-6 py-5 rounded-r-lg">
+<span class="px-2 py-1 rounded bg-primary/10 text-primary text-[10px] uppercase font-bold tracking-tight">Complete</span>
+</td>
+</tr>
+<tr class="bg-surface-container-low/50 hover:bg-surface-container transition-colors group">
+<td class="px-6 py-5 rounded-l-lg font-medium text-on-surface">Module 02</td>
+<td class="px-6 py-5 text-on-surface-variant">Chemistry: Luciferin &amp; Luciferase Pathways</td>
+<td class="px-6 py-5 text-primary font-medium italic">Prof. Elena Vance</td>
+<td class="px-6 py-5 rounded-r-lg">
+<span class="px-2 py-1 rounded bg-secondary/10 text-secondary text-[10px] uppercase font-bold tracking-tight">In Progress</span>
+</td>
+</tr>
+<tr class="bg-surface-container-low/50 hover:bg-surface-container transition-colors group">
+<td class="px-6 py-5 rounded-l-lg font-medium text-on-surface">Module 03</td>
+<td class="px-6 py-5 text-on-surface-variant">Marine Ecosystems: The Deep Sea Trenches</td>
+<td class="px-6 py-5 text-primary font-medium italic">Dr. Giorgio Lagna</td>
+<td class="px-6 py-5 rounded-r-lg">
+<span class="px-2 py-1 rounded bg-outline-variant/20 text-outline text-[10px] uppercase font-bold tracking-tight">Upcoming</span>
+</td>
+</tr>
+<tr class="bg-surface-container-low/50 hover:bg-surface-container transition-colors group">
+<td class="px-6 py-5 rounded-l-lg font-medium text-on-surface">Module 04</td>
+<td class="px-6 py-5 text-on-surface-variant">Mid-Quarter Research Symposium</td>
+<td class="px-6 py-5 text-primary font-medium italic">Collaborative Panel</td>
+<td class="px-6 py-5 rounded-r-lg">
+<span class="px-2 py-1 rounded bg-outline-variant/20 text-outline text-[10px] uppercase font-bold tracking-tight">Upcoming</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Grading & Policies -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
+<!-- Grading Table -->
+<div class="space-y-8">
+<h2 class="text-3xl font-headline font-bold tracking-tight">Course Requirements</h2>
+<div class="bg-surface-container-low rounded-lg p-6">
+<table class="w-full text-sm">
+<thead>
+<tr class="text-outline uppercase text-[10px] tracking-widest font-bold border-b border-outline-variant/10">
+<th class="pb-4 text-left">Assignment Category</th>
+<th class="pb-4 text-right">Qty</th>
+<th class="pb-4 text-right">Weight</th>
+</tr>
+</thead>
+<tbody class="text-on-surface-variant">
+<tr class="border-b border-outline-variant/5">
+<td class="py-4 text-on-surface">Weekly Lab Discussions</td>
+<td class="py-4 text-right">8</td>
+<td class="py-4 text-right font-medium">20%</td>
+</tr>
+<tr class="border-b border-outline-variant/5">
+<td class="py-4 text-on-surface">Observational Reflections</td>
+<td class="py-4 text-right">4</td>
+<td class="py-4 text-right font-medium">15%</td>
+</tr>
+<tr class="border-b border-outline-variant/5">
+<td class="py-4 text-on-surface">Mid-Quarter Project</td>
+<td class="py-4 text-right">1</td>
+<td class="py-4 text-right font-medium">25%</td>
+</tr>
+<tr>
+<td class="py-4 text-on-surface">Final Research Thesis</td>
+<td class="py-4 text-right">1</td>
+<td class="py-4 text-right font-medium">40%</td>
+</tr>
+</tbody>
+<tfoot>
+<tr class="border-t border-primary/20 bg-primary/5">
+<td class="py-4 px-2 text-primary font-bold">TOTAL</td>
+<td class="py-4 text-right font-bold text-primary">—</td>
+<td class="py-4 pr-2 text-right font-bold text-primary">100%</td>
+</tr>
+</tfoot>
+</table>
+</div>
+</div>
+<!-- Policies -->
+<div class="space-y-8">
+<h2 class="text-3xl font-headline font-bold tracking-tight">Institutional Policies</h2>
+<div class="space-y-4">
+<div class="obsidian-glass p-6 rounded-lg amber-accent bg-surface-container-high/40">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-[#ffb900] text-sm" style="font-variation-settings: 'FILL' 1;">gavel</span>
+<h4 class="font-headline font-bold text-xs uppercase tracking-wider text-on-surface">Academic Integrity</h4>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                            Research ethics are the backbone of the Lab. All observations must be original. Use of AI for synthetic findings is strictly prohibited without explicit citation and justification.
+                        </p>
+</div>
+<div class="obsidian-glass p-6 rounded-lg amber-accent bg-surface-container-high/40">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-[#ffb900] text-sm" style="font-variation-settings: 'FILL' 1;">accessibility_new</span>
+<h4 class="font-headline font-bold text-xs uppercase tracking-wider text-on-surface">OAE &amp; Accommodations</h4>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                            We are committed to providing an inclusive learning environment. Students requiring disability accommodations should register through the University Portal.
+                        </p>
+</div>
+<div class="obsidian-glass p-6 rounded-lg amber-accent bg-surface-container-high/40">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-[#ffb900] text-sm" style="font-variation-settings: 'FILL' 1;">forum</span>
+<h4 class="font-headline font-bold text-xs uppercase tracking-wider text-on-surface">Communication</h4>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                            All academic correspondence must be conducted via university email. Dr. Lagna maintains open lab hours on Fridays via the Discord Hub.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="w-full py-12 px-12 border-t border-[#484849]/15 bg-[#131314]">
+<div class="flex flex-col md:flex-row justify-between items-center w-full max-w-7xl mx-auto gap-8">
+<div class="flex flex-col gap-2">
+<span class="text-lg font-bold text-[#86fea7]">BIOL 101</span>
+<p class="font-['Plus_Jakarta_Sans'] text-xs text-[#adaaab]">
+                    © 2024 The Bioluminescent Laboratory | Lab Director: Giorgio Lagna
+                </p>
+</div>
+<div class="flex gap-8 font-['Plus_Jakarta_Sans'] text-xs text-[#adaaab]">
+<a class="hover:text-[#86fea7] underline-offset-4 hover:underline transition-all opacity-80 hover:opacity-100" href="#">Main Course Homepage</a>
+<a class="hover:text-[#86fea7] underline-offset-4 hover:underline transition-all opacity-80 hover:opacity-100" href="#">University Portal</a>
+<a class="hover:text-[#86fea7] underline-offset-4 hover:underline transition-all opacity-80 hover:opacity-100" href="#">Research Archives</a>
+</div>
+</div>
+</footer>
+</body></html>

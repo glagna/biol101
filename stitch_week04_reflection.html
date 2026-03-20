@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BIOL 101: Obsidian Lab | Week 04 Reflection</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-background": "#ffffff",
+                        "primary": "#86fea7",
+                        "surface-container-lowest": "#000000",
+                        "on-surface": "#ffffff",
+                        "on-tertiary-fixed-variant": "#50158d",
+                        "surface-container-highest": "#262627",
+                        "error-container": "#9f0519",
+                        "on-surface-variant": "#adaaab",
+                        "tertiary-fixed": "#c99dff",
+                        "on-error": "#490006",
+                        "surface-container-high": "#201f21",
+                        "on-primary-container": "#002910",
+                        "tertiary-fixed-dim": "#bf8bff",
+                        "inverse-primary": "#006e36",
+                        "error-dim": "#d7383b",
+                        "tertiary": "#c799ff",
+                        "secondary-container": "#006875",
+                        "primary-fixed-dim": "#78ef9a",
+                        "error": "#ff716c",
+                        "surface-dim": "#0e0e0f",
+                        "surface-bright": "#2c2c2d",
+                        "on-primary": "#00612f",
+                        "secondary-fixed": "#26e6ff",
+                        "surface-variant": "#262627",
+                        "on-tertiary-container": "#340064",
+                        "background": "#0e0e0f",
+                        "on-secondary-fixed-variant": "#005964",
+                        "primary-container": "#3bb668",
+                        "surface": "#0e0e0f",
+                        "secondary": "#00e3fd",
+                        "surface-tint": "#86fea7",
+                        "outline-variant": "#484849",
+                        "on-secondary-fixed": "#003a42",
+                        "on-primary-fixed": "#004c23",
+                        "inverse-surface": "#fcf8f9",
+                        "tertiary-container": "#bc87fe",
+                        "on-tertiary": "#440080",
+                        "on-secondary-container": "#e8fbff",
+                        "on-primary-fixed-variant": "#006c35",
+                        "tertiary-dim": "#ba85fb",
+                        "secondary-fixed-dim": "#00d7f0",
+                        "on-error-container": "#ffa8a3",
+                        "primary-dim": "#78ef9a",
+                        "outline": "#767576",
+                        "on-tertiary-fixed": "#25004b",
+                        "surface-container": "#1a191b",
+                        "inverse-on-surface": "#565556",
+                        "secondary-dim": "#00d4ec",
+                        "primary-fixed": "#86fea7",
+                        "surface-container-low": "#131314",
+                        "on-secondary": "#004d57"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(38, 38, 39, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .voronoi-bg {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cdefs%3E%3Cpattern id='v' width='100' height='100' patternUnits='userSpaceOnUse'%3E%3Cpath d='M0 0 L50 20 L100 0 L80 50 L100 100 L50 80 L0 100 L20 50 Z' fill='none' stroke='%2386fea7' stroke-opacity='0.05'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23v)'/%3E%3C/svg%3E");
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary selection:text-on-primary">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-[#131314]/60 backdrop-blur-2xl dark:bg-[#131314]/60 shadow-[0_4px_30px_rgba(0,0,0,0.1)]">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
+<div class="text-xl font-bold tracking-tighter text-emerald-400 dark:text-emerald-400 font-headline">
+                BIOL 101: Obsidian Lab
+            </div>
+<div class="hidden md:flex items-center space-x-8 font-headline tracking-tight text-sm uppercase">
+<a class="text-zinc-400 hover:text-emerald-300 transition-colors duration-300" href="#">Syllabus</a>
+<a class="text-emerald-400 border-b-2 border-emerald-400 pb-1 font-bold" href="#">Lectures</a>
+<a class="text-zinc-400 hover:text-emerald-300 transition-colors duration-300" href="#">Research</a>
+<a class="text-zinc-400 hover:text-emerald-300 transition-colors duration-300" href="#">Lab Portal</a>
+</div>
+<div class="flex items-center space-x-4">
+<span class="material-symbols-outlined text-emerald-400 cursor-pointer hover:bg-emerald-400/5 p-2 rounded-full transition-all" data-icon="biotech">biotech</span>
+<span class="material-symbols-outlined text-emerald-400 cursor-pointer hover:bg-emerald-400/5 p-2 rounded-full transition-all" data-icon="account_circle">account_circle</span>
+</div>
+</div>
+<div class="bg-gradient-to-r from-emerald-400/10 via-transparent to-emerald-400/10 h-[1px] w-full absolute bottom-0"></div>
+</nav>
+<main class="pt-24 pb-20 voronoi-bg min-h-screen">
+<!-- Hero Section -->
+<section class="max-w-screen-2xl mx-auto px-8 mb-16">
+<div class="flex flex-col md:flex-row items-end justify-between gap-8">
+<div class="max-w-3xl">
+<span class="font-headline text-primary text-sm tracking-[0.2em] uppercase mb-4 block">Module 04 // Obsidian Research Division</span>
+<h1 class="font-headline text-5xl md:text-7xl font-bold tracking-tight mb-6">Mid-Quarter <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Reflection &amp; Career Paths</span></h1>
+<p class="text-on-surface-variant text-lg leading-relaxed max-w-2xl">
+                        A pivot point in your biological journey. Analyze your progress through the obsidian lens and map the metabolic pathways of your professional future.
+                    </p>
+</div>
+<div class="flex gap-4">
+<div class="h-16 w-1 bg-tertiary shadow-[0_0_15px_rgba(199,153,255,0.5)]"></div>
+<div class="font-headline text-sm uppercase tracking-widest text-on-surface-variant">
+                        Week 04 <br/>
+<span class="text-on-surface font-bold text-lg">Phase: Analysis</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Content Bento Grid -->
+<section class="max-w-screen-2xl mx-auto px-8 grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Left Column: Prompts & Reflection -->
+<div class="md:col-span-8 flex flex-col gap-8">
+<!-- Reflection Card -->
+<div class="glass-panel p-10 rounded-lg relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 blur-3xl group-hover:bg-primary/10 transition-all"></div>
+<div class="flex items-center gap-4 mb-8">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="psychology">psychology</span>
+<h2 class="font-headline text-2xl font-semibold">Self-Assessment Protocol</h2>
+</div>
+<div class="space-y-8">
+<div class="relative pl-6 border-l-2 border-primary/20">
+<h3 class="font-headline text-sm text-primary uppercase tracking-widest mb-2">Prompt 01</h3>
+<p class="text-on-surface text-xl font-medium leading-relaxed">Where has your curiosity intensified? Identify the specific biological systems that have disrupted your initial assumptions.</p>
+</div>
+<div class="relative pl-6 border-l-2 border-secondary/20">
+<h3 class="font-headline text-sm text-secondary uppercase tracking-widest mb-2">Prompt 02</h3>
+<p class="text-on-surface text-xl font-medium leading-relaxed">Analyze your friction points. Which research methodologies are requiring the highest metabolic investment?</p>
+</div>
+<div class="relative pl-6 border-l-2 border-tertiary/20">
+<h3 class="font-headline text-sm text-tertiary uppercase tracking-widest mb-2">Prompt 03</h3>
+<p class="text-on-surface text-xl font-medium leading-relaxed">The Mid-Quarter Shift: If you were to redesign your learning protocol today, what variables would you toggle?</p>
+</div>
+</div>
+<button class="mt-12 bg-primary text-on-primary px-8 py-4 rounded-full font-headline font-bold uppercase tracking-widest shadow-[0_0_12px_rgba(134,254,167,0.2)] hover:bg-primary-dim hover:shadow-[0_0_16px_rgba(134,254,167,0.4)] transition-all active:scale-95">
+                        Submit Reflection
+                    </button>
+</div>
+<!-- Career Mapping Timeline -->
+<div class="bg-surface-container-low p-10 rounded-lg">
+<div class="flex items-center gap-4 mb-10">
+<span class="material-symbols-outlined text-secondary text-3xl" data-icon="account_tree">account_tree</span>
+<h2 class="font-headline text-2xl font-semibold">Career Mapping Timeline</h2>
+</div>
+<div class="relative">
+<!-- Connecting Line -->
+<div class="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-secondary to-tertiary opacity-30"></div>
+<!-- Timeline Items -->
+<div class="space-y-12">
+<div class="relative pl-12">
+<div class="absolute left-0 top-1 w-8 h-8 rounded-full bg-background border-2 border-primary flex items-center justify-center">
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+</div>
+<h4 class="font-headline text-lg font-bold text-on-surface">Foundational Academic Track</h4>
+<p class="text-on-surface-variant mt-1">Graduate research, academic tenure, and primary literature publication.</p>
+<span class="inline-block mt-3 px-3 py-1 bg-primary/10 text-primary text-xs rounded-full font-bold uppercase tracking-tighter">Academic Path</span>
+</div>
+<div class="relative pl-12">
+<div class="absolute left-0 top-1 w-8 h-8 rounded-full bg-background border-2 border-secondary flex items-center justify-center">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+</div>
+<h4 class="font-headline text-lg font-bold text-on-surface">Industrial Biotechnology</h4>
+<p class="text-on-surface-variant mt-1">Pharmaceutical development, synthetic biology startups, and high-scale manufacturing.</p>
+<span class="inline-block mt-3 px-3 py-1 bg-secondary/10 text-secondary text-xs rounded-full font-bold uppercase tracking-tighter">Industry Path</span>
+</div>
+<div class="relative pl-12">
+<div class="absolute left-0 top-1 w-8 h-8 rounded-full bg-background border-2 border-tertiary flex items-center justify-center">
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+</div>
+<h4 class="font-headline text-lg font-bold text-on-surface">Bio-Ethical &amp; Policy Research</h4>
+<p class="text-on-surface-variant mt-1">Governance, ethics committees, and science communication at a global scale.</p>
+<span class="inline-block mt-3 px-3 py-1 bg-tertiary/10 text-tertiary text-xs rounded-full font-bold uppercase tracking-tighter">Governance Path</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Discussion & Nodes -->
+<div class="md:col-span-4 flex flex-col gap-8">
+<!-- Group Discussion Panel -->
+<div class="bg-surface-container-high p-8 rounded-lg border-l-4 border-error">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-error" data-icon="groups">groups</span>
+<h2 class="font-headline text-xl font-bold uppercase tracking-tight">Group Sync: Node 04</h2>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6">
+                        Synchronize with your assigned research pod. Discussions should prioritize transparency and shared metabolic goals.
+                    </p>
+<div class="space-y-4">
+<div class="p-4 bg-background/50 rounded-md border border-outline-variant/10">
+<span class="text-[10px] uppercase font-bold text-error tracking-[0.2em] block mb-1">Status: Active</span>
+<p class="text-sm font-medium">Discuss: "The Ethics of Bio-Redesign in Commercial Sectors"</p>
+</div>
+<div class="p-4 bg-background/50 rounded-md border border-outline-variant/10">
+<span class="text-[10px] uppercase font-bold text-zinc-500 tracking-[0.2em] block mb-1">Duration</span>
+<p class="text-sm font-medium">45 Minutes Synchronous Time</p>
+</div>
+</div>
+<div class="mt-8 flex items-center justify-between">
+<div class="flex -space-x-3">
+<img class="w-10 h-10 rounded-full border-2 border-surface-container-high object-cover" data-alt="Researcher profile portrait 1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbAIT8cGZNOxPUNkGKpthAk8Km7El-jQ3tlM3p7Y9n494YHVSSHF5IStipekaxixu8OfoL1kx-O4Ww1p_9SfHEcVrzx0ngZJYBN4nE16mDqFzwmfn4cvMDHmULABoZe3ZTTMhf7JPKoAi3t9-KW2NSQRWKmDEbq1BOOeGfUUiUibdLFyvIq77zZ_0KkAFm3D0zVgDQG7rIOE-TwZ56YrWw6l5wByt_5fZ8lsoQl5LhACU2TeUz5-1udIqwWvhWoE75tgqDTNg7x44"/>
+<img class="w-10 h-10 rounded-full border-2 border-surface-container-high object-cover" data-alt="Researcher profile portrait 2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeJLGlSDBD3DBra7oJprmjwTOGRAa6XMCn-jfBkcbI8-3ctoGlMtWFRv1Z_NkyJyFSK_46PsdZpwOd-FyC3M8JGvSn3Zk-rO_K8Y3752kupcCgDtQ8jLQSP1bOs9CjmZvX6C1MQ6xaMYa1xjmyrsKx6jGURMlLtNo0AbwIfz9fdqa_HhpZWI3waigF9841mJhiyqCGqqWabMf5D7SRFxjeAz9Xu4S1OyhFDqRfJ1CHeaSxauKb1pjvZM8rGLcp3AYP5PEH8KZ6Zzc"/>
+<img class="w-10 h-10 rounded-full border-2 border-surface-container-high object-cover" data-alt="Researcher profile portrait 3" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxLGxwlGdBDFQUSq3voZyZ5KwSUQ0YjrG49jwMF1uzQi-mIzKdBEMY0LucC1CqgFyDuhBFKppJwQ6bOb81QmzEjgALqO4fIwrxrMV05eBYi8_UlKpNTXsklxnWLniaJfLokL7sH3ZqdYTFFSHng3Cve7G0YrnX-pf_MHDRAmaV0Xx-wj18LSV8G5c7iQkKOzo1Y_fBXQK4D54PTWQCA2AK3FqF1FJ84RmaLTGBTHwjhMVbDWD-4h2gj7O7Go5Ogk1Tjk7i0aVGhd4"/>
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-[10px] border-2 border-surface-container-high">+12</div>
+</div>
+<button class="text-error font-headline text-xs font-bold uppercase hover:underline">Join Pod</button>
+</div>
+</div>
+<!-- Visual Accent / Career Connection Nodes -->
+<div class="glass-panel p-8 rounded-lg flex-grow flex flex-col items-center justify-center text-center overflow-hidden relative">
+<!-- Subtle glowing background nodes -->
+<div class="absolute inset-0 z-0 pointer-events-none">
+<div class="absolute top-1/4 left-1/4 w-24 h-24 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
+<div class="absolute bottom-1/4 right-1/4 w-32 h-32 bg-secondary/10 rounded-full blur-3xl"></div>
+<div class="absolute top-1/2 left-1/2 w-40 h-40 bg-tertiary/5 rounded-full blur-3xl"></div>
+</div>
+<div class="relative z-10">
+<div class="w-20 h-20 bg-background rounded-full border-2 border-primary flex items-center justify-center mb-6 mx-auto shadow-[0_0_20px_rgba(134,254,167,0.1)]">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="hub">hub</span>
+</div>
+<h3 class="font-headline text-xl font-bold mb-2">Network Topology</h3>
+<p class="text-on-surface-variant text-sm mb-6">Your current academic trajectory intersects with 4 major industry clusters.</p>
+<div class="flex flex-wrap justify-center gap-2">
+<span class="bg-surface-container-highest px-3 py-1 rounded-full text-[10px] font-bold text-on-surface-variant border border-outline-variant/20 uppercase tracking-tighter">Genomics</span>
+<span class="bg-surface-container-highest px-3 py-1 rounded-full text-[10px] font-bold text-on-surface-variant border border-outline-variant/20 uppercase tracking-tighter">Virology</span>
+<span class="bg-surface-container-highest px-3 py-1 rounded-full text-[10px] font-bold text-on-surface-variant border border-outline-variant/20 uppercase tracking-tighter">CRISPR Tech</span>
+<span class="bg-surface-container-highest px-3 py-1 rounded-full text-[10px] font-bold text-on-surface-variant border border-outline-variant/20 uppercase tracking-tighter">Public Health</span>
+</div>
+</div>
+</div>
+<!-- Neon Accent Card -->
+<div class="bg-gradient-to-br from-[#131314] to-[#201f21] p-1 rounded-lg">
+<div class="bg-background p-8 rounded-lg h-full">
+<div class="flex items-center gap-2 text-[#ffeb3b] mb-4">
+<span class="material-symbols-outlined fill-1" data-icon="lightbulb" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+<span class="font-headline text-xs font-bold uppercase tracking-widest">Lab Note</span>
+</div>
+<p class="text-on-surface-variant italic text-sm">
+                            "The most significant biological breakthroughs occur at the intersection of disciplines. Do not be afraid to mutate your career plan."
+                        </p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 px-8 mt-auto bg-[#0e0e0f] dark:bg-[#0e0e0f] border-t border-zinc-800/30">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center max-w-screen-2xl mx-auto">
+<div>
+<div class="font-['Space_Grotesk'] text-lg font-bold text-emerald-400 mb-2">
+                    The Bioluminescent Laboratory
+                </div>
+<div class="font-['Plus_Jakarta_Sans'] text-xs tracking-wide text-zinc-500">
+                    © 2024 The Bioluminescent Laboratory | Obsidian Research Division
+                </div>
+</div>
+<div class="flex flex-wrap md:justify-end gap-6">
+<a class="text-zinc-500 hover:text-emerald-300 transition-colors font-['Plus_Jakarta_Sans'] text-xs tracking-wide" href="#">Ethics</a>
+<a class="text-zinc-500 hover:text-emerald-300 transition-colors font-['Plus_Jakarta_Sans'] text-xs tracking-wide" href="#">Protocol</a>
+<a class="text-zinc-500 hover:text-emerald-300 transition-colors font-['Plus_Jakarta_Sans'] text-xs tracking-wide" href="#">Contact Lab</a>
+<a class="text-zinc-500 hover:text-emerald-300 transition-colors font-['Plus_Jakarta_Sans'] text-xs tracking-wide" href="#">Safety</a>
+</div>
+</div>
+</footer>
+</body></html>

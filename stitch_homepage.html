@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BIOL 101 | The Bioluminescent Laboratory</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary": "#004d57",
+              "on-secondary-container": "#e8fbff",
+              "outline-variant": "#484849",
+              "on-surface-variant": "#adaaab",
+              "background": "#0e0e0f",
+              "error-dim": "#d7383b",
+              "tertiary-fixed": "#c99dff",
+              "surface-tint": "#86fea7",
+              "on-tertiary-container": "#340064",
+              "primary-fixed-dim": "#78ef9a",
+              "inverse-primary": "#006e36",
+              "secondary-fixed": "#26e6ff",
+              "on-secondary-fixed-variant": "#005964",
+              "on-primary-container": "#002910",
+              "on-surface": "#ffffff",
+              "surface": "#0e0e0f",
+              "inverse-on-surface": "#565556",
+              "on-tertiary-fixed-variant": "#50158d",
+              "secondary": "#00e3fd",
+              "tertiary": "#c799ff",
+              "surface-container-highest": "#262627",
+              "on-tertiary-fixed": "#25004b",
+              "secondary-dim": "#00d4ec",
+              "primary": "#86fea7",
+              "tertiary-fixed-dim": "#bf8bff",
+              "outline": "#767576",
+              "surface-container-high": "#201f21",
+              "primary-container": "#3bb668",
+              "primary-fixed": "#86fea7",
+              "surface-dim": "#0e0e0f",
+              "error": "#ff716c",
+              "tertiary-container": "#bc87fe",
+              "primary-dim": "#78ef9a",
+              "surface-container": "#1a191b",
+              "surface-container-low": "#131314",
+              "surface-bright": "#2c2c2d",
+              "on-primary-fixed-variant": "#006c35",
+              "on-secondary-fixed": "#003a42",
+              "secondary-container": "#006875",
+              "inverse-surface": "#fcf8f9",
+              "surface-variant": "#262627",
+              "error-container": "#9f0519",
+              "on-primary-fixed": "#004c23",
+              "on-tertiary": "#440080",
+              "surface-container-lowest": "#000000",
+              "on-error-container": "#ffa8a3",
+              "on-error": "#490006",
+              "secondary-fixed-dim": "#00d7f0",
+              "on-background": "#ffffff",
+              "tertiary-dim": "#ba85fb",
+              "on-primary": "#00612f"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Plus Jakarta Sans"],
+              "label": ["Plus Jakarta Sans"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .voronoi-mask {
+            mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1000 1000' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h1000v1000H0z' fill='none'/%3E%3Cpath d='M340 123l-45 89 12 45 67 12-34 78 56 23 89-45 12-67-45-45-56 12-56-12zM789 456l45-89-12-45-67-12 34-78-56-23-89 45-12 67 45 45 56-12 56 12zM234 890l-45-89 12-45 67-12-34-78 56-23 89 45 12 67-45 45-56-12-56 12z' fill='%23fff' opacity='0.1'/%3E%3C/svg%3E");
+        }
+        .glass-sheen {
+            background: linear-gradient(135deg, rgba(134, 254, 167, 0.1) 0%, rgba(59, 182, 104, 0.05) 50%, transparent 100%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary selection:text-on-primary">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 left-0 w-full z-[100] flex justify-between items-center px-12 py-4 max-w-[1920px] mx-auto bg-[#0e0e0f]/60 backdrop-blur-[20px] shadow-[0_8px_32px_0_rgba(0,0,0,0.36)]">
+<div class="text-2xl font-bold text-[#86fea7] font-['Space_Grotesk'] tracking-tighter">BIOL 101</div>
+<div class="hidden md:flex gap-8 items-center font-['Space_Grotesk'] tracking-tight text-sm uppercase">
+<a class="text-[#86fea7] border-b-2 border-[#86fea7] pb-1" href="#">Modules</a>
+<a class="text-[#adaaab] hover:text-[#86fea7] transition-colors" href="#">Discussions</a>
+<a class="text-[#adaaab] hover:text-[#86fea7] transition-colors" href="#">Syllabus</a>
+<a class="text-[#adaaab] hover:text-[#86fea7] transition-colors" href="#">Resources</a>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex gap-4">
+<button class="text-[#adaaab] hover:bg-[#86fea7]/10 rounded-full p-2 transition-all active:scale-90 material-symbols-outlined">notifications</button>
+<button class="text-[#adaaab] hover:bg-[#86fea7]/10 rounded-full p-2 transition-all active:scale-90 material-symbols-outlined">science</button>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden border border-outline-variant/30">
+<img alt="Student Profile Avatar" class="w-full h-full object-cover" data-alt="Close up of a student avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCh_BJEY0IgwII8z0UaOyJ_fSnHcIFDGNNR0G5aJJlTP_FTuGye8-jZx5Ba7iam3MIWm938ksKPIMTyQNjdQGdHE9clMHjwHGv7eC0emtnWh4I6UBYlwfkpZ14xoyIvckMQ10860ZSZzFePgA1dL8UMu4jdq_wWCcyhHGwpOXx3V1-iXViPAioIAqSX3XSpEneZMJY5d_czDu9NepCSbMPmaTw3dm01gFI1W0YI5gU_O6QSQt8h9cuH3mvn_Q5GBtItp5jbH7lv6kM"/>
+</div>
+</div>
+<div class="bg-gradient-to-r from-transparent via-[#484849]/15 to-transparent h-[1px] w-full absolute bottom-0"></div>
+</nav>
+<main class="pt-24 pb-12">
+<!-- Hero Section -->
+<section class="relative min-h-[716px] flex flex-col justify-center px-12 overflow-hidden mb-24">
+<div class="absolute inset-0 z-0 opacity-20 pointer-events-none voronoi-mask bg-gradient-to-br from-primary via-transparent to-tertiary"></div>
+<div class="absolute top-1/2 right-0 -translate-y-1/2 w-1/2 h-full bg-primary/5 blur-[120px] rounded-full"></div>
+<div class="relative z-10 max-w-4xl">
+<p class="font-headline text-primary tracking-widest uppercase mb-4 text-sm font-medium">BIOL 101 • Spring 2026</p>
+<h1 class="font-headline text-7xl md:text-8xl font-bold text-on-surface tracking-tighter leading-none mb-8">
+                    Frontiers in <br/>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-container">Biological Research</span>
+</h1>
+<p class="text-xl text-on-surface-variant max-w-2xl leading-relaxed mb-12">
+                    Engage with cutting-edge research through six distinguished speakers, collaborative discussions, and hands-on exploration of how science actually happens.
+                </p>
+<div class="flex gap-6">
+<button class="bg-primary text-on-primary px-8 py-4 rounded-full font-bold shadow-[0_0_20px_rgba(134,254,167,0.2)] hover:shadow-[0_0_30px_rgba(134,254,167,0.4)] transition-all active:scale-95">Enter Laboratory</button>
+<button class="border border-outline-variant/30 px-8 py-4 rounded-full font-bold hover:bg-surface-container-high transition-all">View Syllabus</button>
+</div>
+</div>
+</section>
+<!-- Course Details Bar -->
+<section class="px-12 mb-24">
+<div class="bg-surface-container-low/60 backdrop-blur-md border border-outline-variant/10 rounded-lg p-1 w-full overflow-hidden">
+<div class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-px bg-outline-variant/10">
+<div class="bg-surface-container-low py-6 px-8 flex-1 flex flex-col">
+<span class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold mb-1">Meeting Time</span>
+<span class="font-medium text-on-surface">Wednesdays 5:25–6:30 PM</span>
+</div>
+<div class="bg-surface-container-low py-6 px-8 flex-1 flex flex-col">
+<span class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold mb-1">Location</span>
+<span class="font-medium text-on-surface">Rm 116, Bergin Hall</span>
+</div>
+<div class="bg-surface-container-low py-6 px-8 flex-1 flex flex-col">
+<span class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold mb-1">Instructor</span>
+<span class="font-medium text-on-surface">Dr. Giorgio Lagna</span>
+</div>
+<div class="bg-surface-container-low py-6 px-8 flex-1 flex flex-col">
+<span class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold mb-1">Credits</span>
+<span class="font-medium text-on-surface">2 Units, P/NP</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Quick Access Bento -->
+<section class="px-12 mb-32">
+<h2 class="font-headline text-3xl font-bold mb-12 flex items-center gap-4">
+<span class="w-12 h-[2px] bg-primary"></span>
+                Quick Access Modules
+            </h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<a class="group relative bg-surface-container-low rounded-lg p-10 overflow-hidden transition-all hover:-translate-y-2" href="#">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 blur-3xl group-hover:bg-primary/10 transition-colors"></div>
+<div class="glass-sheen absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<span class="material-symbols-outlined text-primary text-5xl mb-8 block font-variation-settings: 'FILL' 1;">account_tree</span>
+<h3 class="font-headline text-2xl font-bold mb-4">Learning Modules</h3>
+<p class="text-on-surface-variant leading-relaxed">Systematic exploration of weekly lecture materials, readings, and lab protocols.</p>
+</a>
+<!-- Card 2 -->
+<a class="group relative bg-surface-container-low rounded-lg p-10 overflow-hidden transition-all hover:-translate-y-2" href="#">
+<div class="absolute top-0 right-0 w-32 h-32 bg-secondary/5 blur-3xl group-hover:bg-secondary/10 transition-colors"></div>
+<div class="glass-sheen absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<span class="material-symbols-outlined text-secondary text-5xl mb-8 block font-variation-settings: 'FILL' 1;">forum</span>
+<h3 class="font-headline text-2xl font-bold mb-4">Discussion Forums</h3>
+<p class="text-on-surface-variant leading-relaxed">Engage with peers on research critiques and speaker Q&amp;A sessions.</p>
+</a>
+<!-- Card 3 -->
+<a class="group relative bg-surface-container-low rounded-lg p-10 overflow-hidden transition-all hover:-translate-y-2" href="#">
+<div class="absolute top-0 right-0 w-32 h-32 bg-tertiary/5 blur-3xl group-hover:bg-tertiary/10 transition-colors"></div>
+<div class="glass-sheen absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<span class="material-symbols-outlined text-tertiary text-5xl mb-8 block font-variation-settings: 'FILL' 1;">edit_note</span>
+<h3 class="font-headline text-2xl font-bold mb-4">Assignments &amp; Reflections</h3>
+<p class="text-on-surface-variant leading-relaxed">Document your growth and personal insights from the scientific journey.</p>
+</a>
+</div>
+</section>
+<!-- Course Schedule Timeline -->
+<section class="px-12 mb-32">
+<div class="flex justify-between items-end mb-16">
+<div>
+<h2 class="font-headline text-3xl font-bold mb-2">Research Schedule</h2>
+<p class="text-on-surface-variant">Weeks 1-11: From foundation to discovery</p>
+</div>
+<div class="flex gap-2">
+<div class="flex items-center gap-2 text-xs uppercase tracking-tighter">
+<span class="w-3 h-3 rounded-full bg-primary"></span> Speaker Session
+                    </div>
+<div class="flex items-center gap-2 text-xs uppercase tracking-tighter ml-4">
+<span class="w-3 h-3 rounded-full bg-outline-variant"></span> Lab Activity
+                    </div>
+</div>
+</div>
+<div class="relative overflow-x-auto pb-8 flex gap-8 snap-x">
+<!-- Timeline items -->
+<div class="flex-none w-72 snap-center">
+<div class="text-sm font-bold text-primary-fixed mb-4">WEEK 01</div>
+<div class="bg-surface-container-low rounded-lg p-6 border-l-2 border-outline-variant">
+<div class="text-xs uppercase font-bold text-on-surface-variant mb-2">Intro</div>
+<h4 class="font-bold mb-2">The Scientific Method Redefined</h4>
+<p class="text-sm text-on-surface-variant">Orientation and course objectives.</p>
+</div>
+</div>
+<div class="flex-none w-72 snap-center">
+<div class="text-sm font-bold text-primary-fixed mb-4">WEEK 02</div>
+<div class="bg-surface-container-low rounded-lg p-6 border-l-2 border-primary">
+<div class="text-xs uppercase font-bold text-primary mb-2">Guest Speaker</div>
+<h4 class="font-bold mb-2">Cellular Automata in Bio</h4>
+<p class="text-sm text-on-surface-variant">Dr. Sarah Chen, MIT Media Lab.</p>
+</div>
+</div>
+<div class="flex-none w-72 snap-center">
+<div class="text-sm font-bold text-primary-fixed mb-4">WEEK 03</div>
+<div class="bg-surface-container-low rounded-lg p-6 border-l-2 border-outline-variant">
+<div class="text-xs uppercase font-bold text-on-surface-variant mb-2">Activity</div>
+<h4 class="font-bold mb-2">Discussion Workshop I</h4>
+<p class="text-sm text-on-surface-variant">Deconstructing Speaker 01's thesis.</p>
+</div>
+</div>
+<div class="flex-none w-72 snap-center">
+<div class="text-sm font-bold text-primary-fixed mb-4">WEEK 04</div>
+<div class="bg-surface-container-low rounded-lg p-6 border-l-2 border-primary">
+<div class="text-xs uppercase font-bold text-primary mb-2">Guest Speaker</div>
+<h4 class="font-bold mb-2">Genomic Editing Ethics</h4>
+<p class="text-sm text-on-surface-variant">Prof. James Sterling, Stanford.</p>
+</div>
+</div>
+<div class="flex-none w-72 snap-center">
+<div class="text-sm font-bold text-primary-fixed mb-4">WEEK 05</div>
+<div class="bg-surface-container-low rounded-lg p-6 border-l-2 border-outline-variant">
+<div class="text-xs uppercase font-bold text-on-surface-variant mb-2">Activity</div>
+<h4 class="font-bold mb-2">Mid-Quarter Review</h4>
+<p class="text-sm text-on-surface-variant">Synthesis of emerging trends.</p>
+</div>
+</div>
+<div class="flex-none w-72 snap-center">
+<div class="text-sm font-bold text-primary-fixed mb-4">WEEK 06-11</div>
+<div class="bg-surface-container-low/40 rounded-lg p-6 border-2 border-dashed border-outline-variant/30 flex items-center justify-center text-center">
+<span class="text-on-surface-variant text-sm italic">Advanced Research Phase &amp; <br/> Final Reflections</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Learning Cycle Section -->
+<section class="px-12 mb-32 grid md:grid-cols-2 gap-24 items-center">
+<div>
+<h2 class="font-headline text-4xl font-bold mb-8">The Obsidian <br/> Learning Cycle</h2>
+<p class="text-lg text-on-surface-variant leading-relaxed mb-12">
+                    Our methodology is designed to mimic the lifecycle of discovery. It’s not just about consuming information, but integrating it into your worldview.
+                </p>
+<div class="space-y-4">
+<div class="flex items-center gap-6 p-4 rounded-full bg-surface-container-low hover:bg-surface-container-high transition-colors">
+<span class="w-10 h-10 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold">01</span>
+<span class="font-medium">Prepare via critical literature review.</span>
+</div>
+<div class="flex items-center gap-6 p-4 rounded-full bg-surface-container-low hover:bg-surface-container-high transition-colors">
+<span class="w-10 h-10 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold">02</span>
+<span class="font-medium">Experience live researcher insights.</span>
+</div>
+<div class="flex items-center gap-6 p-4 rounded-full bg-surface-container-low hover:bg-surface-container-high transition-colors">
+<span class="w-10 h-10 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold">03</span>
+<span class="font-medium">Reflect in weekly journal entries.</span>
+</div>
+<div class="flex items-center gap-6 p-4 rounded-full bg-surface-container-low hover:bg-surface-container-high transition-colors">
+<span class="w-10 h-10 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold">04</span>
+<span class="font-medium">Connect through peer collaboration.</span>
+</div>
+</div>
+</div>
+<div class="relative aspect-square">
+<div class="absolute inset-0 bg-primary/10 rounded-full blur-[100px]"></div>
+<div class="relative h-full w-full border border-outline-variant/20 rounded-full flex items-center justify-center overflow-hidden">
+<!-- Abstract Visualization -->
+<div class="grid grid-cols-2 grid-rows-2 gap-8 p-12 w-full h-full">
+<div class="bg-surface-container-highest/60 backdrop-blur-xl rounded-lg p-6 border border-primary/20 flex flex-col justify-center items-center text-center">
+<span class="material-symbols-outlined text-primary mb-2">auto_awesome</span>
+<span class="text-xs uppercase font-bold tracking-widest">Prepare</span>
+</div>
+<div class="bg-surface-container-highest/60 backdrop-blur-xl rounded-lg p-6 border border-secondary/20 flex flex-col justify-center items-center text-center">
+<span class="material-symbols-outlined text-secondary mb-2">visibility</span>
+<span class="text-xs uppercase font-bold tracking-widest">Experience</span>
+</div>
+<div class="bg-surface-container-highest/60 backdrop-blur-xl rounded-lg p-6 border border-tertiary/20 flex flex-col justify-center items-center text-center">
+<span class="material-symbols-outlined text-tertiary mb-2">psychology</span>
+<span class="text-xs uppercase font-bold tracking-widest">Reflect</span>
+</div>
+<div class="bg-surface-container-highest/60 backdrop-blur-xl rounded-lg p-6 border border-on-secondary-container/20 flex flex-col justify-center items-center text-center">
+<span class="material-symbols-outlined text-on-secondary-container mb-2">hub</span>
+<span class="text-xs uppercase font-bold tracking-widest">Connect</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Instructor Panel -->
+<section class="px-12 mb-32">
+<div class="bg-surface-container-low rounded-lg p-12 md:p-16 flex flex-col md:flex-row gap-16 items-center border-l-4 border-primary">
+<div class="w-48 h-48 md:w-64 md:h-64 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container-highest">
+<img alt="Dr. Giorgio Lagna" class="w-full h-full object-cover" data-alt="Portrait of a distinguished science professor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9s_OKUsPl1SFuocROE6w_m5XhJBfKUF3ZDqwozXhvS5wbHyGjdad64idYOtEtC2gnahQZF8jTkgc1CxSJaQEA_oddV6wEe5_O8Gv2rgX2drsaWzIsJffcC5J54fn9wq3rEne4k6DyZD6-Vp1DObtt2fNIuujmjzC4rytq9Y8Bm2qJgtCeqpq6QREcqLqtarqOSXwL9XmTBXtAmXZRAAHdrMvkgdZXb0_7a-H-VSSWjPHQRBFdIQFSg1eTazQzL7Gtx8tzSwDakZE"/>
+</div>
+<div>
+<h2 class="font-headline text-4xl font-bold mb-4">Dr. Giorgio Lagna</h2>
+<p class="text-primary font-medium mb-6">Course Instructor &amp; Laboratory Director</p>
+<p class="text-on-surface-variant leading-relaxed text-lg mb-8 max-w-2xl">
+                        With over two decades of research in evolutionary biology and systemic ecology, Dr. Lagna oversees the BIOL 101 initiative to bridge the gap between academic theory and laboratory practice.
+                    </p>
+<div class="flex flex-wrap gap-8">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">mail</span>
+<span class="text-sm">g.lagna@university.edu</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">schedule</span>
+<span class="text-sm">Office Hours: Friday 2-4 PM</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Closing Note -->
+<section class="px-12">
+<div class="bg-secondary/10 backdrop-blur-xl border border-secondary/30 rounded-lg p-12 md:p-20 relative overflow-hidden group">
+<div class="absolute -top-24 -right-24 w-64 h-64 bg-secondary/20 rounded-full blur-[80px] group-hover:bg-secondary/30 transition-all"></div>
+<div class="relative z-10 max-w-3xl">
+<h2 class="font-headline text-3xl font-bold mb-8 text-secondary">A Note on What This Course Is (and Isn't)</h2>
+<div class="grid md:grid-cols-2 gap-12">
+<div>
+<p class="text-on-surface font-bold mb-4 uppercase text-xs tracking-widest">What It Is</p>
+<p class="text-on-surface-variant leading-relaxed">
+                                A high-level intellectual sandbox. It is an exploration of the frontier. It is a place to ask "How?" and "Why?" before "What?".
+                            </p>
+</div>
+<div>
+<p class="text-on-surface font-bold mb-4 uppercase text-xs tracking-widest">What It Isn't</p>
+<p class="text-on-surface-variant leading-relaxed">
+                                A standard memorization-based biology course. We do not focus on textbooks; we focus on the researchers writing the next chapter of human knowledge.
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="flex flex-col md:flex-row justify-between items-center w-full mt-24 py-12 px-12 bg-[#131314] border-t border-[#484849]/15">
+<div class="flex flex-col gap-2 mb-8 md:mb-0">
+<div class="text-lg font-bold text-[#86fea7]">The Bioluminescent Laboratory</div>
+<p class="font-['Plus_Jakarta_Sans'] text-xs text-[#adaaab]">© 2024 The Bioluminescent Laboratory | Lab Director: Giorgio Lagna</p>
+</div>
+<div class="flex gap-8">
+<a class="font-['Plus_Jakarta_Sans'] text-xs text-[#adaaab] hover:text-[#86fea7] underline-offset-4 hover:underline transition-all" href="#">Main Course Homepage</a>
+<a class="font-['Plus_Jakarta_Sans'] text-xs text-[#adaaab] hover:text-[#86fea7] underline-offset-4 hover:underline transition-all" href="#">University Portal</a>
+<a class="font-['Plus_Jakarta_Sans'] text-xs text-[#adaaab] hover:text-[#86fea7] underline-offset-4 hover:underline transition-all" href="#">Research Archives</a>
+</div>
+</footer>
+</body></html>
