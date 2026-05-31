@@ -3,10 +3,9 @@
 <html class="dark" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>BIOL 101: Final Reflection & Course Celebration</title>
+<title>BIOL 101 | Final Reflection &amp; Course Wrap-Up</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
       tailwind.config = {
@@ -14,57 +13,57 @@
         theme: {
           extend: {
             colors: {
-              "primary-fixed-dim": "#78ef9a",
-              "surface-variant": "#262627",
-              "on-tertiary-container": "#340064",
-              "error-dim": "#d7383b",
-              "on-surface-variant": "#c5c3c4",
-              "on-primary": "#00612f",
-              "error": "#ff716c",
-              "secondary-container": "#006875",
-              "secondary-fixed": "#26e6ff",
-              "surface-tint": "#86fea7",
-              "tertiary-dim": "#ba85fb",
-              "secondary": "#00e3fd",
-              "on-primary-fixed-variant": "#006c35",
               "on-secondary": "#004d57",
-              "on-error-container": "#ffa8a3",
-              "surface-container-low": "#131314",
-              "tertiary-fixed": "#c99dff",
-              "tertiary-container": "#bc87fe",
+              "on-secondary-container": "#e8fbff",
+              "outline-variant": "#484849",
+              "on-surface-variant": "#c5c3c4",
               "background": "#0e0e0f",
-              "primary": "#86fea7",
-              "surface-container-highest": "#262627",
-              "primary-fixed": "#86fea7",
-              "on-tertiary-fixed-variant": "#50158d",
-              "inverse-surface": "#fcf8f9",
-              "outline": "#767576",
-              "on-primary-container": "#002910",
+              "error-dim": "#d7383b",
+              "tertiary-fixed": "#c99dff",
+              "surface-tint": "#86fea7",
+              "on-tertiary-container": "#340064",
+              "primary-fixed-dim": "#78ef9a",
+              "inverse-primary": "#006e36",
+              "secondary-fixed": "#26e6ff",
               "on-secondary-fixed-variant": "#005964",
-              "on-primary-fixed": "#004c23",
-              "on-tertiary": "#440080",
-              "error-container": "#9f0519",
-              "surface-container-high": "#201f21",
-              "tertiary": "#c799ff",
-              "surface-container-lowest": "#000000",
-              "surface-container": "#1a191b",
-              "surface-dim": "#0e0e0f",
-              "inverse-on-surface": "#565556",
+              "on-primary-container": "#002910",
               "on-surface": "#ffffff",
+              "surface": "#0e0e0f",
+              "inverse-on-surface": "#565556",
+              "on-tertiary-fixed-variant": "#50158d",
+              "secondary": "#00e3fd",
+              "tertiary": "#c799ff",
+              "surface-container-highest": "#262627",
               "on-tertiary-fixed": "#25004b",
               "secondary-dim": "#00d4ec",
-              "surface-bright": "#2c2c2d",
-              "primary-dim": "#78ef9a",
+              "primary": "#86fea7",
               "tertiary-fixed-dim": "#bf8bff",
-              "on-error": "#490006",
-              "surface": "#0e0e0f",
-              "on-secondary-container": "#e8fbff",
-              "inverse-primary": "#006e36",
-              "on-secondary-fixed": "#003a42",
-              "secondary-fixed-dim": "#00d7f0",
+              "outline": "#767576",
+              "surface-container-high": "#201f21",
               "primary-container": "#3bb668",
-              "outline-variant": "#484849",
-              "on-background": "#ffffff"
+              "primary-fixed": "#86fea7",
+              "surface-dim": "#0e0e0f",
+              "error": "#ff716c",
+              "tertiary-container": "#bc87fe",
+              "primary-dim": "#78ef9a",
+              "surface-container": "#1a191b",
+              "surface-container-low": "#131314",
+              "surface-bright": "#2c2c2d",
+              "on-primary-fixed-variant": "#006c35",
+              "on-secondary-fixed": "#003a42",
+              "secondary-container": "#006875",
+              "inverse-surface": "#fcf8f9",
+              "surface-variant": "#262627",
+              "error-container": "#9f0519",
+              "on-primary-fixed": "#004c23",
+              "on-tertiary": "#440080",
+              "surface-container-lowest": "#000000",
+              "on-error-container": "#ffa8a3",
+              "on-error": "#490006",
+              "secondary-fixed-dim": "#00d7f0",
+              "on-background": "#ffffff",
+              "tertiary-dim": "#ba85fb",
+              "on-primary": "#00612f"
             },
             fontFamily: {
               "headline": ["Space Grotesk"],
@@ -80,241 +79,276 @@
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
-        .constellation-line {
-            background: linear-gradient(90deg, transparent, #c799ff 50%, transparent);
-            height: 1px;
-            opacity: 0.3;
+        .voronoi-mask {
+            mask-image: url("data:image/svg+xml,%3Csvg width='400' height='400' viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h400v400H0z' fill='none'/%3E%3Cpath d='M50 50l50 20-20 50zM150 30l40 60-60 20zM280 40l50 30-30 80zM60 180l70 40-50 60zM220 190l80 10-20 90zM330 220l40 80-90-20z' stroke='%23ffffff' stroke-width='0.5' fill='none'/%3E%3C/svg%3E");
+            mask-size: cover;
         }
-        .warm-glow {
-            box-shadow: 0 0 40px rgba(255, 193, 7, 0.15);
+        .obsidian-glass {
+            background: rgba(38, 38, 39, 0.6);
+            backdrop-filter: blur(20px);
         }
     </style>
 </head>
-<body class="bg-background text-on-surface font-body selection:bg-primary/30 min-h-screen flex flex-col">
-<!-- TopNavBar -->
-<nav class="fixed top-0 w-full z-50 bg-[#131314]/60 backdrop-blur-2xl dark:bg-[#131314]/60 shadow-[0_4px_30px_rgba(0,0,0,0.1)]">
-<div class="flex justify-between items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
-<div class="text-xl font-bold tracking-tighter text-emerald-400 dark:text-emerald-400 font-headline">
-                BIOL 101
-            </div>
-<div class="hidden md:flex items-center gap-8">
-<a class="font-headline tracking-tight text-sm uppercase text-zinc-400 hover:text-emerald-300 transition-colors duration-300" href="https://camino.instructure.com/courses/118251/assignments/syllabus">About</a>
-<a class="font-headline tracking-tight text-sm uppercase text-zinc-400 hover:text-emerald-300 transition-colors duration-300" href="https://camino.instructure.com/courses/118251/modules">Modules</a>
-<a class="font-headline tracking-tight text-sm uppercase text-zinc-400 hover:text-emerald-300 transition-colors duration-300" href="stitch_syllabus.html">Syllabus</a>
+<body class="bg-background text-on-surface font-body selection:bg-tertiary/30">
+<!-- Top Navigation -->
+<nav class="fixed top-0 left-0 w-full z-[100] flex justify-between items-center px-12 py-4 max-w-[1920px] mx-auto bg-[#0e0e0f]/60 backdrop-blur-[20px] shadow-[0_8px_32px_0_rgba(0,0,0,0.36)]">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-bold text-[#86fea7] font-['Space_Grotesk'] tracking-tighter">BIOL 101</span>
+<div class="hidden md:flex items-center gap-6 font-['Space_Grotesk'] tracking-tight text-sm uppercase">
+<a class="text-[#c5c3c4] hover:text-[#86fea7] transition-colors" href="https://camino.instructure.com/courses/118251/assignments/syllabus">About</a>
+<a class="text-[#c5c3c4] hover:text-[#86fea7] transition-colors" href="https://camino.instructure.com/courses/118251/modules">Modules</a>
+<a class="text-[#c5c3c4] hover:text-[#86fea7] transition-colors" href="stitch_syllabus.html">Syllabus</a>
 </div>
 </div>
-<div class="bg-gradient-to-r from-emerald-400/10 via-transparent to-emerald-400/10 h-[1px] w-full absolute bottom-0"></div>
+<div class="bg-gradient-to-r from-transparent via-[#484849]/15 to-transparent h-[1px] w-full absolute bottom-0"></div>
 </nav>
-<main class="pt-24 pb-20 px-6 max-w-screen-2xl mx-auto w-full flex-grow">
-<!-- Hero Section: Constellation Theme -->
-<section class="relative py-20 mb-12 overflow-hidden rounded-xl bg-surface-container-low">
-<div class="absolute inset-0 opacity-20 pointer-events-none">
-<!-- Abstract constellation grid -->
-<div class="absolute top-1/4 left-1/4 w-2 h-2 bg-tertiary rounded-full blur-[2px]"></div>
-<div class="absolute top-1/3 left-1/2 w-1 h-1 bg-secondary rounded-full"></div>
-<div class="absolute top-2/3 left-1/3 w-2 h-2 bg-primary rounded-full blur-[1px]"></div>
-<div class="absolute top-1/2 left-3/4 w-1 h-1 bg-tertiary rounded-full"></div>
-<div class="absolute top-10 right-20 w-3 h-3 bg-primary-fixed-dim rounded-full blur-[4px]"></div>
-<svg class="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
-<line class="text-outline-variant/30" stroke="currentColor" stroke-width="0.5" x1="25%" x2="50%" y1="25%" y2="33%"></line>
-<line class="text-outline-variant/30" stroke="currentColor" stroke-width="0.5" x1="50%" x2="75%" y1="33%" y2="50%"></line>
-<line class="text-outline-variant/30" stroke="currentColor" stroke-width="0.5" x1="33%" x2="50%" y1="66%" y2="33%"></line>
-</svg>
+
+<main class="pt-24 pb-12 px-6 md:px-12 max-w-[1600px] mx-auto">
+
+<!-- Hero Section -->
+<section class="relative min-h-[400px] flex flex-col items-center justify-center gap-8 mb-24 overflow-hidden rounded-xl bg-surface-container-low p-8 md:p-16">
+<div class="absolute inset-0 opacity-10 pointer-events-none voronoi-mask bg-gradient-to-br from-tertiary to-transparent"></div>
+<div class="absolute -right-24 -top-24 w-96 h-96 bg-tertiary/5 blur-[120px] rounded-full"></div>
+<div class="absolute -left-32 -bottom-32 w-96 h-96 bg-primary/5 blur-[120px] rounded-full"></div>
+
+<div class="relative z-10 w-full text-center">
+<div class="inline-block px-4 py-1 rounded-full border border-tertiary/30 bg-tertiary/5 text-tertiary text-xs font-bold uppercase tracking-widest mb-6">
+Week 11 &mdash; Asynchronous Wrap-Up
 </div>
-<div class="relative z-10 px-8 md:px-16 text-center md:text-left">
-<span class="font-headline text-tertiary font-bold tracking-widest uppercase text-xs mb-4 block">Week 11 Module</span>
-<h1 class="font-headline text-5xl md:text-7xl font-bold tracking-tight text-on-surface mb-6">
-                    Final Reflection &amp; <br/><span class="text-primary italic">Course Celebration</span>
+<h1 class="font-headline text-5xl md:text-6xl font-extrabold leading-[1.1] text-on-surface max-w-3xl mx-auto mb-6">
+Final Reflection &amp; <span class="text-tertiary">Course Wrap-Up</span>
 </h1>
-<p class="max-w-2xl text-on-surface-variant text-lg font-light leading-relaxed mb-8">
-                    We did it. Eleven weeks of learning, listening, questioning, and growing. Now we step back, celebrate the work you've done, and reflect on what comes next.
-                </p>
+<p class="text-on-surface-variant text-lg max-w-2xl mx-auto leading-relaxed mb-8">
+We made it. Eleven weeks of reading, listening, questioning, and growing. Per our class vote, this final week is fully online, so here is how we close the quarter out and say goodbye, on your own time.
+</p>
+
+<!-- Logistics Bar -->
+<div class="flex flex-col md:flex-row flex-wrap gap-6 justify-center pt-8 border-t border-outline-variant/10">
+<div class="flex items-center gap-3 justify-center">
+<span class="material-symbols-outlined text-tertiary">cloud_done</span>
+<div class="text-left">
+<p class="text-[10px] uppercase text-on-surface-variant font-bold">Format</p>
+<p class="text-sm font-medium">Fully Asynchronous &bull; No Class Meeting</p>
+</div>
+</div>
+<div class="flex items-center gap-3 justify-center">
+<span class="material-symbols-outlined text-tertiary">event</span>
+<div class="text-left">
+<p class="text-[10px] uppercase text-on-surface-variant font-bold">Reflection Due</p>
+<p class="text-sm font-medium">Monday, June 8 &bull; 11:59 PM</p>
+</div>
+</div>
+<div class="flex items-center gap-3 justify-center">
+<span class="material-symbols-outlined text-tertiary">waving_hand</span>
+<div class="text-left">
+<p class="text-[10px] uppercase text-on-surface-variant font-bold">Last In-Person Class</p>
+<p class="text-sm font-medium">Dr. Jain's talk &bull; June 3</p>
+</div>
+</div>
+</div>
 </div>
 </section>
-
-<!-- Course Info Panel -->
-<div class="grid grid-cols-1 mb-12">
-<div class="bg-surface-container-low rounded-lg p-8 border border-outline-variant/10">
-<p class="text-on-surface-variant text-lg leading-relaxed">
-<strong class="text-on-surface">Time:</strong> Wednesday, June 10, 5:25–6:30 PM<br/>
-<strong class="text-on-surface">Location:</strong> Rm 116, Bergin Hall, Santa Clara University, In Person<br/>
-<strong class="text-on-surface">Format:</strong> Gallery walk + fishbowl discussion + letter writing + course celebration<br/>
-<strong class="text-on-surface">Due Before Class:</strong> Final Synthesis Reflection (or during finals)
-</p>
-</div>
-</div>
 
 <!-- What This Week Is About -->
-<section class="mb-16">
-<div class="flex items-center justify-between mb-10">
-<h2 class="font-headline text-3xl font-bold tracking-tight">What This Week <span class="text-tertiary italic">Is About</span></h2>
-<div class="h-[1px] flex-grow mx-8 bg-gradient-to-r from-tertiary/40 to-transparent hidden md:block"></div>
+<section class="mb-24">
+<div class="flex justify-between items-end mb-12">
+<div>
+<h3 class="font-headline text-3xl font-bold tracking-tight">What This Week Is About</h3>
+<p class="text-on-surface-variant mt-2">Four ways to close the quarter, all from wherever you are.</p>
+</div>
+<div class="hidden md:block h-[1px] flex-grow mx-12 bg-gradient-to-r from-outline-variant/30 to-transparent"></div>
 </div>
 
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-<div class="bg-surface-container-low rounded-lg p-8 border-l-2 border-primary">
-<div class="flex items-center gap-3 mb-4">
-<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold">1</div>
-<h3 class="font-headline text-xl font-bold">Synthesize the Quarter</h3>
-</div>
-<p class="text-on-surface-variant leading-relaxed">Connect themes across all six speakers into a coherent understanding of biology and your place in it.</p>
-</div>
-
-<div class="bg-surface-container-low rounded-lg p-8 border-l-2 border-secondary">
-<div class="flex items-center gap-3 mb-4">
-<div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center text-secondary font-bold">2</div>
-<h3 class="font-headline text-xl font-bold">Recognize Your Growth</h3>
-</div>
-<p class="text-on-surface-variant leading-relaxed">Reflect on how you've changed as a reader, a thinker, and a future biologist since Week 1.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="bg-surface-container-high/40 backdrop-blur-xl p-8 rounded-lg border border-tertiary/10 relative group">
+<div class="absolute inset-0 bg-tertiary/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg"></div>
+<span class="material-symbols-outlined text-tertiary text-3xl mb-4" style="font-variation-settings: 'FILL' 1;">hub</span>
+<h4 class="text-tertiary text-xs font-bold uppercase tracking-tighter mb-2">01</h4>
+<p class="text-sm font-medium text-on-surface leading-snug">Synthesize the Quarter</p>
+<p class="text-xs text-on-surface-variant mt-2">Connect themes across all six speakers into a coherent understanding of biology and your place in it.</p>
 </div>
 
-<div class="bg-surface-container-low rounded-lg p-8 border-l-2 border-tertiary">
-<div class="flex items-center gap-3 mb-4">
-<div class="w-10 h-10 rounded-full bg-tertiary/10 flex items-center justify-center text-tertiary font-bold">3</div>
-<h3 class="font-headline text-xl font-bold">Celebrate Together</h3>
-</div>
-<p class="text-on-surface-variant leading-relaxed">Mark this achievement with your classmates. You showed up. You engaged. You grew.</p>
+<div class="bg-surface-container-high/40 backdrop-blur-xl p-8 rounded-lg border border-tertiary/10 relative group">
+<div class="absolute inset-0 bg-tertiary/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg"></div>
+<span class="material-symbols-outlined text-tertiary text-3xl mb-4" style="font-variation-settings: 'FILL' 1;">trending_up</span>
+<h4 class="text-tertiary text-xs font-bold uppercase tracking-tighter mb-2">02</h4>
+<p class="text-sm font-medium text-on-surface leading-snug">Recognize Your Growth</p>
+<p class="text-xs text-on-surface-variant mt-2">Reflect on how you've changed as a reader, a thinker, and a future biologist since Week 1.</p>
 </div>
 
-<div class="bg-surface-container-low rounded-lg p-8 border-l-2 border-primary">
-<div class="flex items-center gap-3 mb-4">
-<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold">4</div>
-<h3 class="font-headline text-xl font-bold">Look Forward</h3>
+<div class="bg-surface-container-high/40 backdrop-blur-xl p-8 rounded-lg border border-tertiary/10 relative group">
+<div class="absolute inset-0 bg-tertiary/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg"></div>
+<span class="material-symbols-outlined text-tertiary text-3xl mb-4" style="font-variation-settings: 'FILL' 1;">diversity_3</span>
+<h4 class="text-tertiary text-xs font-bold uppercase tracking-tighter mb-2">03</h4>
+<p class="text-sm font-medium text-on-surface leading-snug">Celebrate Together</p>
+<p class="text-xs text-on-surface-variant mt-2">We don't get the room this year, so the Peer Gallery is our gallery walk. Mark the achievement with your classmates.</p>
 </div>
-<p class="text-on-surface-variant leading-relaxed">Articulate what you want to explore, learn, or do next in your biology education and career.</p>
+
+<div class="bg-surface-container-high/40 backdrop-blur-xl p-8 rounded-lg border border-tertiary/10 relative group">
+<div class="absolute inset-0 bg-tertiary/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg"></div>
+<span class="material-symbols-outlined text-tertiary text-3xl mb-4" style="font-variation-settings: 'FILL' 1;">explore</span>
+<h4 class="text-tertiary text-xs font-bold uppercase tracking-tighter mb-2">04</h4>
+<p class="text-sm font-medium text-on-surface leading-snug">Look Forward</p>
+<p class="text-xs text-on-surface-variant mt-2">Articulate what you want to explore, learn, or do next in your biology education and career.</p>
 </div>
 </div>
 </section>
 
-<!-- Before Class Section -->
-<section class="mb-16">
-<div class="flex items-center justify-between mb-10">
-<h2 class="font-headline text-3xl font-bold tracking-tight">Before Class: Final <span class="text-tertiary italic">Synthesis Reflection</span></h2>
+<!-- Three Things To Do -->
+<section class="mb-24">
+<div class="flex justify-between items-end mb-12">
+<div>
+<h3 class="font-headline text-3xl font-bold tracking-tight">Three Things To Do This Week</h3>
+<p class="text-on-surface-variant mt-2">One graded capstone, plus two short pieces that send the class off.</p>
+</div>
+<div class="hidden md:block h-[1px] flex-grow mx-12 bg-gradient-to-r from-outline-variant/30 to-transparent"></div>
 </div>
 
-<p class="text-on-surface-variant text-lg mb-8">
-<strong class="text-on-surface">Due by Monday, June 8 at 11:59 PM, or submit in class on Wednesday, June 10.</strong> This is the capstone assignment for the course. Write approximately <strong>400 words</strong> responding to the three prompts below.
-</p>
-
-<div class="bg-surface-container-low rounded-lg p-8 mb-8">
-<div class="flex items-center gap-3 mb-6">
-<div class="w-10 h-10 rounded-full bg-tertiary/10 flex items-center justify-center text-tertiary">
-<span class="material-symbols-outlined" data-icon="assignment_turned_in">assignment_turned_in</span>
+<!-- Task 1: Final Synthesis Reflection -->
+<div class="bg-surface-container-low p-10 rounded-lg mb-8 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 blur-3xl"></div>
+<div class="relative z-10">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-primary text-3xl">edit_note</span>
+<h3 class="font-headline text-2xl font-bold">01 &middot; Final Synthesis Reflection</h3>
 </div>
-<h3 class="font-headline text-2xl font-bold">Final Synthesis Reflection</h3>
-</div>
-
-<div class="space-y-8">
-<div class="bg-surface-container-high/50 p-6 rounded-md border-l-4 border-primary">
-<h4 class="text-sm font-bold uppercase tracking-tighter text-primary mb-4">Part 1: Connections (100–150 words)</h4>
-<p class="text-on-surface-variant leading-relaxed mb-4">Choose a theme, method, or question that appeared in at least three of the six talks. Explain how it manifested in each, and what this tells you about biology as a field.</p>
-<p class="text-xs text-on-surface-variant italic">Examples: the ubiquity of sequencing across different fields; the gap between basic research and clinical impact; the role of computational tools in modern biology; how researchers frame uncertainty; the importance of interdisciplinary collaboration; how career paths are not always linear.</p>
-</div>
-
-<div class="bg-surface-container-high/50 p-6 rounded-md border-l-4 border-secondary">
-<h4 class="text-sm font-bold uppercase tracking-tighter text-secondary mb-4">Part 2: Growth (100–150 words)</h4>
-<p class="text-on-surface-variant leading-relaxed">How has your approach to reading scientific papers changed since Week 1? Be specific: what do you do differently now when you encounter a new paper? What strategies have you developed? What are you more confident about, and what still feels uncertain?</p>
-</div>
-
-<div class="bg-surface-container-high/50 p-6 rounded-md border-l-4 border-tertiary">
-<h4 class="text-sm font-bold uppercase tracking-tighter text-tertiary mb-4">Part 3: Looking Forward (100–150 words)</h4>
-<p class="text-on-surface-variant leading-relaxed mb-4">Based on everything you experienced this quarter—the talks, the informational interview, the class discussions, your reading—what is one thing you want to explore, learn, or do next in your biology education or career?</p>
-<p class="text-xs text-on-surface-variant italic">This could be a specific class, a research opportunity, a person you want to talk to, a question you want to keep thinking about, or a skill you want to develop.</p>
-</div>
-</div>
-
-<div class="mt-8 p-6 rounded-md bg-surface-container-high/30 border-l-4 border-primary">
-<p class="text-on-surface-variant italic leading-relaxed"><strong>Important note:</strong> This is not a research paper. It is a personal, reflective essay that connects what you have learned across the quarter. We want to hear your honest thinking, your genuine curiosity, your real growth—not a polished performance.</p>
-</div>
-</div>
-
-<!-- During Class Section -->
-<section class="mb-16">
-<div class="flex items-center justify-between mb-10">
-<h2 class="font-headline text-3xl font-bold tracking-tight">During Class: Gallery Walk, <span class="text-tertiary italic">Fishbowl & Celebration</span></h2>
-</div>
-
-<p class="text-on-surface-variant text-lg mb-8">This is not a typical class. This is a celebration of what you've accomplished this quarter. Here's how we'll spend our final time together:</p>
-
+<p class="text-primary text-sm font-bold uppercase tracking-widest mb-6">Graded &bull; 10 pts (P/NP) &bull; Due Monday, June 8, 11:59 PM</p>
+<p class="text-on-surface-variant mb-8">The capstone for the course. About 400 words, three parts. A personal, reflective essay, not a research paper. We want your honest thinking, your real curiosity, your real growth.</p>
 <div class="space-y-6">
-<div class="bg-surface-container-low rounded-lg p-8 border-l-2 border-secondary">
-<h3 class="font-headline text-xl font-bold mb-4 flex items-center gap-3">
-<span class="material-symbols-outlined text-secondary" data-icon="gallery_thumbnail">gallery_thumbnail</span>
-Part 1: Gallery Walk of Concept Maps (10 minutes)
-</h3>
-<p class="text-on-surface-variant leading-relaxed">Remember the concept maps your groups created in Week 9? We've photographed them. Take 5–7 minutes to walk around and look at the different maps. Notice the different connections different groups made. Add sticky notes with new thoughts or questions. See how your thinking has evolved since Week 9.</p>
+<div class="pl-6 border-l-2 border-primary/30">
+<h4 class="font-headline text-lg font-bold text-on-surface mb-2">Part 1: Connections <span class="text-on-surface-variant text-sm font-normal">(100&ndash;150 words)</span></h4>
+<p class="text-on-surface-variant">Choose a theme, method, or question that appeared in at least three of the six talks. Explain how it manifested in each, and what this tells you about biology as a field.</p>
 </div>
-
-<div class="bg-surface-container-low rounded-lg p-8 border-l-2 border-tertiary">
-<h3 class="font-headline text-xl font-bold mb-4 flex items-center gap-3">
-<span class="material-symbols-outlined text-tertiary" data-icon="groups">groups</span>
-Part 2: Fishbowl Discussion (20 minutes)
-</h3>
-<p class="text-on-surface-variant leading-relaxed mb-4">4–5 volunteers sit in a circle at the front. The rest of the class listens. The inner circle discusses:</p>
-<p class="text-on-surface font-bold italic text-center py-4"><em>"What is one thing you will remember from this course a year from now?"</em></p>
-<p class="text-on-surface-variant leading-relaxed">After 10 minutes, we rotate in new voices. The beauty of this format: you don't feel pressure to respond immediately. You can listen, let things settle, and then speak if the moment feels right. Everyone's voice matters, but not everyone needs to speak.</p>
-<div class="mt-4 p-4 rounded-md bg-surface-container-high/30 border-l-2 border-secondary">
-<p class="text-on-surface-variant text-sm leading-relaxed"><strong>What Is a Fishbowl Discussion?</strong> In a fishbowl discussion, a small group (4–5 people) sits in an inner circle and discusses a topic while the rest of the class listens from an outer circle. After a few minutes, outer circle members can 'tap in' to replace someone in the inner circle. You can choose to start in either circle—listening is just as valuable as speaking. The goal is to create a focused, intimate conversation that everyone can observe and join.</p>
+<div class="pl-6 border-l-2 border-primary/30">
+<h4 class="font-headline text-lg font-bold text-on-surface mb-2">Part 2: Growth <span class="text-on-surface-variant text-sm font-normal">(100&ndash;150 words)</span></h4>
+<p class="text-on-surface-variant">How has your approach to reading scientific papers changed since Week 1? Be specific about what you do differently now and what still feels uncertain.</p>
+</div>
+<div class="pl-6 border-l-2 border-primary/30">
+<h4 class="font-headline text-lg font-bold text-on-surface mb-2">Part 3: Looking Forward <span class="text-on-surface-variant text-sm font-normal">(100&ndash;150 words)</span></h4>
+<p class="text-on-surface-variant">Based on everything this quarter, name one thing you want to explore, learn, or do next. The most useful answers are small and specific.</p>
+</div>
+</div>
+<p class="text-on-surface-variant mt-8"><strong>Submit online</strong> as a PDF or .docx to the Camino assignment <em>Week 11: Final Synthesis Reflection</em>. There is no June 10 class meeting, so everything is turned in through Camino.</p>
 </div>
 </div>
 
-<div class="bg-surface-container-low rounded-lg p-8 border-l-2 border-primary">
-<h3 class="font-headline text-xl font-bold mb-4 flex items-center gap-3">
-<span class="material-symbols-outlined text-primary" data-icon="mail">mail</span>
-Part 3: Letter to a Future Student (15 minutes)
-</h3>
-<p class="text-on-surface-variant leading-relaxed mb-4">Each of you writes a short letter (5–8 sentences) to a future BIOL 101 student who will take this course next year. What advice would you give them about how to get the most out of this course? What helped you? What surprised you? What would you do differently? What should future students know before they walk in on the first day?</p>
-<p class="text-on-surface-variant leading-relaxed">These letters become a resource for next year's cohort. You are creating something that will help others.</p>
+<!-- Task 2: Peer Gallery -->
+<div class="bg-surface-container-low p-10 rounded-lg mb-8 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-tertiary/5 rounded-full -mr-16 -mt-16 blur-3xl"></div>
+<div class="relative z-10">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-tertiary text-3xl">gallery_thumbnail</span>
+<h3 class="font-headline text-2xl font-bold">02 &middot; Peer Gallery</h3>
+</div>
+<p class="text-tertiary text-sm font-bold uppercase tracking-widest mb-6">Post by Wed June 10 &bull; Reply by Fri June 12</p>
+<p class="text-on-surface-variant mb-8">This is our gallery walk, the part where we get to see each other off. After your reflection is in, head to the <a class="text-tertiary underline hover:text-tertiary-dim" href="https://camino.instructure.com/courses/118251/discussion_topics/722930">Week 11 Peer Gallery discussion</a> and post a quick public version of your reflection:</p>
+<div class="space-y-6">
+<div class="pl-6 border-l-2 border-tertiary/30">
+<h4 class="font-headline text-lg font-bold text-on-surface mb-2">1. Your most surprising connection</h4>
+<p class="text-on-surface-variant">One sentence on the connection across talks that surprised you most.</p>
+</div>
+<div class="pl-6 border-l-2 border-tertiary/30">
+<h4 class="font-headline text-lg font-bold text-on-surface mb-2">2. Your "Looking Forward" move</h4>
+<p class="text-on-surface-variant">A sentence or two on the next step you named in Part 3 of your reflection.</p>
+</div>
+<div class="pl-6 border-l-2 border-tertiary/30">
+<h4 class="font-headline text-lg font-bold text-on-surface mb-2">3. Optional: a thank-you or a piece of advice</h4>
+<p class="text-on-surface-variant">A shout-out to a talk, a classmate, or a moment that stuck. You can frame it as advice to a future BIOL 101 student.</p>
+</div>
+</div>
+<p class="text-on-surface-variant mt-8">Then reply to <strong>two</strong> classmates. Make it real: a resource, an encouragement, a "we should both reach out to that speaker," a connection you noticed too.</p>
+</div>
 </div>
 
-<div class="bg-surface-container-low rounded-lg p-8 border-l-2 border-secondary">
-<h3 class="font-headline text-xl font-bold mb-4 flex items-center gap-3">
-<span class="material-symbols-outlined text-secondary" data-icon="celebration">celebration</span>
-Part 4: Closing & Course Evaluations (15 minutes)
-</h3>
-<p class="text-on-surface-variant leading-relaxed mb-4">If you'd like, we'll read a few of your letters aloud (volunteers only). Then we'll take a moment to reflect on the quarter together. I'll share some of what I've learned from you. You'll fill out course evaluations. And we'll close.</p>
-<p class="text-on-surface-variant leading-relaxed">This has been an honor. Thank you for showing up, asking questions, engaging honestly, and letting yourselves be changed by this experience.</p>
+<!-- Task 3: Feedback Survey -->
+<div class="obsidian-glass p-8 rounded-lg border border-outline-variant/15 border-l-2 border-l-secondary mb-8">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary flex-shrink-0 mt-1">rate_review</span>
+<div>
+<h4 class="font-headline text-xl font-bold text-on-surface mb-2">03 &middot; Course Feedback Survey <span class="text-on-surface-variant text-sm font-normal">&bull; anonymous &bull; ~5 min &bull; by Fri June 12</span></h4>
+<p class="text-on-surface-variant mb-3">This one is a favor to me and to next year's students. It is <strong>anonymous and ungraded.</strong> Tell me honestly what worked, what didn't, and what you would change. It genuinely shapes how I build this course next time.</p>
+<a class="text-secondary underline hover:text-secondary-dim font-medium" href="https://camino.instructure.com/courses/118251/quizzes/135908">Open the feedback survey &rarr;</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Deadlines at a glance -->
+<section class="mb-24">
+<div class="flex justify-between items-end mb-12">
+<div>
+<h3 class="font-headline text-3xl font-bold tracking-tight">Deadlines at a Glance</h3>
+</div>
+<div class="hidden md:block h-[1px] flex-grow mx-12 bg-gradient-to-r from-outline-variant/30 to-transparent"></div>
+</div>
+<div class="bg-surface-container-high rounded-lg overflow-hidden">
+<div class="flex items-center justify-between p-6 border-b border-outline-variant/15">
+<div class="flex items-center gap-3"><span class="material-symbols-outlined text-primary">edit_note</span><p class="font-medium">Final Synthesis Reflection <span class="text-on-surface-variant text-sm">(graded)</span></p></div>
+<p class="text-primary font-bold">Mon June 8 &bull; 11:59 PM</p>
+</div>
+<div class="flex items-center justify-between p-6 border-b border-outline-variant/15">
+<div class="flex items-center gap-3"><span class="material-symbols-outlined text-tertiary">gallery_thumbnail</span><p class="font-medium">Peer Gallery &mdash; your post</p></div>
+<p class="text-on-surface-variant font-medium">Wed June 10 &bull; 11:59 PM</p>
+</div>
+<div class="flex items-center justify-between p-6 border-b border-outline-variant/15">
+<div class="flex items-center gap-3"><span class="material-symbols-outlined text-tertiary">forum</span><p class="font-medium">Peer Gallery &mdash; two replies</p></div>
+<p class="text-on-surface-variant font-medium">Fri June 12 &bull; 11:59 PM</p>
+</div>
+<div class="flex items-center justify-between p-6">
+<div class="flex items-center gap-3"><span class="material-symbols-outlined text-secondary">rate_review</span><p class="font-medium">Feedback survey <span class="text-on-surface-variant text-sm">(anonymous)</span></p></div>
+<p class="text-on-surface-variant font-medium">Fri June 12 &bull; 11:59 PM</p>
 </div>
 </div>
 </section>
 
 <!-- Reflecting on the Journey -->
-<section class="mb-16">
-<div class="flex items-center justify-between mb-10">
-<h2 class="font-headline text-3xl font-bold tracking-tight">Reflecting on the <span class="text-tertiary italic">Journey</span></h2>
+<section class="mb-24">
+<div class="flex justify-between items-end mb-12">
+<div>
+<h3 class="font-headline text-3xl font-bold tracking-tight">Reflecting on the Journey</h3>
+</div>
+<div class="hidden md:block h-[1px] flex-grow mx-12 bg-gradient-to-r from-outline-variant/30 to-transparent"></div>
 </div>
 
-<div class="bg-surface-container-low rounded-lg p-8 mb-8">
-<h3 class="font-headline text-2xl font-bold mb-8">You Have Accomplished</h3>
-<div class="space-y-6 text-on-surface-variant leading-relaxed">
-<p><strong class="text-on-surface">You have listened to six scientists:</strong> Francesca Vacante (postdoc, CRISPR & non-coding RNA), Camilla Teng (postdoc, tissue biology), David Hess (genomics & public health), Julie Frouard (virology & HIV), Emma Krasovich Southworth (PhD candidate, ecology & epidemiology), and Samhita Jain (clinician-scientist, neonatology & neuroscience).</p>
-<p><strong class="text-on-surface">You have conducted an informational interview</strong> with a real professional in your field and presented what you learned to your classmates.</p>
-<p><strong class="text-on-surface">You have read six scientific papers</strong> and learned to ask questions about methods, interpretations, and extensions.</p>
-<p><strong class="text-on-surface">You have reflected on your own thinking</strong> multiple times and articulated how you've grown.</p>
-<p><strong class="text-on-surface">You have created concept maps, participated in discussions, listened to your classmates, and shown up every Wednesday evening for eleven weeks.</strong> That's not nothing. That's everything.</p>
+<div class="bg-surface-container-low p-10 rounded-lg mb-8">
+<h4 class="font-headline text-xl font-bold text-on-surface mb-6">You Have Accomplished</h4>
+<div class="space-y-4 text-on-surface-variant">
+<p><strong class="text-on-surface">You listened to six scientists:</strong> Francesca Vacante (CRISPRa &amp; non-coding RNA), Camilla Teng (tissue fusion in development), David Hess (genomic surveillance &amp; public health), Julie Frouard (HIV virology), Emma Krasovich Southworth (climate &amp; dengue ecology), and Samhita Jain (clinician-scientist, microglia &amp; neurogenesis).</p>
+<p><strong class="text-on-surface">You conducted an informational interview</strong> with a real professional, or made a genuine attempt and learned from it, and shared what you found with your classmates.</p>
+<p><strong class="text-on-surface">You read six scientific papers</strong> and learned to ask questions about methods, interpretations, and extensions.</p>
+<p><strong class="text-on-surface">You reflected on your own thinking</strong> across the quarter and articulated how you have grown.</p>
+<p><strong class="text-on-surface">You showed up</strong>, in the discussion threads, in the concept maps, in the room every Wednesday evening. That is not nothing. That is everything.</p>
 </div>
 </div>
 
-<div class="bg-surface-container-low rounded-lg p-8 border-l-4 border-primary mb-8">
-<p class="text-on-surface-variant leading-relaxed mb-6">Biology is a conversation. It's a conversation between past and present scientists, between theory and evidence, between what we know and what we still need to discover. For eleven weeks, you've been part of that conversation. You've listened. You've asked questions. You've thought deeply. You've connected ideas.</p>
-<p class="text-on-surface-variant leading-relaxed">Whatever comes next—whether you pursue research, medicine, public health, science communication, or something else entirely—you will carry these eleven weeks with you. You've tasted what it's like to be a scientist. You've heard what scientists actually do and think about. You've started building a network. You've begun to ask better questions.</p>
-</div>
-
-<!-- What Comes After Week 11 -->
-<div class="bg-surface-container-low rounded-lg p-8 border-l-4 border-secondary">
-<h3 class="font-headline text-2xl font-bold mb-6">What Comes After Week 11</h3>
-<p class="text-on-surface-variant leading-relaxed mb-6">This course ends on June 10, but your learning continues. You now know people—the speakers, your classmates, maybe a professional from your informational interview. You now have questions—about papers, about careers, about what you want to do next. You now have skills—note-taking, question-asking, synthesis, reflection.</p>
-<p class="text-on-surface-variant leading-relaxed mb-6">Use them. Reach out to someone you met. Take another biology class. Do research. Read more papers. Have another informational interview. Ask your professors about their work. And keep thinking about what it means to do science, to ask questions, and to contribute to human knowledge and health.</p>
-<p class="text-on-surface-variant leading-relaxed">The world needs your curiosity, your care, and your willingness to ask hard questions. Thank you for spending this quarter with us. We're proud of you.</p>
+<div class="obsidian-glass p-8 rounded-lg border border-outline-variant/15 border-l-2 border-l-primary">
+<p class="text-on-surface-variant mb-4">Biology is a conversation, between past and present scientists, between theory and evidence, between what we know and what we still need to discover. For eleven weeks you have been part of that conversation. You have listened, asked questions, thought deeply, and connected ideas across very different fields.</p>
+<p class="text-on-surface-variant">Whatever comes next, research, medicine, public health, science communication, or something else entirely, you will carry these weeks with you. Reach out to someone you met. Take another biology class. Read more papers. Keep asking the Method and Interpretation questions. The world needs your curiosity and your willingness to ask hard questions.</p>
 </div>
 </section>
+
+<!-- Send-off -->
+<section class="mb-12">
+<div class="relative overflow-hidden rounded-xl bg-surface-container-low p-10 md:p-16 text-center">
+<div class="absolute -right-24 -top-24 w-96 h-96 bg-tertiary/5 blur-[120px] rounded-full"></div>
+<div class="absolute -left-32 -bottom-32 w-96 h-96 bg-primary/5 blur-[120px] rounded-full"></div>
+<div class="relative z-10 max-w-2xl mx-auto">
+<span class="material-symbols-outlined text-tertiary text-4xl mb-4" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<h3 class="font-headline text-3xl font-bold mb-4">Thank You</h3>
+<p class="text-on-surface-variant leading-relaxed">It was a genuine pleasure to think alongside you this quarter. Keep reading papers, keep asking good questions, and do not hesitate to email me down the road, whether it is about a class, a lab, or just to say where you landed. My door stays open.</p>
+<p class="text-on-surface mt-6 font-headline font-bold">&mdash; Giorgio</p>
+</div>
+</div>
+</section>
+
 </main>
 
 <!-- Footer -->
-<footer class="w-full py-12 px-8 mt-auto bg-[#0e0e0f] dark:bg-[#0e0e0f] border-t border-zinc-800/30">
-<div class="flex flex-col items-center gap-2 max-w-screen-2xl mx-auto text-center">
-<div class="font-['Space_Grotesk'] text-lg font-bold text-emerald-400">BIOL 101 • Biology Research Seminar • Week 11</div>
-<p class="font-['Plus_Jakarta_Sans'] text-xs tracking-wide text-zinc-500">Final Reflection & Celebration • June 10, 2026</p>
+<footer class="bg-[#131314] border-t border-[#484849]/15 w-full py-12 px-12">
+<div class="max-w-[1920px] mx-auto flex flex-col items-center gap-2">
+<p class="font-['Plus_Jakarta_Sans'] text-xs text-[#c5c3c4]">BIOL 101 • Biology Research Seminar • Week 11 (Asynchronous)</p>
+<p class="font-['Plus_Jakarta_Sans'] text-xs text-[#c5c3c4]">June 10, 2026</p>
 </div>
 </footer>
+
 </body></html>
